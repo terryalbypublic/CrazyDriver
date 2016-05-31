@@ -16,7 +16,6 @@
 		65753DB21CF869D900EA74B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65753DB11CF869D900EA74B8 /* Assets.xcassets */; };
 		65753DB51CF869DA00EA74B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65753DB31CF869D900EA74B8 /* LaunchScreen.storyboard */; };
 		65753DBD1CF86A4400EA74B8 /* GameMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65753DBC1CF86A4400EA74B8 /* GameMainView.swift */; };
-		65753DC11CFB933800EA74B8 /* car.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65753DC01CFB933800EA74B8 /* car.jpg */; };
 		65753DC41CFB9E0700EA74B8 /* CarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65753DC31CFB9E0700EA74B8 /* CarModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +31,6 @@
 		65753DB41CF869D900EA74B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65753DB61CF869DA00EA74B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65753DBC1CF86A4400EA74B8 /* GameMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMainView.swift; sourceTree = "<group>"; };
-		65753DC01CFB933800EA74B8 /* car.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = car.jpg; sourceTree = "<group>"; };
 		65753DC31CFB9E0700EA74B8 /* CarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,7 +83,6 @@
 				6551A8161CFDD094006227D5 /* Frameworks */,
 				6551A8131CFDCD77006227D5 /* Utils */,
 				65753DC21CFB9DD000EA74B8 /* Model */,
-				65753DBF1CFB932300EA74B8 /* Images */,
 				65753DBE1CF86A4B00EA74B8 /* Views */,
 				65753DAA1CF869D900EA74B8 /* AppDelegate.swift */,
 				65753DAC1CF869D900EA74B8 /* ViewController.swift */,
@@ -103,14 +100,6 @@
 				65753DBC1CF86A4400EA74B8 /* GameMainView.swift */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		65753DBF1CFB932300EA74B8 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				65753DC01CFB933800EA74B8 /* car.jpg */,
-			);
-			name = Images;
 			sourceTree = "<group>";
 		};
 		65753DC21CFB9DD000EA74B8 /* Model */ = {
@@ -181,7 +170,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65753DC11CFB933800EA74B8 /* car.jpg in Resources */,
 				65753DB51CF869DA00EA74B8 /* LaunchScreen.storyboard in Resources */,
 				65753DB21CF869D900EA74B8 /* Assets.xcassets in Resources */,
 				65753DB01CF869D900EA74B8 /* Main.storyboard in Resources */,

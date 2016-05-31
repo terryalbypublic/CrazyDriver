@@ -22,7 +22,7 @@ public class GameMainView: UIView {
     }
     
     public func initializeGame() -> Void{
-        carModel.carXPosition = Double(self.bounds.size.width)
+        carModel.carXPosition = Double(self.bounds.size.width/2)
         initializeStreetViews()
     }
     
@@ -40,13 +40,13 @@ public class GameMainView: UIView {
     }
     
     func updateModel(){
-        carModel.carXPosition += self.sensorModel.currentRotationY*25
+        carModel.carXPosition -= self.sensorModel.currentRotationY*25
     }
     
     func updateView(){
         carImageView.frame.origin.x = CGFloat(carModel.carXPosition)
         for streetImageView: UIImageView in self.streetViewArray {
-            streetImageView.frame.origin.y = streetImageView.frame.origin.y-5
+            streetImageView.frame.origin.y = streetImageView.frame.origin.y+5
         }
         
         let disappearedStreet = isAStreetDisappered()
@@ -57,23 +57,26 @@ public class GameMainView: UIView {
     }
     
     func initializeStreetViews(){
-        var streetView = makeStreetViewAtPosition(CGRect(x: 0, y: 0, width: 300, height: 300))
+        
+        self.carImageView.frame.origin.y = self.frame.size.height - self.carImageView.frame.height
+        
+        var streetView = makeStreetViewAtPosition(CGRect(x: streetOriginX(), y: -300, width: 300, height: 300))
         self.insertSubview(streetView, belowSubview: self.carImageView)
         streetViewArray.append(streetView)
         
-        streetView = makeStreetViewAtPosition(CGRect(x: 0, y: 300, width: 300, height: 300))
+        streetView = makeStreetViewAtPosition(CGRect(x: streetOriginX(), y: 0, width: 300, height: 300))
         streetView.backgroundColor = UIColor.clearColor()
         self.insertSubview(streetView, belowSubview: self.carImageView)
         streetViewArray.append(streetView)
         
         
-        streetView = makeStreetViewAtPosition(CGRect(x: 0, y: 600, width: 300, height: 300))
+        streetView = makeStreetViewAtPosition(CGRect(x: streetOriginX(), y: 300, width: 300, height: 300))
         streetView.backgroundColor = UIColor.clearColor()
         self.insertSubview(streetView, belowSubview: self.carImageView)
         streetViewArray.append(streetView)
         
         
-        streetView = makeStreetViewAtPosition(CGRect(x: 0, y: 900, width: 300, height: 300))
+        streetView = makeStreetViewAtPosition(CGRect(x: streetOriginX(), y: 600, width: 300, height: 300))
         streetView.backgroundColor = UIColor.clearColor()
         self.insertSubview(streetView, belowSubview: self.carImageView)
         streetViewArray.append(streetView)
@@ -82,15 +85,13 @@ public class GameMainView: UIView {
     func makeStreetViewAtPosition(frame: CGRect) -> UIImageView{
         let streetView = UIImageView(frame: frame)
         streetView.image = UIImage(named: "Street")
-        streetView.contentMode = UIViewContentMode.ScaleAspectFill
-        streetView.clipsToBounds = true
         return streetView
     }
     
     // if -1 = false, otherwise you get the id of the array
     func isAStreetDisappered() -> Int{
         for streetImageView: UIImageView in self.streetViewArray {
-            if(streetImageView.frame.origin.y == -300){
+            if(streetImageView.frame.origin.y == 900){
                 return self.streetViewArray.indexOf(streetImageView)!
             }
         }
@@ -98,7 +99,11 @@ public class GameMainView: UIView {
     }
     
     func moveDownStreet(streetView: UIView){
-        streetView.frame.origin.y = 900
+        streetView.frame.origin.y = -300
+    }
+    
+    func streetOriginX() -> CGFloat{
+        return self.frame.size.width / CGFloat(2) - 150
     }
 
 }
