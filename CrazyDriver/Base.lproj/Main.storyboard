@@ -27,7 +27,7 @@
                                         <rect key="frame" x="175" y="108" width="240" height="128"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <connections>
                                     <outlet property="carImageView" destination="t9a-1N-2OF" id="moB-nI-SGG"/>
                                 </connections>

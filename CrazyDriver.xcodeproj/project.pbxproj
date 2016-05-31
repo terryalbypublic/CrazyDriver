@@ -318,7 +318,7 @@
 				INFOPLIST_FILE = CrazyDriver/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Scout24.CrazyDriver;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.CrazyDriver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -330,7 +330,7 @@
 				INFOPLIST_FILE = CrazyDriver/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Scout24.CrazyDriver;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.CrazyDriver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
