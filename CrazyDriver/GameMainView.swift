@@ -62,16 +62,19 @@ public class GameMainView: UIView {
         streetViewArray.append(streetView)
         
         streetView = makeStreetViewAtPosition(CGRect(x: 0, y: 300, width: 300, height: 300))
+        streetView.backgroundColor = UIColor.clearColor()
         self.addSubview(streetView)
         streetViewArray.append(streetView)
         
         
         streetView = makeStreetViewAtPosition(CGRect(x: 0, y: 600, width: 300, height: 300))
+        streetView.backgroundColor = UIColor.clearColor()
         self.addSubview(streetView)
         streetViewArray.append(streetView)
         
         
         streetView = makeStreetViewAtPosition(CGRect(x: 0, y: 900, width: 300, height: 300))
+        streetView.backgroundColor = UIColor.clearColor()
         self.addSubview(streetView)
         streetViewArray.append(streetView)
     }
@@ -79,6 +82,8 @@ public class GameMainView: UIView {
     func makeStreetViewAtPosition(frame: CGRect) -> UIImageView{
         let streetView = UIImageView(frame: frame)
         streetView.image = UIImage(named: "Street")
+        streetView.contentMode = UIViewContentMode.ScaleAspectFill
+        streetView.clipsToBounds = true
         return streetView
     }
     
