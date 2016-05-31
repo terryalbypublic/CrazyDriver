@@ -25,7 +25,7 @@ public class SensorsModel: NSObject {
         self.motionManager.startAccelerometerUpdatesToQueue(currentQueue!) { (accelerometerData, error) in
             self.currentRotationX = accelerometerData!.acceleration.x
             self.currentRotationZ = accelerometerData!.acceleration.z
-            self.currentRotationY = (accelerometerData!.acceleration.y < 0.05 && accelerometerData!.acceleration.y > Double(-0.05) ) ? 0 : accelerometerData!.acceleration.y    // don't keep if too tiny
+            self.currentRotationY = (accelerometerData!.acceleration.y < 0.05 && accelerometerData!.acceleration.y > Double(-0.05) ) ? 0 : accelerometerData!.acceleration.y // don't keep if too tiny
         }
     }
 }
