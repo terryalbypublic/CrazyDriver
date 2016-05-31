@@ -55,10 +55,17 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
-		65753D9E1CF869D900EA74B8 = {
+		6551A8161CFDD094006227D5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				6551A80F1CFCB2F0006227D5 /* CoreMotion.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		65753D9E1CF869D900EA74B8 = {
+			isa = PBXGroup;
+			children = (
 				65753DA91CF869D900EA74B8 /* CrazyDriver */,
 				65753DA81CF869D900EA74B8 /* Products */,
 			);
@@ -75,6 +82,7 @@
 		65753DA91CF869D900EA74B8 /* CrazyDriver */ = {
 			isa = PBXGroup;
 			children = (
+				6551A8161CFDD094006227D5 /* Frameworks */,
 				6551A8131CFDCD77006227D5 /* Utils */,
 				65753DC21CFB9DD000EA74B8 /* Model */,
 				65753DBF1CFB932300EA74B8 /* Images */,
