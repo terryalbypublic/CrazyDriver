@@ -8,4 +8,5 @@
 
 struct Constants {
     static var streetWidth = 300
+    static var streetHeight = 300
 }

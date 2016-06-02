@@ -67,23 +67,24 @@ public class GameMainView: UIView {
         
         self.carImageView.frame.origin.y = self.frame.size.height - self.carImageView.frame.height
         
-        var streetView = makeStreetViewAtPosition(CGRect(x: streetOriginX(), y: -300, width: 300, height: 300))
+        let strOriginX = streetOriginX()
+        var streetView = makeStreetViewAtPosition(CGRect(x: Int(strOriginX), y: -Constants.streetHeight, width: Constants.streetWidth, height: Constants.streetHeight))
         self.insertSubview(streetView, belowSubview: self.carImageView)
         streetViewArray.append(streetView)
         
-        streetView = makeStreetViewAtPosition(CGRect(x: streetOriginX(), y: 0, width: 300, height: 300))
+        streetView = makeStreetViewAtPosition(CGRect(x: Int(strOriginX), y: 0, width: Constants.streetWidth, height: Constants.streetHeight))
         streetView.backgroundColor = UIColor.clearColor()
         self.insertSubview(streetView, belowSubview: self.carImageView)
         streetViewArray.append(streetView)
         
         
-        streetView = makeStreetViewAtPosition(CGRect(x: streetOriginX(), y: 300, width: 300, height: 300))
+        streetView = makeStreetViewAtPosition(CGRect(x: Int(strOriginX), y: Constants.streetHeight, width: Constants.streetWidth, height: Constants.streetHeight))
         streetView.backgroundColor = UIColor.clearColor()
         self.insertSubview(streetView, belowSubview: self.carImageView)
         streetViewArray.append(streetView)
         
         
-        streetView = makeStreetViewAtPosition(CGRect(x: streetOriginX(), y: 600, width: 300, height: 300))
+        streetView = makeStreetViewAtPosition(CGRect(x: Int(strOriginX), y: Constants.streetHeight*2, width: Constants.streetWidth, height: Constants.streetHeight))
         streetView.backgroundColor = UIColor.clearColor()
         self.insertSubview(streetView, belowSubview: self.carImageView)
         streetViewArray.append(streetView)
@@ -98,7 +99,7 @@ public class GameMainView: UIView {
     // if -1 = false, otherwise you get the id of the array
     func isAStreetDisappered() -> Int{
         for streetImageView: UIImageView in self.streetViewArray {
-            if(streetImageView.frame.origin.y == 900){
+            if(streetImageView.frame.origin.y == CGFloat(Constants.streetHeight*3)){
                 return self.streetViewArray.indexOf(streetImageView)!
             }
         }
@@ -106,17 +107,19 @@ public class GameMainView: UIView {
     }
     
     func moveDownStreet(streetView: UIView){
-        streetView.frame.origin.y = -300
+        streetView.frame.origin.y = CGFloat(-Constants.streetHeight)
     }
     
     func streetOriginX() -> CGFloat{
-        return self.frame.size.width / CGFloat(2) - 150
+        return self.frame.size.width / CGFloat(2) - CGFloat(Constants.streetHeight)/2
     }
     
     func updateCarPosition(howMuch: Double, left: Bool){
+        // car moving to left
         if(left && self.carModel.carXPosition-howMuch > Double(self.streetOriginX())){
             self.carModel.carXPosition += howMuch
         }
+        // car moving to right
         else if(!left && self.carModel.carXPosition+howMuch < Double(self.streetOriginX()+300-self.carImageView.frame.size.width)){
             self.carModel.carXPosition -= howMuch
         }
