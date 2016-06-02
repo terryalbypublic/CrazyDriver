@@ -22,7 +22,8 @@ public class GameMainView: UIView {
         super.drawRect(rect)
     }
     
-    public func initializeGame() -> Void{
+    public func initializeGame(){
+        sensorModel.start()
         carModel.carXPosition = Double(self.bounds.size.width/2)
         initializeStreetViews()
     }
@@ -42,7 +43,10 @@ public class GameMainView: UIView {
     
     func updateModel(){
         // update the car position (maintain the car inside the street)
-        carModel.carXPosition -= carModel.carXPosition > Double(streetOriginX()) && carModel.carXPosition < Double(streetOriginX()) + 300 ? self.sensorModel.currentRotationY*25 : carModel.carXPosition
+        
+        let updateCarLeft = self.sensorModel.currentRotationY > 0 ? true :false
+        let howMuch = updateCarLeft ? self.sensorModel.currentRotationY*(-1) : self.sensorModel.currentRotationY
+        updateCarPosition(howMuch*25,left: updateCarLeft)
     }
     
     func updateView(){
@@ -107,6 +111,15 @@ public class GameMainView: UIView {
     
     func streetOriginX() -> CGFloat{
         return self.frame.size.width / CGFloat(2) - 150
+    }
+    
+    func updateCarPosition(howMuch: Double, left: Bool){
+        if(left && self.carModel.carXPosition-howMuch > Double(self.streetOriginX())){
+            self.carModel.carXPosition += howMuch
+        }
+        else if(!left && self.carModel.carXPosition+howMuch < Double(self.streetOriginX()+300-self.carImageView.frame.size.width)){
+            self.carModel.carXPosition -= howMuch
+        }
     }
 
 }

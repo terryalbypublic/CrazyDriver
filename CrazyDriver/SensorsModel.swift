@@ -16,8 +16,7 @@ public class SensorsModel: NSObject {
     public var currentRotationY : Double = 0
     public var currentRotationZ : Double = 0
     
-    override init(){
-        super.init()
+    public func start(){
         
         self.motionManager.accelerometerUpdateInterval = NSTimeInterval(0.2)
         let currentQueue = NSOperationQueue.currentQueue()
