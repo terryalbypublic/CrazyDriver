@@ -17,7 +17,6 @@ public class GameMainView: UIView {
     var streetModel = StreetModel()
     var streetViewArray = Array<UIImageView>()
     
-    
     public override func drawRect(rect: CGRect) {
         super.drawRect(rect)
     }

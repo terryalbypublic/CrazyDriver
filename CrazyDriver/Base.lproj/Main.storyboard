@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Car" translatesAutoresizingMaskIntoConstraints="NO" id="s2b-s3-JQV">
-                                <rect key="frame" x="300" y="155" width="112" height="234"/>
+                                <rect key="frame" x="300" y="155" width="53" height="111"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -32,6 +32,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Car" width="112" height="234"/>
+        <image name="Car" width="53" height="111"/>
     </resources>
 </document>
