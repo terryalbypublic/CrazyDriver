@@ -10,6 +10,6 @@ import UIKit
 
 public class StreetModel: NSObject {
     
-    public var streetYPosition : Double = 0
+    public var speedPerTick = 5
 
 }

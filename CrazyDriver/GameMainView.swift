@@ -14,6 +14,7 @@ public class GameMainView: UIView {
     var animationClock : CADisplayLink = CADisplayLink()
     var carModel = CarModel()
     var sensorModel = SensorsModel()
+    var streetModel = StreetModel()
     var streetViewArray = Array<UIImageView>()
     
     
@@ -40,13 +41,15 @@ public class GameMainView: UIView {
     }
     
     func updateModel(){
-        carModel.carXPosition -= self.sensorModel.currentRotationY*25
+        // update the car position (maintain the car inside the street)
+        carModel.carXPosition -= carModel.carXPosition > Double(streetOriginX()) && carModel.carXPosition < Double(streetOriginX()) + 300 ? self.sensorModel.currentRotationY*25 : carModel.carXPosition
     }
     
     func updateView(){
         carImageView.frame.origin.x = CGFloat(carModel.carXPosition)
         for streetImageView: UIImageView in self.streetViewArray {
-            streetImageView.frame.origin.y = streetImageView.frame.origin.y+5
+            
+            streetImageView.frame.origin.y = streetImageView.frame.origin.y+CGFloat(streetModel.speedPerTick)
         }
         
         let disappearedStreet = isAStreetDisappered()
