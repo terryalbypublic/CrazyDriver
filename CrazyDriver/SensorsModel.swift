@@ -18,10 +18,10 @@ public class SensorsModel: NSObject {
     
     public func start(){
         
-        self.motionManager.accelerometerUpdateInterval = NSTimeInterval(0.2)
-        let currentQueue = NSOperationQueue.currentQueue()
+        self.motionManager.accelerometerUpdateInterval = TimeInterval(0.2)
+        let currentQueue = OperationQueue.current()
         
-        self.motionManager.startAccelerometerUpdatesToQueue(currentQueue!) { (accelerometerData, error) in
+        self.motionManager.startAccelerometerUpdates(to: currentQueue!) { (accelerometerData, error) in
             self.currentRotationX = accelerometerData!.acceleration.x
             self.currentRotationZ = accelerometerData!.acceleration.z
             self.currentRotationY = (accelerometerData!.acceleration.y < 0.05 && accelerometerData!.acceleration.y > Double(-0.05) ) ? 0 : accelerometerData!.acceleration.y // don't keep if too tiny

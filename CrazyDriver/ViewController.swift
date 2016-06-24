@@ -16,8 +16,15 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         let gameMainView = self.view as! GameMainView
+        let obstacle = ObstacleModel()
+        obstacle.imageName = "ObstacleRedCar"
+        obstacle.obstacleXPosition = 300
+        obstacle.speedPerTick = 1
         
-        gameMainView.initializeGame()
+        var obstacles = Array<ObstacleModel>()
+        obstacles.append(obstacle)
+        
+        gameMainView.initializeGame(obstacles)
         gameMainView.startAnimationClock()
         
     }
