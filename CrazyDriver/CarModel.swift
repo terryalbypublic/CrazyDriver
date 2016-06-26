@@ -8,6 +8,6 @@
 
 import UIKit
 
-public class CarModel: NSObject {
-    public var carXPosition : Double = 0
+public class CarModel: BaseObjectModel {
+    
 }

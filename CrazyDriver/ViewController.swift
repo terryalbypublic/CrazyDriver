@@ -18,8 +18,8 @@ class ViewController: UIViewController {
         let gameMainView = self.view as! GameMainView
         let obstacle = ObstacleModel()
         obstacle.imageName = "ObstacleRedCar"
-        obstacle.obstacleXPosition = 300
-        obstacle.speedPerTick = 1
+        obstacle.positionX = 300
+        obstacle.speedPerTick = 4
         
         var obstacles = Array<ObstacleModel>()
         obstacles.append(obstacle)

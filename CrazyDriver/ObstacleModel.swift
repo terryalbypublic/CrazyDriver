@@ -8,9 +8,6 @@
 
 import UIKit
 
-public class ObstacleModel: NSObject {
-    public var obstacleYPosition : Double = 0
-    public var obstacleXPosition : Double = 0
-    public var speedPerTick : Double = 0
-    public var imageName : String = ""
+public class ObstacleModel: BaseObjectModel {
+    
 }
