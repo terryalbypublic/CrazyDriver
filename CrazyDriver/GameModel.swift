@@ -11,7 +11,9 @@ import UIKit
 public class GameModel: NSObject {
     
     
-    public let carSpeed : Double = 5
+    public var carSpeed : Double = 5
+    public var maxCarSpeed : Double = 10
+    public var minCarSpeed : Double = 1
     
     public func speedRelativeToStreet(objectSpeed : Double) -> Double{
         return self.carSpeed - objectSpeed

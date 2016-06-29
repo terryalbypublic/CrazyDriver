@@ -67,6 +67,8 @@ public class GameMainView: UIView {
         let howMuch = updateCarLeft ? self.sensorModel.currentRotationY*(-1) : self.sensorModel.currentRotationY
         updateCarPosition(howMuch*25,left: updateCarLeft)
         
+        updateCarSpeed()
+        
         for obstacle in obstacles{
             obstacle.positionY += gameModel.speedRelativeToStreet(objectSpeed: obstacle.speedPerTick)
         }
@@ -88,7 +90,17 @@ public class GameMainView: UIView {
         let disappearedStreet = isAStreetDisappered()
         
         if(disappearedStreet > -1){
-            moveDownStreet(streetViewArray[disappearedStreet])
+            moveUpStreet(streetViewArray[disappearedStreet])
+        }
+    }
+    
+    func updateCarSpeed(){
+        // change car speed with bounds, maxCarSpeed...minCarSpeed
+        if(self.sensorModel.currentRotationX > 0){
+            self.gameModel.carSpeed += (self.gameModel.carSpeed + self.sensorModel.currentRotationX > self.gameModel.maxCarSpeed ? self.gameModel.maxCarSpeed - self.gameModel.carSpeed  : self.sensorModel.currentRotationX)
+        }
+        else{
+            self.gameModel.carSpeed += (self.gameModel.carSpeed + self.sensorModel.currentRotationX < self.gameModel.minCarSpeed ? self.gameModel.carSpeed - self.gameModel.minCarSpeed : self.sensorModel.currentRotationX)
         }
     }
     
@@ -125,18 +137,21 @@ public class GameMainView: UIView {
         return streetView
     }
     
-    // if -1 = false, otherwise you get the id of the array
+    // if -1 = false, otherwise you get the id of the disapperead street
     func isAStreetDisappered() -> Int{
         for streetImageView: UIImageView in self.streetViewArray {
-            if(streetImageView.frame.origin.y == CGFloat(Constants.streetHeight*3)){
+            if(streetImageView.frame.origin.y >= CGFloat(Constants.streetHeight*3)){
                 return self.streetViewArray.index(of: streetImageView)!
             }
         }
         return -1
     }
     
-    func moveDownStreet(_ streetView: UIView){
-        streetView.frame.origin.y = CGFloat(-Constants.streetHeight)
+    // take a piece of street, and set on the top of the view
+    func moveUpStreet(_ streetView: UIView){
+        
+        let newYPosition = CGFloat(-Constants.streetHeight) + streetView.frame.origin.y - CGFloat(Constants.streetHeight)*3
+        streetView.frame.origin.y = CGFloat(newYPosition)
     }
     
     func streetOriginX() -> CGFloat{
@@ -145,12 +160,22 @@ public class GameMainView: UIView {
     
     func updateCarPosition(_ howMuch: Double, left: Bool){
         // car moving to left
-        if(left && self.carModel.positionX+howMuch > Double(self.streetOriginX())){
-            self.carModel.positionX += howMuch
+        if(left){
+            if(self.carModel.positionX+howMuch > Double(self.streetOriginX())){
+                self.carModel.positionX += howMuch
+            }
+            else{
+                self.carModel.positionX = Double(self.streetOriginX())
+            }
         }
         // car moving to right
-        else if(!left && self.carModel.positionX-howMuch < Double(self.streetOriginX()+300-self.carImageView.frame.size.width)){
-            self.carModel.positionX -= howMuch
+        else if(!left){
+            if(self.carModel.positionX-howMuch < Double(self.streetOriginX()+CGFloat(Constants.streetWidth)-self.carImageView.frame.size.width)){
+                self.carModel.positionX -= howMuch
+            }
+            else{
+                self.carModel.positionX = Double(self.streetOriginX()+CGFloat(Constants.streetWidth)-self.carImageView.frame.size.width)
+            }
         }
     }
 
