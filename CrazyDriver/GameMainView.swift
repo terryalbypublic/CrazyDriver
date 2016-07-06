@@ -17,11 +17,12 @@ public class GameMainView: UIView {
     var carModel = CarModel()
     var sensorModel = SensorsModel()
     var gameModel = GameModel()
-    var obstacles = Array<BaseObjectModel>()
+    
+    // obstacles
+    var obstacles : [(model: BaseObjectModel, view: UIImageView)] = []
     
     // views
     var streetViewArray = Array<UIImageView>()
-    var obstaclesViewArray = Array<UIImageView>()
     @IBOutlet weak var carImageView: UIImageView!
     
     
@@ -30,8 +31,12 @@ public class GameMainView: UIView {
     }
     
     public func initializeGame(_ obstacles : Array<BaseObjectModel>){
-        createObstacleViews(obstacles)
-        self.obstacles = obstacles
+        for obstacle in obstacles{
+            let imageView = UIImageView(image: UIImage(named: obstacle.imageName))
+            imageView.frame.origin.x = CGFloat(obstacle.positionX)
+            imageView.frame.origin.y = CGFloat(obstacle.positionY)
+            self.obstacles.append((model:obstacle, view: imageView))
+        }
         sensorModel.start()
         carModel.positionX = Double(self.bounds.size.width/2)
         initializeStreetViews()
@@ -41,15 +46,12 @@ public class GameMainView: UIView {
     public func startAnimationClock(){
         self.animationClock = CADisplayLink(target: self, selector:#selector(nextCicle))
         self.animationClock.add(to: RunLoop.current(), forMode: RunLoopMode.defaultRunLoopMode.rawValue)
+        addObstacleViews()
     }
     
-    private func createObstacleViews(_ obstacles : Array<BaseObjectModel>){
-        for obstacle in obstacles{
-            let imageView = UIImageView(image: UIImage(named: obstacle.imageName))
-            imageView.frame.origin.x = CGFloat(obstacle.positionX)
-            imageView.frame.origin.y = CGFloat(obstacle.positionY)
-            self.obstaclesViewArray.append(imageView)
-            self.addSubview(imageView)
+    private func addObstacleViews(){
+        for (_, view) in obstacles{
+            self.addSubview(view)
         }
     }
     
@@ -69,8 +71,8 @@ public class GameMainView: UIView {
         
         updateCarSpeed()
         
-        for obstacle in obstacles{
-            obstacle.positionY += gameModel.speedRelativeToStreet(objectSpeed: obstacle.speedPerTick)
+        for (model,_) in obstacles{
+            model.positionY += gameModel.speedRelativeToStreet(objectSpeed: model.speedPerTick)
         }
     }
     
@@ -81,10 +83,10 @@ public class GameMainView: UIView {
             streetImageView.frame.origin.y = streetImageView.frame.origin.y+CGFloat(gameModel.carSpeed)
         }
         
-        // update obstacle views based on models
-        for index in 0..<obstacles.count{
-            self.obstaclesViewArray[index].frame.origin.x = CGFloat(obstacles[index].positionX)
-            obstaclesViewArray[index].frame.origin.y = CGFloat(obstacles[index].positionY)
+        // update obstacle views
+        for (model,view) in obstacles{
+            view.frame.origin.x = CGFloat(model.positionX)
+            view.frame.origin.y = CGFloat(model.positionY)
         }
         
         let disappearedStreet = isAStreetDisappered()
