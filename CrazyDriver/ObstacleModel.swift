@@ -9,5 +9,5 @@
 import UIKit
 
 public class ObstacleModel: BaseObjectModel {
-    
+    public var destroyed = false
 }

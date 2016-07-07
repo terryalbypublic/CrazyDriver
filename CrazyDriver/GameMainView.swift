@@ -19,7 +19,7 @@ public class GameMainView: UIView {
     var gameModel = GameModel()
     
     // obstacles
-    var obstacles : [(model: BaseObjectModel, view: UIImageView)] = []
+    var obstacles : [(model: ObstacleModel, view: UIImageView)] = []
     
     // views
     var streetViewArray = Array<UIImageView>()
@@ -30,7 +30,7 @@ public class GameMainView: UIView {
         super.draw(rect)
     }
     
-    public func initializeGame(_ obstacles : Array<BaseObjectModel>){
+    public func initializeGame(_ obstacles : Array<ObstacleModel>){
         for obstacle in obstacles{
             let imageView = UIImageView(image: UIImage(named: obstacle.imageName))
             imageView.frame.origin.x = CGFloat(obstacle.positionX)
@@ -84,9 +84,10 @@ public class GameMainView: UIView {
         }
         
         // update obstacle views
-        for (model,view) in obstacles{
+        for (model,view) in obstacles where !model.destroyed{
             view.frame.origin.x = CGFloat(model.positionX)
             view.frame.origin.y = CGFloat(model.positionY)
+            removeObstacleIfNeeded(obstacle: (model,view))
         }
         
         let disappearedStreet = isAStreetDisappered()
@@ -179,6 +180,13 @@ public class GameMainView: UIView {
                 self.carModel.positionX = Double(self.streetOriginX()+CGFloat(Constants.streetWidth)-self.carImageView.frame.size.width)
             }
         }
+    }
+    
+    func removeObstacleIfNeeded(obstacle: (model: ObstacleModel, view: UIView)){
+            if(obstacle.model.positionY>500){
+                obstacle.view.removeFromSuperview()
+                obstacle.model.destroyed = true
+            }
     }
 
 }
