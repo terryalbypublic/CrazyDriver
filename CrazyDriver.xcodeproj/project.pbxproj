@@ -156,7 +156,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = TA;
 				TargetAttributes = {
 					65753DA61CF869D900EA74B8 = {
@@ -346,6 +346,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ch.CrazyDriver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "9403f6be-ff18-4495-b97e-3b2a9510dfd7";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

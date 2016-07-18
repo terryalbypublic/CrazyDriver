@@ -28,9 +28,12 @@ public class GameMainView: UIView {
     
     
     public func updateView(carModel : CarModel, gameModel : GameModel, obstacles : [(model : ObstacleModel,view : UIImageView)]){
+        
+        // set position of the carview
         carImageView.frame.origin.x = CGFloat(carModel.positionX)
+        
+        // set the position of the street
         for streetImageView: UIImageView in self.streetViewArray {
-            
             streetImageView.frame.origin.y = streetImageView.frame.origin.y+CGFloat(gameModel.carSpeed)
         }
         
