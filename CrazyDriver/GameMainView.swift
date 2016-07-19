@@ -37,6 +37,8 @@ public class GameMainView: UIView {
             streetImageView.frame.origin.y = streetImageView.frame.origin.y+CGFloat(gameModel.carSpeed)
         }
         
+        NSLog("CarSpeed: %f",gameModel.carSpeed)
+        
         // update obstacle views
         for (model,view) in obstacles where !model.destroyed{
             view.frame.origin.x = CGFloat(model.positionX)

@@ -45,7 +45,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="B"/>
                                 <connections>
-                                    <action selector="brakeButtonTouchCancel:" destination="BYZ-38-t0r" eventType="touchCancel" id="IDr-MS-rwx"/>
+                                    <action selector="brakeButtonTouchReleased:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5uH-My-6j0"/>
                                     <action selector="brakeButtonTouchedDown:" destination="BYZ-38-t0r" eventType="touchDown" id="foz-e6-8YO"/>
                                 </connections>
                             </button>
@@ -55,7 +55,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="G"/>
                                 <connections>
-                                    <action selector="AccelerateButtonTouchCancel:" destination="BYZ-38-t0r" eventType="touchCancel" id="HIi-ej-faC"/>
+                                    <action selector="accelerateButtonTouchReleased:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RYf-e1-nq7"/>
                                     <action selector="accelerateButtonTouchedDown:" destination="BYZ-38-t0r" eventType="touchDown" id="JMl-0G-5aV"/>
                                 </connections>
                             </button>

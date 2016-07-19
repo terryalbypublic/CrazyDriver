@@ -89,9 +89,6 @@ public class ViewController: UIViewController {
         if(self.gameModel.carSpeed + self.gameModel.carAcceleration >= self.gameModel.minCarSpeed && self.gameModel.carSpeed + self.gameModel.carAcceleration <= self.gameModel.maxCarSpeed){
             self.gameModel.carSpeed += self.gameModel.carAcceleration
         }
-        else{
-            self.gameModel.carSpeed += (self.gameModel.carSpeed + self.sensorModel.currentRotationX < self.gameModel.minCarSpeed ? self.gameModel.carSpeed - self.gameModel.minCarSpeed : self.sensorModel.currentRotationX)
-        }
     }
     
     func updateCarPosition(_ howMuch: Double, left: Bool){
@@ -186,14 +183,14 @@ public class ViewController: UIViewController {
         self.gameModel.carAcceleration = 0.1
     }
     
-    @IBAction func brakeButtonTouchCancel(_ sender: AnyObject) {
+    @IBAction func accelerateButtonTouchReleased(_ sender: AnyObject) {
         self.gameModel.carAcceleration = 0
     }
     
-    
-    @IBAction func AccelerateButtonTouchCancel(_ sender: AnyObject) {
+    @IBAction func brakeButtonTouchReleased(_ sender: AnyObject) {
         self.gameModel.carAcceleration = 0
     }
+    
     
     
     
