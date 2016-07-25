@@ -59,6 +59,13 @@
                                     <action selector="accelerateButtonTouchedDown:" destination="BYZ-38-t0r" eventType="touchDown" id="JMl-0G-5aV"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJT-sT-7lb">
+                                <frame key="frameInset" minX="619" minY="45" width="76" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <connections>
@@ -66,12 +73,14 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="speedLabel" destination="jJT-sT-7lb" id="KX9-TS-X8q"/>
                         <outlet property="startPauseButton" destination="ZFC-R0-YqJ" id="0JQ-Vr-dP1"/>
                         <outlet property="stopButton" destination="WMq-re-1ja" id="UtS-qq-Q79"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="118.20652173913044" y="123.18840579710145"/>
         </scene>
     </scenes>
     <resources>

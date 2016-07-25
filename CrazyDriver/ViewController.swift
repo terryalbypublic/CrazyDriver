@@ -11,6 +11,7 @@ import CoreMotion
 
 public class ViewController: UIViewController {
     
+    @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var startPauseButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     
@@ -89,6 +90,8 @@ public class ViewController: UIViewController {
         if(self.gameModel.carSpeed + self.gameModel.carAcceleration >= self.gameModel.minCarSpeed && self.gameModel.carSpeed + self.gameModel.carAcceleration <= self.gameModel.maxCarSpeed){
             self.gameModel.carSpeed += self.gameModel.carAcceleration
         }
+        
+        self.updateCarSpeedLabel()
     }
     
     func updateCarPosition(_ howMuch: Double, left: Bool){
@@ -191,6 +194,9 @@ public class ViewController: UIViewController {
         self.gameModel.carAcceleration = 0
     }
     
+    public func updateCarSpeedLabel(){
+        self.speedLabel.text = String(round(self.gameModel.carSpeed*10))
+    }
     
     
     
