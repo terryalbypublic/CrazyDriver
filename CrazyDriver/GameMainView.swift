@@ -19,14 +19,6 @@ public class GameMainView: UIView {
         super.draw(rect)
     }
     
-    
-    public func addObstacleViews(obstacles : [(model : ObstacleModel,view : UIImageView)]){
-        for (_, view) in obstacles{
-            self.addSubview(view)
-        }
-    }
-    
-    
     public func updateView(carModel : CarModel, gameModel : GameModel, obstacles : [(model : ObstacleModel,view : UIImageView)]){
         
         // set position of the carview
@@ -53,12 +45,22 @@ public class GameMainView: UIView {
         }
     }
     
+    // MARK: Obstacles
+    
+    public func addObstacleViews(obstacles : [(model : ObstacleModel,view : UIImageView)]){
+        for (_, view) in obstacles{
+            self.addSubview(view)
+        }
+    }
+    
     func removeObstacleIfNeeded(obstacle: (model: ObstacleModel, view: UIView)){
         if(obstacle.model.positionY>500){
             obstacle.view.removeFromSuperview()
             obstacle.model.destroyed = true
         }
     }
+    
+    // MARK: Street
     
     func initializeStreetViews(){
         

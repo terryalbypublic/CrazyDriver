@@ -14,6 +14,8 @@ public class ViewController: UIViewController {
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var startPauseButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var accelerateButton: UIButton!
+    @IBOutlet weak var brakeButton: UIButton!
     
     // clock
     var animationClock : CADisplayLink = CADisplayLink()
@@ -115,6 +117,8 @@ public class ViewController: UIViewController {
         }
     }
     
+    // MARK: Game flow
+    
     @IBAction func stopButtonTapped(_ sender: AnyObject) {
         stopGame()
     }
@@ -166,6 +170,12 @@ public class ViewController: UIViewController {
         updateButtonsText()
     }
     
+    // MARK: Textlabels
+    
+    public func updateCarSpeedLabel(){
+        self.speedLabel.text = String(round(self.gameModel.carSpeed*10))
+    }
+    
     public func updateButtonsText(){
         if(gameModel.gameStatus == .Running){
             self.startPauseButton.setTitle("Pause", for: UIControlState.focused)
@@ -178,27 +188,77 @@ public class ViewController: UIViewController {
         }
     }
     
+    // MARK: Acceleration
+    
+    private func isAccelerating() -> Bool{
+        return self.accelerateButton.isTouchInside
+    }
+    
+    private func isBraking() -> Bool{
+        return self.brakeButton.isTouchInside
+    }
+    
+    // it will increase the car's speed
+    private func accelerate(howMuch : Double){
+        self.gameModel.carAcceleration = howMuch
+    }
+    
     @IBAction func brakeButtonTouchedDown(_ sender: AnyObject) {
-        self.gameModel.carAcceleration = -0.1
+        if(self.isAccelerating()){
+            self.carModel.accelerationStatus = .BrakingAndAccelering
+        }
+        else{
+            self.carModel.accelerationStatus = .Braking
+        }
+        
+        setAcceleration()
     }
     
     @IBAction func accelerateButtonTouchedDown(_ sender: AnyObject) {
-        self.gameModel.carAcceleration = 0.1
+        if(self.isBraking()){
+            self.carModel.accelerationStatus = .BrakingAndAccelering
+        }
+        else{
+            self.carModel.accelerationStatus = .Accelerating
+        }
+
+        setAcceleration()
     }
     
     @IBAction func accelerateButtonTouchReleased(_ sender: AnyObject) {
-        self.gameModel.carAcceleration = 0
+        if(self.isBraking()){
+            self.carModel.accelerationStatus = .Braking
+        }
+        else{
+            self.carModel.accelerationStatus = .Nothing
+        }
+        
+        setAcceleration()
     }
     
     @IBAction func brakeButtonTouchReleased(_ sender: AnyObject) {
-        self.gameModel.carAcceleration = 0
+        if(self.isAccelerating()){
+            self.carModel.accelerationStatus = .Accelerating
+        }
+        else{
+            self.carModel.accelerationStatus = .Nothing
+        }
+        
+        setAcceleration()
     }
     
-    public func updateCarSpeedLabel(){
-        self.speedLabel.text = String(round(self.gameModel.carSpeed*10))
+    private func setAcceleration(){
+        switch self.carModel.accelerationStatus {
+        case .Accelerating:
+            self.accelerate(howMuch: 0.1)
+        case .Braking:
+            self.accelerate(howMuch: -0.1)
+        case .BrakingAndAccelering:
+            self.accelerate(howMuch: 0.05)
+        default:
+            self.accelerate(howMuch: 0)
+        }
     }
-    
-    
     
     
 }

@@ -8,6 +8,15 @@
 
 import UIKit
 
+
 public class CarModel: BaseObjectModel {
     
+    public enum AccelerationStatus{
+        case Braking
+        case Accelerating
+        case BrakingAndAccelering
+        case Nothing
+    }
+    
+    public var accelerationStatus : AccelerationStatus = .Nothing
 }

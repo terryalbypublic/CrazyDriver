@@ -40,7 +40,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eL-cJ-Rsj">
-                                <frame key="frameInset" minX="57" minY="364" width="30" height="30"/>
+                                <frame key="frameInset" minX="50" minY="330" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="B"/>
@@ -50,7 +50,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ecf-Ti-Kut">
-                                <frame key="frameInset" minX="678" minY="364" width="30" height="30"/>
+                                <frame key="frameInset" minX="650" minY="320" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="G"/>
@@ -73,6 +73,8 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="accelerateButton" destination="Ecf-Ti-Kut" id="2S1-k7-bpP"/>
+                        <outlet property="brakeButton" destination="4eL-cJ-Rsj" id="0UQ-vR-2Xd"/>
                         <outlet property="speedLabel" destination="jJT-sT-7lb" id="KX9-TS-X8q"/>
                         <outlet property="startPauseButton" destination="ZFC-R0-YqJ" id="0JQ-Vr-dP1"/>
                         <outlet property="stopButton" destination="WMq-re-1ja" id="UtS-qq-Q79"/>
