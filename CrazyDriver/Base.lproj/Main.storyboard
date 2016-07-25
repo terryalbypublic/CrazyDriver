@@ -17,10 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Car" translatesAutoresizingMaskIntoConstraints="NO" id="s2b-s3-JQV">
-                                <frame key="frameInset" minX="300" minY="155" width="53" height="111"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFC-R0-YqJ">
                                 <frame key="frameInset" minX="49" minY="45" width="120" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -66,8 +62,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Car" translatesAutoresizingMaskIntoConstraints="NO" id="s2b-s3-JQV"/>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="s2b-s3-JQV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IBx-mo-gv1"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="s2b-s3-JQV" secondAttribute="bottom" constant="89" id="xLm-3b-5ku"/>
+                        </constraints>
                         <connections>
                             <outlet property="carImageView" destination="s2b-s3-JQV" id="0qw-Yc-4z6"/>
                         </connections>
