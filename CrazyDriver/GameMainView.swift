@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SpriteKit
 
 public class GameMainView: UIView {
     
@@ -22,7 +23,7 @@ public class GameMainView: UIView {
     public func updateView(carModel : CarModel, gameModel : GameModel, obstacles : [(model : ObstacleModel,view : UIImageView)]){
         
         // set position of the carview
-        carImageView.frame.origin.x = CGFloat(carModel.positionX)
+        carImageView.frame.origin.x = carModel.frame.origin.x
         
         // set the position of the street
         for streetImageView: UIImageView in self.streetViewArray {
@@ -33,8 +34,8 @@ public class GameMainView: UIView {
         
         // update obstacle views
         for (model,view) in obstacles where !model.destroyed{
-            view.frame.origin.x = CGFloat(model.positionX)
-            view.frame.origin.y = CGFloat(model.positionY)
+            view.frame.origin.x = model.frame.origin.x
+            view.frame.origin.y = model.frame.origin.y
             removeObstacleIfNeeded(obstacle: (model,view))
         }
         
@@ -54,7 +55,7 @@ public class GameMainView: UIView {
     }
     
     func removeObstacleIfNeeded(obstacle: (model: ObstacleModel, view: UIView)){
-        if(obstacle.model.positionY>500){
+        if(obstacle.model.frame.origin.y>500){
             obstacle.view.removeFromSuperview()
             obstacle.model.destroyed = true
         }
@@ -115,6 +116,5 @@ public class GameMainView: UIView {
     public func streetOriginX() -> CGFloat{
         return self.frame.size.width / CGFloat(2) - CGFloat(Constants.streetHeight)/2
     }
-    
 
 }

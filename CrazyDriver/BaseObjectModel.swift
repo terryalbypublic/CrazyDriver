@@ -10,8 +10,7 @@ import UIKit
 
 public class BaseObjectModel: NSObject {
     public var imageName : String = ""
-    public var positionY : Double = 0
-    public var positionX : Double = 0
+    public var frame : CGRect = CGRect(x: 0,y: 0,width: 0,height: 0)
     public var speedPerTick : Double = 0    // relative to the street movements
 
 }

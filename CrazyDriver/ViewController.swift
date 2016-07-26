@@ -49,13 +49,13 @@ public class ViewController: UIViewController {
     func initializeGame(_ obstacles : Array<ObstacleModel>){
         for obstacle in obstacles{
             let imageView = UIImageView(image: UIImage(named: obstacle.imageName))
-            imageView.frame.origin.x = CGFloat(obstacle.positionX)
-            imageView.frame.origin.y = CGFloat(obstacle.positionY)
+            imageView.frame.origin.x = CGFloat(obstacle.frame.origin.x)
+            imageView.frame.origin.y = CGFloat(obstacle.frame.origin.y)
             self.obstacles.append((model:obstacle, view: imageView))
         }
         sensorModel.start()
         //carModel.positionY = 10
-        carModel.positionX = Double(self.view.bounds.size.width/2)
+        carModel.frame.origin.x = CGFloat(self.view.bounds.size.width/2)
         let gameMainView = self.view as! GameMainView
         gameMainView.initializeStreetViews()
     }
@@ -83,7 +83,7 @@ public class ViewController: UIViewController {
         updateCarSpeed()
         
         for (model,_) in obstacles{
-            model.positionY += gameModel.speedRelativeToStreet(objectSpeed: model.speedPerTick)
+            model.frame.origin.y = CGFloat(gameModel.speedRelativeToStreet(objectSpeed: model.speedPerTick))+model.frame.origin.y
         }
     }
     
@@ -99,20 +99,20 @@ public class ViewController: UIViewController {
     func updateCarPosition(_ howMuch: Double, left: Bool){
         // car moving to left
         if(left){
-            if(self.carModel.positionX+howMuch > Double((gameMainView?.streetOriginX())!)){
-                self.carModel.positionX += howMuch
+            if(self.carModel.frame.origin.x+CGFloat(howMuch) > gameMainView?.streetOriginX()){
+                self.carModel.frame.origin.x += CGFloat(howMuch)
             }
             else{
-                self.carModel.positionX = Double((gameMainView?.streetOriginX())!)
+                self.carModel.frame.origin.x = (gameMainView?.streetOriginX())!
             }
         }
             // car moving to right
         else if(!left){
-            if(self.carModel.positionX-howMuch < Double((gameMainView?.streetOriginX())!+CGFloat(Constants.streetWidth)-(gameMainView?.carImageView.frame.size.width)!)){
-                self.carModel.positionX -= howMuch
+            if(self.carModel.frame.origin.x-CGFloat(howMuch) < CGFloat((gameMainView?.streetOriginX())!+CGFloat(Constants.streetWidth)-(gameMainView?.carImageView.frame.size.width)!)){
+                self.carModel.frame.origin.x -= CGFloat(howMuch)
             }
             else{
-                self.carModel.positionX = Double((gameMainView?.streetOriginX())!+CGFloat(Constants.streetWidth)-(gameMainView?.carImageView.frame.size.width)!)
+                self.carModel.frame.origin.x = CGFloat((gameMainView?.streetOriginX())!+CGFloat(Constants.streetWidth)-(gameMainView?.carImageView.frame.size.width)!)
             }
         }
     }
@@ -139,7 +139,7 @@ public class ViewController: UIViewController {
         gameMainView = self.view as? GameMainView
         let obstacle = ObstacleModel()
         obstacle.imageName = "ObstacleRedCar"
-        obstacle.positionX = 300
+        obstacle.frame.origin.x = 300
         obstacle.speedPerTick = 4
         
         var obstacles = Array<ObstacleModel>()

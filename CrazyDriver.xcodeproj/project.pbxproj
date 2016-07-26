@@ -10,6 +10,7 @@
 		6551A80E1CFCB2B7006227D5 /* SensorsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6551A80D1CFCB2B7006227D5 /* SensorsModel.swift */; };
 		6551A8101CFCB2F0006227D5 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6551A80F1CFCB2F0006227D5 /* CoreMotion.framework */; };
 		656281991D200F260090B02F /* BaseObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656281981D200F260090B02F /* BaseObjectModel.swift */; };
+		656C77EA1D47C3F00044E30F /* Physics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656C77E91D47C3F00044E30F /* Physics.swift */; };
 		657358D71D1AE8480054A25C /* ObstacleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657358D61D1AE8470054A25C /* ObstacleModel.swift */; };
 		65753DAB1CF869D900EA74B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65753DAA1CF869D900EA74B8 /* AppDelegate.swift */; };
 		65753DAD1CF869D900EA74B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65753DAC1CF869D900EA74B8 /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 		6551A80D1CFCB2B7006227D5 /* SensorsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorsModel.swift; sourceTree = "<group>"; };
 		6551A80F1CFCB2F0006227D5 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		656281981D200F260090B02F /* BaseObjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseObjectModel.swift; sourceTree = "<group>"; };
+		656C77E91D47C3F00044E30F /* Physics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Physics.swift; sourceTree = "<group>"; };
 		657358D61D1AE8470054A25C /* ObstacleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObstacleModel.swift; sourceTree = "<group>"; };
 		65753DA71CF869D900EA74B8 /* CrazyDriver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrazyDriver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65753DAA1CF869D900EA74B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 		6551A8131CFDCD77006227D5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				656C77E91D47C3F00044E30F /* Physics.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				657358D71D1AE8480054A25C /* ObstacleModel.swift in Sources */,
 				65C852B51D20138A0079CF3B /* GameModel.swift in Sources */,
 				65E8A6691D00544C00EEC45F /* Constants.swift in Sources */,
+				656C77EA1D47C3F00044E30F /* Physics.swift in Sources */,
 				6551A80E1CFCB2B7006227D5 /* SensorsModel.swift in Sources */,
 				656281991D200F260090B02F /* BaseObjectModel.swift in Sources */,
 			);
