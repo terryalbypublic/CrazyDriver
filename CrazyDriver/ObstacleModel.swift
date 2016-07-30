@@ -10,4 +10,5 @@ import UIKit
 
 public class ObstacleModel: BaseObjectModel {
     public var destroyed = false
+    public var explosed = false
 }

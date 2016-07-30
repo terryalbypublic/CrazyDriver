@@ -11,12 +11,14 @@ import UIKit
 class Physics: NSObject {
 
     // collision
-    func isCarCollided(carFrame : CGRect, obstacles : Array<ObstacleModel>) -> Bool{
-        for obstacle in obstacles{
-            
+    static func isCarCollided(carFrame : CGRect, obstacles : [(model : ObstacleModel,view : UIImageView)]) -> (model : ObstacleModel,view : UIImageView)?{
+        for obstacle in obstacles where !obstacle.model.destroyed{
+            if (carFrame.intersects(obstacle.model.frame))
+            {
+                return obstacle
+            }
         }
         
-        return false
+        return nil
     }
-    
 }

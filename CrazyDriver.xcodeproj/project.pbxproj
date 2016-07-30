@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		651309FC1D4D73D200467DF0 /* level1.json in Resources */ = {isa = PBXBuildFile; fileRef = 651309FB1D4D73D200467DF0 /* level1.json */; };
 		6551A80E1CFCB2B7006227D5 /* SensorsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6551A80D1CFCB2B7006227D5 /* SensorsModel.swift */; };
 		6551A8101CFCB2F0006227D5 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6551A80F1CFCB2F0006227D5 /* CoreMotion.framework */; };
 		656281991D200F260090B02F /* BaseObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656281981D200F260090B02F /* BaseObjectModel.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		651309FB1D4D73D200467DF0 /* level1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level1.json; sourceTree = "<group>"; };
 		6551A80D1CFCB2B7006227D5 /* SensorsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorsModel.swift; sourceTree = "<group>"; };
 		6551A80F1CFCB2F0006227D5 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		656281981D200F260090B02F /* BaseObjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseObjectModel.swift; sourceTree = "<group>"; };
@@ -54,6 +56,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		651309FA1D4D73AC00467DF0 /* Level */ = {
+			isa = PBXGroup;
+			children = (
+				651309FB1D4D73D200467DF0 /* level1.json */,
+			);
+			name = Level;
+			sourceTree = "<group>";
+		};
 		6551A8131CFDCD77006227D5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +99,7 @@
 		65753DA91CF869D900EA74B8 /* CrazyDriver */ = {
 			isa = PBXGroup;
 			children = (
+				651309FA1D4D73AC00467DF0 /* Level */,
 				65DEC1DC1D2F07EF0033D0AB /* Controller */,
 				6551A8161CFDD094006227D5 /* Frameworks */,
 				6551A8131CFDCD77006227D5 /* Utils */,
@@ -191,6 +202,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				651309FC1D4D73D200467DF0 /* level1.json in Resources */,
 				65753DB51CF869DA00EA74B8 /* LaunchScreen.storyboard in Resources */,
 				65753DB21CF869D900EA74B8 /* Assets.xcassets in Resources */,
 				65753DB01CF869D900EA74B8 /* Main.storyboard in Resources */,

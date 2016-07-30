@@ -51,6 +51,7 @@ public class ViewController: UIViewController {
             let imageView = UIImageView(image: UIImage(named: obstacle.imageName))
             imageView.frame.origin.x = CGFloat(obstacle.frame.origin.x)
             imageView.frame.origin.y = CGFloat(obstacle.frame.origin.y)
+            obstacle.frame = imageView.frame    // get image size
             self.obstacles.append((model:obstacle, view: imageView))
         }
         sensorModel.start()
@@ -62,15 +63,19 @@ public class ViewController: UIViewController {
     
     // start animation clock
     func startAnimationClock(){
-        self.animationClock = CADisplayLink(target: self, selector:#selector(nextCicle))
+        self.animationClock = CADisplayLink(target: self, selector:#selector(nextTick))
         self.animationClock.add(to: RunLoop.current(), forMode: RunLoopMode.defaultRunLoopMode.rawValue)
         gameMainView?.addObstacleViews(obstacles: obstacles)
     }
     
     // update UI model before redraw
-    func nextCicle(){
+    func nextTick(){
         updateModel()
         gameMainView?.updateView(carModel:carModel,gameModel:gameModel,obstacles:obstacles)
+       let collidedObstacle = Physics.isCarCollided(carFrame: carModel.frame, obstacles: obstacles)
+        if(collidedObstacle != nil && !(collidedObstacle?.model.explosed)!){
+            self.gameMainView?.accidentWithObstacle(obstacle: collidedObstacle!)
+        }
         gameMainView?.setNeedsDisplay()
     }
     
@@ -259,7 +264,6 @@ public class ViewController: UIViewController {
             self.accelerate(howMuch: 0)
         }
     }
-    
     
 }
 

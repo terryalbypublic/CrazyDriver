@@ -14,6 +14,8 @@ public class GameMainView: UIView {
     // views
     var streetViewArray = Array<UIImageView>()
     @IBOutlet weak var carImageView: UIImageView!
+    var explosionView : UIImageView? = nil
+    var explosionTicks = 0
     
     
     public override func draw(_ rect: CGRect) {
@@ -39,11 +41,23 @@ public class GameMainView: UIView {
             removeObstacleIfNeeded(obstacle: (model,view))
         }
         
+        if(self.explosionView != nil){
+            if(explosionTicks > Constants.explosionDurationInTicks-1){
+                self.explosionView?.removeFromSuperview()
+                explosionTicks = 0
+            }
+            else{
+                explosionTicks += 1
+            }
+        }
+        
         let disappearedStreet = isAStreetDisappered()
         
         if(disappearedStreet > -1){
             moveUpStreet(streetViewArray[disappearedStreet])
         }
+        
+        carModel.frame = carImageView.frame    // get frame of the view into the model
     }
     
     // MARK: Obstacles
@@ -55,7 +69,7 @@ public class GameMainView: UIView {
     }
     
     func removeObstacleIfNeeded(obstacle: (model: ObstacleModel, view: UIView)){
-        if(obstacle.model.frame.origin.y>500){
+        if(obstacle.model.frame.origin.y>500 || obstacle.model.explosed){
             obstacle.view.removeFromSuperview()
             obstacle.model.destroyed = true
         }
@@ -115,6 +129,21 @@ public class GameMainView: UIView {
     
     public func streetOriginX() -> CGFloat{
         return self.frame.size.width / CGFloat(2) - CGFloat(Constants.streetHeight)/2
+    }
+    
+    // MARK: Accident
+    
+    public func accidentWithObstacle(obstacle: (model : ObstacleModel,view : UIImageView)){
+        accidentAnimation(view: obstacle.view)
+        obstacle.model.explosed = true
+    }
+    
+    public func accidentAnimation(view: UIView){
+        let explosion = UIImageView(image: UIImage(named: "Explosion"))
+        explosion.frame.origin.x = view.frame.origin.x
+        explosion.frame.origin.y = view.frame.origin.y
+        self.explosionView = explosion
+        self.addSubview(explosion)
     }
 
 }
