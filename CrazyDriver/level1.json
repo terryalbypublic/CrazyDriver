@@ -1,7 +1,7 @@
 {
     "LevelName": "Level one",
-    "Data": {
-        "5": "RedCar",
-        "1500": "RedCar"
-    }
+    "Data": [
+             {"Tick" : "5", "Object" : "RedCar"},
+             {"Tick" : "5", "Object" : "RedCar"}
+    ]
 }

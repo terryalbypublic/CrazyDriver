@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		651309FC1D4D73D200467DF0 /* level1.json in Resources */ = {isa = PBXBuildFile; fileRef = 651309FB1D4D73D200467DF0 /* level1.json */; };
+		651309FE1D4E4A2A00467DF0 /* LevelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651309FD1D4E4A2A00467DF0 /* LevelModel.swift */; };
 		6551A80E1CFCB2B7006227D5 /* SensorsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6551A80D1CFCB2B7006227D5 /* SensorsModel.swift */; };
 		6551A8101CFCB2F0006227D5 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6551A80F1CFCB2F0006227D5 /* CoreMotion.framework */; };
 		656281991D200F260090B02F /* BaseObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656281981D200F260090B02F /* BaseObjectModel.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		651309FB1D4D73D200467DF0 /* level1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level1.json; sourceTree = "<group>"; };
+		651309FD1D4E4A2A00467DF0 /* LevelModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelModel.swift; sourceTree = "<group>"; };
 		6551A80D1CFCB2B7006227D5 /* SensorsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorsModel.swift; sourceTree = "<group>"; };
 		6551A80F1CFCB2F0006227D5 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		656281981D200F260090B02F /* BaseObjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseObjectModel.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				657358D61D1AE8470054A25C /* ObstacleModel.swift */,
 				656281981D200F260090B02F /* BaseObjectModel.swift */,
 				65C852B41D20138A0079CF3B /* GameModel.swift */,
+				651309FD1D4E4A2A00467DF0 /* LevelModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				65753DBD1CF86A4400EA74B8 /* GameMainView.swift in Sources */,
 				65753DAB1CF869D900EA74B8 /* AppDelegate.swift in Sources */,
 				657358D71D1AE8480054A25C /* ObstacleModel.swift in Sources */,
+				651309FE1D4E4A2A00467DF0 /* LevelModel.swift in Sources */,
 				65C852B51D20138A0079CF3B /* GameModel.swift in Sources */,
 				65E8A6691D00544C00EEC45F /* Constants.swift in Sources */,
 				656C77EA1D47C3F00044E30F /* Physics.swift in Sources */,

@@ -15,7 +15,7 @@ public class GameModel: NSObject {
         case Running
         case Stopped
     }
-    
+
     public var carSpeed : Double = 5
     public var maxCarSpeed : Double = 10
     public var minCarSpeed : Double = 1
@@ -23,9 +23,14 @@ public class GameModel: NSObject {
     public var points : Int = 0
     public var life : Int = 100
     public var gameStatus : GameStatus = GameStatus.Stopped
+    public var ticks = 0
+    
+
     
     public func speedRelativeToStreet(objectSpeed : Double) -> Double{
         return self.carSpeed - objectSpeed
     }
+    
+    
 
 }

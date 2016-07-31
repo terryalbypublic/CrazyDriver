@@ -24,6 +24,7 @@ public class ViewController: UIViewController {
     var carModel = CarModel()
     var sensorModel = SensorsModel()
     var gameModel = GameModel()
+    var levelModel = LevelModel.levelModelFromFileName(fileName: "level1")
     
     // views
     var streetViewArray = Array<UIImageView>()
@@ -70,6 +71,7 @@ public class ViewController: UIViewController {
     
     // update UI model before redraw
     func nextTick(){
+        addObstacle(ticks: gameModel.ticks)
         updateModel()
         gameMainView?.updateView(carModel:carModel,gameModel:gameModel,obstacles:obstacles)
        let collidedObstacle = Physics.isCarCollided(carFrame: carModel.frame, obstacles: obstacles)
@@ -77,6 +79,7 @@ public class ViewController: UIViewController {
             self.gameMainView?.accidentWithObstacle(obstacle: collidedObstacle!)
         }
         gameMainView?.setNeedsDisplay()
+        self.gameModel.ticks += 1
     }
     
     func updateModel(){
@@ -262,6 +265,17 @@ public class ViewController: UIViewController {
             self.accelerate(howMuch: 0.05)
         default:
             self.accelerate(howMuch: 0)
+        }
+    }
+    
+    // MARK - Obstacles
+    
+    private func addObstacle(ticks : Int){
+        let data = self.levelModel.data
+        for d in data{
+            if(d.tick == ticks){
+                // todo: write the code to add the new obstacles
+            }
         }
     }
     
