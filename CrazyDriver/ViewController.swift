@@ -49,11 +49,7 @@ public class ViewController: UIViewController {
     
     func initializeGame(_ obstacles : Array<ObstacleModel>){
         for obstacle in obstacles{
-            let imageView = UIImageView(image: UIImage(named: obstacle.imageName))
-            imageView.frame.origin.x = CGFloat(obstacle.frame.origin.x)
-            imageView.frame.origin.y = CGFloat(obstacle.frame.origin.y)
-            obstacle.frame = imageView.frame    // get image size
-            self.obstacles.append((model:obstacle, view: imageView))
+            self.addObstacle(obstacle: obstacle)
         }
         sensorModel.start()
         //carModel.positionY = 10
@@ -66,12 +62,11 @@ public class ViewController: UIViewController {
     func startAnimationClock(){
         self.animationClock = CADisplayLink(target: self, selector:#selector(nextTick))
         self.animationClock.add(to: RunLoop.current(), forMode: RunLoopMode.defaultRunLoopMode.rawValue)
-        gameMainView?.addObstacleViews(obstacles: obstacles)
     }
     
     // update UI model before redraw
     func nextTick(){
-        addObstacle(ticks: gameModel.ticks)
+        handleTickEvent(ticks: gameModel.ticks)
         updateModel()
         gameMainView?.updateView(carModel:carModel,gameModel:gameModel,obstacles:obstacles)
        let collidedObstacle = Physics.isCarCollided(carFrame: carModel.frame, obstacles: obstacles)
@@ -270,12 +265,26 @@ public class ViewController: UIViewController {
     
     // MARK - Obstacles
     
-    private func addObstacle(ticks : Int){
+    private func addObstacle(obstacle : ObstacleModel){
+        let imageView = UIImageView(image: UIImage(named: obstacle.imageName))
+        imageView.frame.origin.x = CGFloat(obstacle.frame.origin.x)
+        imageView.frame.origin.y = CGFloat(obstacle.frame.origin.y)
+        obstacle.frame = imageView.frame    // get image size
+        self.obstacles.append((model:obstacle, view: imageView))
+        gameMainView?.addObstacleView(view: imageView)
+    }
+    
+    // MARK - Tick events
+    
+    private func handleTickEvent(ticks : Int){
         let data = self.levelModel.data
-        for d in data{
-            if(d.tick == ticks){
-                // todo: write the code to add the new obstacles
-            }
+        
+        if(data[ticks] != nil){
+            let obstacle = ObstacleModel()
+            obstacle.imageName = "ObstacleRedCar"
+            obstacle.frame.origin.x = 300
+            obstacle.speedPerTick = 4
+            self.addObstacle(obstacle: obstacle)
         }
     }
     

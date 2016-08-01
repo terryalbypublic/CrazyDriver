@@ -1,7 +1,11 @@
 {
     "LevelName": "Level one",
     "Data": [
-             {"Tick" : "5", "Object" : "RedCar"},
-             {"Tick" : "5", "Object" : "RedCar"}
+             {"Tick" : "500", "Object" : "RedCar"},
+             {"Tick" : "1000", "Object" : "RedCar"},
+             {"Tick" : "1500", "Object" : "RedCar"},
+             {"Tick" : "2000", "Object" : "RedCar"},
+             {"Tick" : "2500", "Object" : "RedCar"},
+             {"Tick" : "3000", "Object" : "RedCar"},
     ]
 }

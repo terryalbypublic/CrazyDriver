@@ -62,10 +62,8 @@ public class GameMainView: UIView {
     
     // MARK: Obstacles
     
-    public func addObstacleViews(obstacles : [(model : ObstacleModel,view : UIImageView)]){
-        for (_, view) in obstacles{
-            self.addSubview(view)
-        }
+    public func addObstacleView(view : UIImageView){
+        self.addSubview(view)
     }
     
     func removeObstacleIfNeeded(obstacle: (model: ObstacleModel, view: UIView)){
