@@ -13,16 +13,34 @@ public class GameMainView: UIView {
     
     // views
     var streetViewArray = Array<UIImageView>()
-    @IBOutlet weak var carImageView: UIImageView!
+    var carImageView: UIImageView!
     var explosionView : UIImageView? = nil
     var explosionTicks = 0
     
+    override init(frame : CGRect){
+        super.init(frame: frame)
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.carImageView = UIImageView(image: UIImage(named: "Car"))
+        self.addSubview(carImageView)
+        self.carImageView.frame.origin.x = 100
+        self.carImageView.frame.origin.y = 50
+    }
     
     public override func draw(_ rect: CGRect) {
         super.draw(rect)
     }
     
     public func updateView(carModel : CarModel, gameModel : GameModel, obstacles : [(model : ObstacleModel,view : UIImageView)]){
+        
+        // update obstacle views
+        for (model,view) in obstacles where !model.destroyed{
+            view.frame.origin.x = model.frame.origin.x
+            view.frame.origin.y = model.frame.origin.y
+            removeObstacleIfNeeded(obstacle: (model,view))
+        }
         
         // set position of the carview
         carImageView.frame.origin.x = carModel.frame.origin.x
@@ -34,12 +52,6 @@ public class GameMainView: UIView {
         
         NSLog("CarSpeed: %f",gameModel.carSpeed)
         
-        // update obstacle views
-        for (model,view) in obstacles where !model.destroyed{
-            view.frame.origin.x = model.frame.origin.x
-            view.frame.origin.y = model.frame.origin.y
-            removeObstacleIfNeeded(obstacle: (model,view))
-        }
         
         if(self.explosionView != nil){
             if(explosionTicks > Constants.explosionDurationInTicks-1){

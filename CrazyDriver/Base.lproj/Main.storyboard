@@ -62,16 +62,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Car" translatesAutoresizingMaskIntoConstraints="NO" id="s2b-s3-JQV"/>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="s2b-s3-JQV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IBx-mo-gv1"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="s2b-s3-JQV" secondAttribute="bottom" constant="89" id="xLm-3b-5ku"/>
-                        </constraints>
-                        <connections>
-                            <outlet property="carImageView" destination="s2b-s3-JQV" id="0qw-Yc-4z6"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="accelerateButton" destination="Ecf-Ti-Kut" id="2S1-k7-bpP"/>
@@ -86,7 +78,4 @@
             <point key="canvasLocation" x="118.20652173913044" y="123.18840579710145"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Car" width="53" height="111"/>
-    </resources>
 </document>
