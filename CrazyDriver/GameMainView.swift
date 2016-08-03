@@ -25,8 +25,6 @@ public class GameMainView: UIView {
         super.init(coder: aDecoder)
         self.carImageView = UIImageView(image: UIImage(named: "Car"))
         self.addSubview(carImageView)
-        self.carImageView.frame.origin.x = 100
-        self.carImageView.frame.origin.y = 50
     }
     
     public override func draw(_ rect: CGRect) {
@@ -44,6 +42,7 @@ public class GameMainView: UIView {
         
         // set position of the carview
         carImageView.frame.origin.x = carModel.frame.origin.x
+        carImageView.frame.origin.y = carModel.frame.origin.y
         
         // set the position of the street
         for streetImageView: UIImageView in self.streetViewArray {

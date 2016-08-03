@@ -54,6 +54,7 @@ public class ViewController: UIViewController {
         sensorModel.start()
         //carModel.positionY = 10
         carModel.frame.origin.x = CGFloat(self.view.bounds.size.width/2)
+        carModel.frame.origin.y = CGFloat(self.view.bounds.size.height-150)
         let gameMainView = self.view as! GameMainView
         gameMainView.initializeStreetViews()
     }
@@ -140,11 +141,7 @@ public class ViewController: UIViewController {
     
     public func startGame(){
         gameMainView = self.view as? GameMainView
-        let obstacle = ObstacleModel()
-        obstacle.imageName = "ObstacleRedCar"
-        obstacle.frame.origin.x = 300
-        obstacle.speedPerTick = 4
-        
+        let obstacle = ObstacleModel(obstacleType: .RedCar)
         var obstacles = Array<ObstacleModel>()
         obstacles.append(obstacle)
         
@@ -280,10 +277,7 @@ public class ViewController: UIViewController {
         let data = self.levelModel.data
         
         if(data[ticks] != nil){
-            let obstacle = ObstacleModel()
-            obstacle.imageName = "ObstacleRedCar"
-            obstacle.frame.origin.x = 300
-            obstacle.speedPerTick = 4
+            let obstacle = ObstacleModel(obstacleType: .RedCar)
             self.addObstacle(obstacle: obstacle)
         }
     }

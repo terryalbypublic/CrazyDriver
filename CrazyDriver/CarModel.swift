@@ -19,4 +19,5 @@ public class CarModel: BaseObjectModel {
     }
     
     public var accelerationStatus : AccelerationStatus = .Nothing
+    
 }
