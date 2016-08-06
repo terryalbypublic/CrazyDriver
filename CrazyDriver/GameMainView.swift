@@ -154,5 +154,16 @@ public class GameMainView: UIView {
         self.explosionView = explosion
         self.addSubview(explosion)
     }
+    
+    // MARK : End of game
+    
+    public func endGame(obstacles : [(model : ObstacleModel,view : UIImageView)]){
+        // remove superviews
+        explosionView?.removeFromSuperview()
+        
+        for obstacle in obstacles{
+            obstacle.view.removeFromSuperview()
+        }
+    }
 
 }

@@ -11,6 +11,9 @@ import CoreMotion
 
 public class ViewController: UIViewController {
     
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var lifeBar: UIProgressView!
+    @IBOutlet weak var lifeLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var startPauseButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
@@ -28,7 +31,7 @@ public class ViewController: UIViewController {
     
     // views
     var streetViewArray = Array<UIImageView>()
-    var gameMainView : GameMainView? = nil // is set in viewdidload
+    var gameMainView : GameMainView?
     
     // obstacles
     var obstacles : [(model: ObstacleModel, view: UIImageView)] = []
@@ -56,6 +59,8 @@ public class ViewController: UIViewController {
         carModel.frame.origin.x = CGFloat(self.view.bounds.size.width/2)
         carModel.frame.origin.y = CGFloat(self.view.bounds.size.height-150)
         let gameMainView = self.view as! GameMainView
+        
+        gameModel = GameModel()
         gameMainView.initializeStreetViews()
     }
     
@@ -63,6 +68,8 @@ public class ViewController: UIViewController {
     func startAnimationClock(){
         self.animationClock = CADisplayLink(target: self, selector:#selector(nextTick))
         self.animationClock.add(to: RunLoop.current(), forMode: RunLoopMode.defaultRunLoopMode.rawValue)
+        
+        startTime()
     }
     
     // update UI model before redraw
@@ -73,8 +80,15 @@ public class ViewController: UIViewController {
        let collidedObstacle = Physics.isCarCollided(carFrame: carModel.frame, obstacles: obstacles)
         if(collidedObstacle != nil && !(collidedObstacle?.model.explosed)!){
             self.gameMainView?.accidentWithObstacle(obstacle: collidedObstacle!)
+            
+            self.gameModel.life = self.gameModel.life - 10  // todo value for live
         }
         gameMainView?.setNeedsDisplay()
+        
+        if(gameModel.life <= 0){
+            endGameNoMoreLife()
+        }
+        
         self.gameModel.ticks += 1
     }
     
@@ -85,10 +99,16 @@ public class ViewController: UIViewController {
         let howMuch = updateCarLeft ? self.sensorModel.currentRotationY*(-1) : self.sensorModel.currentRotationY
         updateCarPosition(howMuch*25,left: updateCarLeft)
         updateCarSpeed()
+        updateLife()
+        updateTimeLabel()
         
         for (model,_) in obstacles{
             model.frame.origin.y = CGFloat(gameModel.speedRelativeToStreet(objectSpeed: model.speedPerTick))+model.frame.origin.y
         }
+    }
+    
+    func updateLife(){
+        updateLifeLabel()
     }
     
     func updateCarSpeed(){
@@ -125,6 +145,7 @@ public class ViewController: UIViewController {
     
     @IBAction func stopButtonTapped(_ sender: AnyObject) {
         stopGame()
+        endGameByUser()
     }
 
     @IBAction func startPauseButtonTapped(_ sender: AnyObject) {
@@ -146,7 +167,7 @@ public class ViewController: UIViewController {
         obstacles.append(obstacle)
         
         initializeGame(obstacles)
-        
+
         startAnimationClock()
         gameModel.gameStatus = .Running
         updateButtonsText()
@@ -154,6 +175,7 @@ public class ViewController: UIViewController {
     
     public func pauseGame(){
         self.animationClock.isPaused = true
+        gameModel.time?.invalidate()
         gameModel.gameStatus = .Paused
         updateButtonsText()
     }
@@ -161,11 +183,13 @@ public class ViewController: UIViewController {
     public func stopGame(){
         gameModel.gameStatus = .Stopped
         self.animationClock.invalidate()
+        gameModel.time?.invalidate()
         updateButtonsText()
     }
     
     public func resumeGame(){
         self.animationClock.isPaused = false
+        startTime()
         gameModel.gameStatus = .Running
         updateButtonsText()
     }
@@ -186,6 +210,15 @@ public class ViewController: UIViewController {
         else if(gameModel.gameStatus == .Paused){
             self.startPauseButton.setTitle("Resume", for: UIControlState.focused)
         }
+    }
+    
+    public func updateLifeLabel(){
+        self.lifeLabel.text = String(self.gameModel.life) + "%"
+        self.lifeBar.setProgress(Float(self.gameModel.life)/Float(100.0), animated: true)
+    }
+    
+    public func updateTimeLabel(){
+        self.timeLabel.text = timeFormatted(totalSeconds: gameModel.ellapsedSeconds)
     }
     
     // MARK: Acceleration
@@ -282,5 +315,48 @@ public class ViewController: UIViewController {
         }
     }
     
+    // MARK - Time game
+    
+    private func startTime(){
+        gameModel.time = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateEllapsedSeconds), userInfo: nil, repeats: true)
+    }
+    
+    public func updateEllapsedSeconds(){
+        self.gameModel.ellapsedSeconds = self.gameModel.ellapsedSeconds+1
+    }
+    
+    func timeFormatted(totalSeconds: Int) -> String {
+        let seconds: Int = totalSeconds % 60
+        let minutes: Int = (totalSeconds / 60) % 60
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
+    
+    // MARK - Ending of game
+    
+    func endGameNoMoreLife(){
+        self.stopGame()
+        gameMainView?.endGame(obstacles: obstacles)
+        gameModel.ticks = 0
+        
+        presentAlert(title: "Game end", message: "You have no more life", actionTitle: "Dismiss")
+    }
+    
+    func endGameByUser(){
+        self.stopGame()
+        gameMainView?.endGame(obstacles: obstacles)
+        gameModel.ticks = 0
+        
+        presentAlert(title: "Game end", message: "You stopped the game", actionTitle: "Dismiss")
+    }
+    
+    // MARK - Alert
+    
+    func presentAlert(title : String, message : String, actionTitle : String){
+        
+        let alertController = UIAlertController(title: title, message:
+            message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: actionTitle, style: UIAlertActionStyle.default,handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
 }
 
