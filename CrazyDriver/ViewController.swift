@@ -74,6 +74,11 @@ public class ViewController: UIViewController {
     
     // update UI model before redraw
     func nextTick(){
+        
+        if(gameModel.life <= 0){
+            endGameNoMoreLife()
+        }
+        
         handleTickEvent(ticks: gameModel.ticks)
         updateModel()
         gameMainView?.updateView(carModel:carModel,gameModel:gameModel,obstacles:obstacles)
@@ -84,10 +89,6 @@ public class ViewController: UIViewController {
             self.gameModel.life = self.gameModel.life - 10  // todo value for live
         }
         gameMainView?.setNeedsDisplay()
-        
-        if(gameModel.life <= 0){
-            endGameNoMoreLife()
-        }
         
         self.gameModel.ticks += 1
     }

@@ -10,4 +10,7 @@ struct Constants {
     static var streetWidth = 300
     static var streetHeight = 300
     static var explosionDurationInTicks = 3
+    
+    static var explosionHeight = 172
+    static var explosionWidth = 172
 }
