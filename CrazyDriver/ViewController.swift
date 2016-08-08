@@ -50,10 +50,7 @@ public class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func initializeGame(_ obstacles : Array<ObstacleModel>){
-        for obstacle in obstacles{
-            self.addObstacle(obstacle: obstacle)
-        }
+    func initializeGame(){
         sensorModel.start()
         //carModel.positionY = 10
         carModel.frame.origin.x = CGFloat(self.view.bounds.size.width/2)
@@ -79,7 +76,7 @@ public class ViewController: UIViewController {
             endGameNoMoreLife()
         }
         
-        handleTickEvent(ticks: gameModel.ticks)
+        handleEvent(distance: Int(gameModel.carDistance))
         updateModel()
         gameMainView?.updateView(carModel:carModel,gameModel:gameModel,obstacles:obstacles)
        let collidedObstacle = Physics.isCarCollided(carFrame: carModel.frame, obstacles: obstacles)
@@ -103,6 +100,7 @@ public class ViewController: UIViewController {
         updateLife()
         updateTimeLabel()
         
+        
         for (model,_) in obstacles{
             model.frame.origin.y = CGFloat(gameModel.speedRelativeToStreet(objectSpeed: model.speedPerTick))+model.frame.origin.y
         }
@@ -118,6 +116,9 @@ public class ViewController: UIViewController {
             self.gameModel.carSpeed += self.gameModel.carAcceleration
         }
         
+        // increment cardistance
+        gameModel.carDistance = gameModel.carDistance + gameModel.carSpeed
+        NSLog(String(gameModel.carDistance))    // todo: remove
         self.updateCarSpeedLabel()
     }
     
@@ -163,11 +164,8 @@ public class ViewController: UIViewController {
     
     public func startGame(){
         gameMainView = self.view as? GameMainView
-        let obstacle = ObstacleModel(obstacleType: .RedCar)
-        var obstacles = Array<ObstacleModel>()
-        obstacles.append(obstacle)
         
-        initializeGame(obstacles)
+        initializeGame()
 
         startAnimationClock()
         gameModel.gameStatus = .Running
@@ -307,12 +305,19 @@ public class ViewController: UIViewController {
     
     // MARK - Tick events
     
-    private func handleTickEvent(ticks : Int){
+    private func handleEvent(distance : Int){
         let data = self.levelModel.data
         
-        if(data[ticks] != nil){
-            let obstacle = ObstacleModel(obstacleType: .RedCar)
-            self.addObstacle(obstacle: obstacle)
+        if(data[levelModel.nextEventId].distance <= distance){
+            
+            if(data[levelModel.nextEventId].obstacleType == "RedCar"){
+                let obstacle = ObstacleModel(obstacleType: .RedCar)
+                self.addObstacle(obstacle: obstacle)
+            }
+            else{
+                endGameByUser()
+            }
+            levelModel.nextEventId += 1
         }
     }
     
@@ -323,7 +328,7 @@ public class ViewController: UIViewController {
     }
     
     public func updateEllapsedSeconds(){
-        self.gameModel.ellapsedSeconds = self.gameModel.ellapsedSeconds+1
+        self.gameModel.ellapsedSeconds += 1
     }
     
     func timeFormatted(totalSeconds: Int) -> String {

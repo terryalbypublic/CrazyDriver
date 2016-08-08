@@ -10,14 +10,16 @@ import UIKit
 
 public class ObstacleModel: BaseObjectModel {
     
-    public enum ObstacleType{
+    public enum ObstacleType : Int{
         case RedCar
         case Bomb
+        case FinishLevel
+        case None
     }
     
     public var destroyed = false
     public var explosed = false
-    public var obstacleType : ObstacleType?
+    public var obstacleType : ObstacleType = ObstacleType.None
     
     public init(obstacleType : ObstacleType){
         super.init()
