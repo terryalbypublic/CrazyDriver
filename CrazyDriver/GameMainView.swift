@@ -75,7 +75,7 @@ public class GameMainView: UIView {
     }
     
     func removeObstacleIfNeeded(obstacle: (model: ObstacleModel, view: UIView)){
-        if(obstacle.model.frame.origin.y>500 || obstacle.model.explosed){
+        if(obstacle.model.frame.origin.y>500 || obstacle.model.collided){
             obstacle.view.removeFromSuperview()
             obstacle.model.destroyed = true
         }
@@ -137,11 +137,17 @@ public class GameMainView: UIView {
         return self.frame.size.width / CGFloat(2) - CGFloat(Constants.streetHeight)/2
     }
     
-    // MARK: Accident
+    // MARK: Accident or Collision
     
-    public func accidentWithObstacle(obstacle: (model : ObstacleModel,view : UIImageView)){
-        accidentAnimation(view: obstacle.view)
-        obstacle.model.explosed = true
+    public func collisionWithObstacle(obstacle: (model : ObstacleModel,view : UIImageView)){
+        if(obstacle.model.obstacleType == .RedCar){
+            accidentAnimation(view: obstacle.view)
+        }
+        else if(obstacle.model.obstacleType == .Ammunition){
+           takeAmmunitionAnimation(view: obstacle.view)
+        }
+        
+        obstacle.model.collided = true
     }
     
     public func accidentAnimation(view: UIView){
@@ -150,6 +156,10 @@ public class GameMainView: UIView {
         explosion.frame.origin.y = view.frame.origin.y - ((CGFloat(Constants.explosionHeight) - view.frame.size.height) / 2)
         self.explosionView = explosion
         self.addSubview(explosion)
+    }
+    
+    public func takeAmmunitionAnimation(view : UIView){
+        
     }
     
     // MARK : End of game

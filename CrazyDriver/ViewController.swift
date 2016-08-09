@@ -80,8 +80,8 @@ public class ViewController: UIViewController {
         updateModel()
         gameMainView?.updateView(carModel:carModel,gameModel:gameModel,obstacles:obstacles)
        let collidedObstacle = Physics.isCarCollided(carFrame: carModel.frame, obstacles: obstacles)
-        if(collidedObstacle != nil && !(collidedObstacle?.model.explosed)!){
-            self.gameMainView?.accidentWithObstacle(obstacle: collidedObstacle!)
+        if(collidedObstacle != nil && !(collidedObstacle?.model.collided)!){
+            self.gameMainView?.collisionWithObstacle(obstacle: collidedObstacle!)
             
             self.gameModel.life = self.gameModel.life - 10  // todo value for live
         }
@@ -312,6 +312,10 @@ public class ViewController: UIViewController {
             
             if(data[levelModel.nextEventId].obstacleType == "RedCar"){
                 let obstacle = ObstacleModel(obstacleType: .RedCar)
+                self.addObstacle(obstacle: obstacle)
+            }
+            else if(data[levelModel.nextEventId].obstacleType == "Ammunition"){
+                let obstacle = ObstacleModel(obstacleType: .Ammunition)
                 self.addObstacle(obstacle: obstacle)
             }
             else{
