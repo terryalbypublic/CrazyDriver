@@ -20,50 +20,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFC-R0-YqJ">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="VLT-Xb-yKX"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Start"/>
-                                <connections>
-                                    <action selector="startPauseButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6vg-Ln-zqn"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMq-re-1ja">
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Stop"/>
-                                <connections>
-                                    <action selector="stopButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d4U-Hz-Qwc"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eL-cJ-Rsj">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eL-cJ-Rsj">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="z5h-Pc-uVi"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="B"/>
+                                <state key="normal" title="B" image="BrakePedal"/>
                                 <connections>
                                     <action selector="brakeButtonTouchReleased:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5uH-My-6j0"/>
                                     <action selector="brakeButtonTouchedDown:" destination="BYZ-38-t0r" eventType="touchDown" id="foz-e6-8YO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ecf-Ti-Kut">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ecf-Ti-Kut">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="B6G-CV-hxa"/>
                                     <constraint firstAttribute="width" constant="60" id="jWN-kD-1Zz"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="G"/>
+                                <state key="normal" title="G" image="AcceleratorPedal"/>
                                 <connections>
                                     <action selector="accelerateButtonTouchReleased:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RYf-e1-nq7"/>
                                     <action selector="accelerateButtonTouchedDown:" destination="BYZ-38-t0r" eventType="touchDown" id="JMl-0G-5aV"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJT-sT-7lb">
-                                <frame key="frameInset" minX="619" minY="272" width="76" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJT-sT-7lb">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="59" id="SPT-9r-d31"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -72,8 +54,8 @@
                                     <constraint firstAttribute="width" constant="150" id="kHD-GX-1A3"/>
                                 </constraints>
                             </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6a-vh-irQ">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="km/h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bw-QC-KAi">
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -81,31 +63,45 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="124" id="OCY-7A-RjR"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6a-vh-irQ">
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFC-R0-YqJ">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="VLT-Xb-yKX"/>
+                                </constraints>
+                                <state key="normal" title="Start" image="Pause"/>
+                                <connections>
+                                    <action selector="startPauseButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6vg-Ln-zqn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ZFC-R0-YqJ" firstAttribute="top" secondItem="WMq-re-1ja" secondAttribute="top" id="3fs-9d-8et"/>
-                            <constraint firstItem="ZFC-R0-YqJ" firstAttribute="baseline" secondItem="WMq-re-1ja" secondAttribute="firstBaseline" id="4p5-sQ-3Ah"/>
-                            <constraint firstItem="4eL-cJ-Rsj" firstAttribute="top" secondItem="ZFC-R0-YqJ" secondAttribute="bottom" constant="9" id="7vQ-1L-MZO"/>
+                            <constraint firstItem="4eL-cJ-Rsj" firstAttribute="top" secondItem="ZFC-R0-YqJ" secondAttribute="bottom" constant="17" id="7vQ-1L-MZO"/>
                             <constraint firstItem="Rll-f4-BNG" firstAttribute="top" secondItem="e6a-vh-irQ" secondAttribute="bottom" constant="8" symbolic="YES" id="Dre-UK-sOk"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5bw-QC-KAi" secondAttribute="bottom" constant="10" id="ErF-UZ-wmm"/>
                             <constraint firstItem="Ecf-Ti-Kut" firstAttribute="top" secondItem="4eL-cJ-Rsj" secondAttribute="top" id="FJ0-DE-d5U"/>
-                            <constraint firstItem="ZFC-R0-YqJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="GQK-pU-KuM"/>
+                            <constraint firstItem="ZFC-R0-YqJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="GQK-pU-KuM"/>
+                            <constraint firstItem="jJT-sT-7lb" firstAttribute="baseline" secondItem="5bw-QC-KAi" secondAttribute="baseline" id="GVy-be-xd8"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="mUi-wL-lwA" secondAttribute="leading" id="I9w-Xt-8GX"/>
                             <constraint firstItem="Ecf-Ti-Kut" firstAttribute="firstBaseline" secondItem="4eL-cJ-Rsj" secondAttribute="baseline" id="MuH-HB-okl"/>
                             <constraint firstItem="Ecf-Ti-Kut" firstAttribute="baseline" secondItem="4eL-cJ-Rsj" secondAttribute="firstBaseline" id="RhV-uC-zbw"/>
-                            <constraint firstItem="ZFC-R0-YqJ" firstAttribute="firstBaseline" secondItem="WMq-re-1ja" secondAttribute="baseline" id="T7j-Sa-EOE"/>
-                            <constraint firstItem="mUi-wL-lwA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="9" id="Ugx-qK-rJA"/>
+                            <constraint firstItem="5bw-QC-KAi" firstAttribute="leading" secondItem="jJT-sT-7lb" secondAttribute="trailing" constant="8" id="Tbw-B1-zuj"/>
                             <constraint firstItem="Rll-f4-BNG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="45" id="Yfj-eO-N8F"/>
                             <constraint firstItem="Ecf-Ti-Kut" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Zz9-uD-XAT"/>
                             <constraint firstItem="4eL-cJ-Rsj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="aJO-aF-6eG"/>
-                            <constraint firstItem="Rll-f4-BNG" firstAttribute="centerX" secondItem="e6a-vh-irQ" secondAttribute="centerX" id="esb-OF-BLr"/>
-                            <constraint firstItem="WMq-re-1ja" firstAttribute="leading" secondItem="ZFC-R0-YqJ" secondAttribute="trailing" constant="8" symbolic="YES" id="gkS-iQ-TvT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5bw-QC-KAi" secondAttribute="trailing" constant="5" id="c94-OS-04A"/>
+                            <constraint firstItem="Rll-f4-BNG" firstAttribute="centerX" secondItem="e6a-vh-irQ" secondAttribute="centerX" constant="-4.5" id="esb-OF-BLr"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mUi-wL-lwA" secondAttribute="bottom" constant="10" id="hGo-u8-dFF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Rll-f4-BNG" secondAttribute="trailing" constant="5" id="hTg-ko-oIO"/>
-                            <constraint firstItem="mUi-wL-lwA" firstAttribute="top" secondItem="4eL-cJ-Rsj" secondAttribute="bottom" constant="54" id="iK0-jJ-naQ"/>
-                            <constraint firstItem="ZFC-R0-YqJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="n0c-f5-MbZ"/>
+                            <constraint firstItem="ZFC-R0-YqJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="12" id="n0c-f5-MbZ"/>
                             <constraint firstItem="Ecf-Ti-Kut" firstAttribute="top" secondItem="Rll-f4-BNG" secondAttribute="bottom" constant="22" id="pBI-ht-rPl"/>
                         </constraints>
                     </view>
@@ -116,7 +112,6 @@
                         <outlet property="lifeLabel" destination="e6a-vh-irQ" id="mFj-Se-Fxc"/>
                         <outlet property="speedLabel" destination="jJT-sT-7lb" id="KX9-TS-X8q"/>
                         <outlet property="startPauseButton" destination="ZFC-R0-YqJ" id="0JQ-Vr-dP1"/>
-                        <outlet property="stopButton" destination="WMq-re-1ja" id="UtS-qq-Q79"/>
                         <outlet property="timeLabel" destination="mUi-wL-lwA" id="iXB-ul-YP2"/>
                     </connections>
                 </viewController>
@@ -125,4 +120,9 @@
             <point key="canvasLocation" x="118.20652173913044" y="123.18840579710145"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="AcceleratorPedal" width="20" height="40"/>
+        <image name="BrakePedal" width="40" height="40"/>
+        <image name="Pause" width="35" height="35"/>
+    </resources>
 </document>

@@ -83,7 +83,14 @@ public class ViewController: UIViewController {
         if(collidedObstacle != nil && !(collidedObstacle?.model.collided)!){
             self.gameMainView?.collisionWithObstacle(obstacle: collidedObstacle!)
             
-            self.gameModel.life = self.gameModel.life - 10  // todo value for live
+            if(collidedObstacle?.model.obstacleType == .RedCar){
+                self.gameModel.life = self.gameModel.life - 10  // todo value for live
+            }
+            else if(collidedObstacle?.model.obstacleType == .Ammunition){
+                // todo
+            }
+            
+            
         }
         gameMainView?.setNeedsDisplay()
         
