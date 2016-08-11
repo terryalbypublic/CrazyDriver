@@ -9,7 +9,7 @@
 import UIKit
 import CoreMotion
 
-public class ViewController: UIViewController {
+public class GameMainViewController: UIViewController {
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var lifeBar: UIProgressView!
@@ -167,6 +167,7 @@ public class ViewController: UIViewController {
         else if(gameModel.gameStatus == .Paused){
             resumeGame()
         }
+        
     }
     
     public func startGame(){
@@ -184,6 +185,15 @@ public class ViewController: UIViewController {
         gameModel.time?.invalidate()
         gameModel.gameStatus = .Paused
         updateButtonsText()
+        
+        presentAlert(title: "Pause", message: "Do you want to continue?", defaultActionTitle: nil, secondActionTitle: "Resume", secondActionHandler: { action in
+            self.resumeGame()
+            }, thirdActionTitle: "End game", thirdActionHandler: {action in
+                let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc: UIViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as UIViewController
+                self.present(vc, animated: true, completion: nil)
+                return
+        })
     }
     
     public func stopGame(){
@@ -355,7 +365,7 @@ public class ViewController: UIViewController {
         gameMainView?.endGame(obstacles: obstacles)
         gameModel.ticks = 0
         
-        presentAlert(title: "Game end", message: "You have no more life", actionTitle: "Dismiss")
+        presentAlert(title: "Game end", message: "You have no more life", defaultActionTitle: "Dismiss")
     }
     
     func endGameByUser(){
@@ -363,16 +373,28 @@ public class ViewController: UIViewController {
         gameMainView?.endGame(obstacles: obstacles)
         gameModel.ticks = 0
         
-        presentAlert(title: "Game end", message: "You stopped the game", actionTitle: "Dismiss")
+        presentAlert(title: "Game end", message: "You stopped the game", defaultActionTitle: "Dismiss")
     }
     
     // MARK - Alert
     
-    func presentAlert(title : String, message : String, actionTitle : String){
+    func presentAlert(title : String, message : String, defaultActionTitle : String?, secondActionTitle : String? = nil, secondActionHandler : ((UIAlertAction) -> Swift.Void)? = nil, thirdActionTitle : String? = nil, thirdActionHandler : ((UIAlertAction) -> Swift.Void)? = nil){
         
         let alertController = UIAlertController(title: title, message:
             message, preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: actionTitle, style: UIAlertActionStyle.default,handler: nil))
+        
+        if(defaultActionTitle != nil){
+            alertController.addAction(UIAlertAction(title: defaultActionTitle, style: UIAlertActionStyle.default,handler: nil))
+        }
+        
+        if(secondActionTitle != nil){
+            alertController.addAction(UIAlertAction(title: secondActionTitle, style: UIAlertActionStyle.default, handler: secondActionHandler))
+        }
+        
+        if(thirdActionTitle != nil){
+            alertController.addAction(UIAlertAction(title: thirdActionTitle, style: UIAlertActionStyle.default, handler: thirdActionHandler))
+        }
+        
         self.present(alertController, animated: true, completion: nil)
     }
 }
