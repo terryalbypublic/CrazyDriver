@@ -26,6 +26,7 @@ public class GameModel: NSObject {
     public var gameStatus : GameStatus = GameStatus.Stopped
     public var ticks = 0
     public var carDistance : Double = 0
+    public var weaponsModel = WeaponsModel()
     
 
     

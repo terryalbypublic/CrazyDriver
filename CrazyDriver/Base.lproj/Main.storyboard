@@ -81,9 +81,17 @@
                                     <action selector="startPauseButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6vg-Ln-zqn"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xe4-Cw-JfY">
+                                <state key="normal" image="Cannon"/>
+                                <state key="highlighted" image="CannonHighlited"/>
+                                <connections>
+                                    <action selector="cannonButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E6U-cX-EU6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Ecf-Ti-Kut" firstAttribute="leading" secondItem="Xe4-Cw-JfY" secondAttribute="trailing" id="7cE-vy-qfV"/>
                             <constraint firstItem="4eL-cJ-Rsj" firstAttribute="top" secondItem="ZFC-R0-YqJ" secondAttribute="bottom" constant="17" id="7vQ-1L-MZO"/>
                             <constraint firstItem="Rll-f4-BNG" firstAttribute="top" secondItem="e6a-vh-irQ" secondAttribute="bottom" constant="8" symbolic="YES" id="Dre-UK-sOk"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5bw-QC-KAi" secondAttribute="bottom" constant="10" id="ErF-UZ-wmm"/>
@@ -103,11 +111,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Rll-f4-BNG" secondAttribute="trailing" constant="5" id="hTg-ko-oIO"/>
                             <constraint firstItem="ZFC-R0-YqJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="12" id="n0c-f5-MbZ"/>
                             <constraint firstItem="Ecf-Ti-Kut" firstAttribute="top" secondItem="Rll-f4-BNG" secondAttribute="bottom" constant="22" id="pBI-ht-rPl"/>
+                            <constraint firstItem="Xe4-Cw-JfY" firstAttribute="top" secondItem="Rll-f4-BNG" secondAttribute="bottom" constant="27" id="t2N-Iq-XYn"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="accelerateButton" destination="Ecf-Ti-Kut" id="2S1-k7-bpP"/>
                         <outlet property="brakeButton" destination="4eL-cJ-Rsj" id="0UQ-vR-2Xd"/>
+                        <outlet property="cannonButton" destination="Xe4-Cw-JfY" id="uIZ-gR-Uyz"/>
                         <outlet property="lifeBar" destination="Rll-f4-BNG" id="SQf-qN-y5J"/>
                         <outlet property="lifeLabel" destination="e6a-vh-irQ" id="mFj-Se-Fxc"/>
                         <outlet property="speedLabel" destination="jJT-sT-7lb" id="KX9-TS-X8q"/>
@@ -166,6 +176,8 @@
     <resources>
         <image name="AcceleratorPedal" width="20" height="40"/>
         <image name="BrakePedal" width="40" height="40"/>
+        <image name="Cannon" width="100" height="50"/>
+        <image name="CannonHighlited" width="102" height="52"/>
         <image name="Pause" width="35" height="35"/>
     </resources>
 </document>

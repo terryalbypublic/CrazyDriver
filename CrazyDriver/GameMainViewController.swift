@@ -16,9 +16,9 @@ public class GameMainViewController: UIViewController {
     @IBOutlet weak var lifeLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var startPauseButton: UIButton!
-    @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var accelerateButton: UIButton!
     @IBOutlet weak var brakeButton: UIButton!
+    @IBOutlet weak var cannonButton: UIButton!
     
     // clock
     var animationClock : CADisplayLink = CADisplayLink()
@@ -58,6 +58,7 @@ public class GameMainViewController: UIViewController {
         let gameMainView = self.view as! GameMainView
         
         gameModel = GameModel()
+        levelModel = LevelModel.levelModelFromFileName(fileName: "level1")
         gameMainView.initializeStreetViews()
     }
     
@@ -78,6 +79,9 @@ public class GameMainViewController: UIViewController {
         
         handleEvent(distance: Int(gameModel.carDistance))
         updateModel()
+        
+        cannonButton.isHidden = !self.gameModel.weaponsModel.hasWeapon
+            
         gameMainView?.updateView(carModel:carModel,gameModel:gameModel,obstacles:obstacles)
        let collidedObstacle = Physics.isCarCollided(carFrame: carModel.frame, obstacles: obstacles)
         if(collidedObstacle != nil && !(collidedObstacle?.model.collided)!){
@@ -87,7 +91,7 @@ public class GameMainViewController: UIViewController {
                 self.gameModel.life = self.gameModel.life - 10  // todo value for live
             }
             else if(collidedObstacle?.model.obstacleType == .Ammunition){
-                // todo
+                self.gameModel.weaponsModel.numberOfAmmunition += 1
             }
             
             
@@ -336,7 +340,7 @@ public class GameMainViewController: UIViewController {
                 self.addObstacle(obstacle: obstacle)
             }
             else{
-                endGameByUser()
+                endGameFinished()
             }
             levelModel.nextEventId += 1
         }
@@ -376,6 +380,21 @@ public class GameMainViewController: UIViewController {
         presentAlert(title: "Game end", message: "You stopped the game", defaultActionTitle: "Dismiss")
     }
     
+    func endGameFinished(){
+        self.stopGame()
+        gameMainView?.endGame(obstacles: obstacles)
+        gameModel.ticks = 0
+        presentAlert(title: "End", message: "Do you want to regame?", defaultActionTitle: nil, secondActionTitle: "Replay", secondActionHandler: { action in
+            self.startGame()
+            }, thirdActionTitle: "End game", thirdActionHandler: {action in
+                let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc: UIViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as UIViewController
+                self.present(vc, animated: true, completion: nil)
+                return
+        })
+        
+    }
+    
     // MARK - Alert
     
     func presentAlert(title : String, message : String, defaultActionTitle : String?, secondActionTitle : String? = nil, secondActionHandler : ((UIAlertAction) -> Swift.Void)? = nil, thirdActionTitle : String? = nil, thirdActionHandler : ((UIAlertAction) -> Swift.Void)? = nil){
@@ -397,5 +416,13 @@ public class GameMainViewController: UIViewController {
         
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    // MARK - Cannon
+    
+    @IBAction func cannonButtonTapped(_ sender: AnyObject) {
+        self.gameModel.weaponsModel.numberOfAmmunition -= 1
+    }
+    
+    
 }
 
