@@ -125,7 +125,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "74"
             endingLineNumber = "74"
-            landmarkName = "addObstacleView(view:)"
+            landmarkName = "addObjectView(view:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -381,7 +381,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
             endingLineNumber = "15"
-            landmarkName = "isCarCollided(carFrame:obstacles:)"
+            landmarkName = "isCarCollided(carFrame:objectViews:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -429,7 +429,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
             endingLineNumber = "18"
-            landmarkName = "isCarCollided(carFrame:obstacles:)"
+            landmarkName = "isCarCollided(carFrame:objectViews:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -445,7 +445,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "16"
             endingLineNumber = "16"
-            landmarkName = "isCarCollided(carFrame:obstacles:)"
+            landmarkName = "isCarCollided(carFrame:objectViews:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -776,11 +776,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CrazyDriver/GameMainViewController.swift"
-            timestampString = "492639596.995058"
+            timestampString = "492722216.988463"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "388"
-            endingLineNumber = "388"
+            startingLineNumber = "395"
+            endingLineNumber = "395"
             landmarkName = "endGameFinished()"
             landmarkType = "7">
          </BreakpointContent>

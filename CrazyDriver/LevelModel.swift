@@ -11,7 +11,7 @@ import UIKit
 
 public class LevelModel: NSObject {
     public var levelName = ""
-    public var data : [(distance: Int, obstacleType: String)] = []
+    public var data : [(distance: Int, objectViewType: String)] = []
     public var nextEventId = 0
     
     public static func levelModelFromFileName(fileName : String) -> LevelModel{
@@ -37,9 +37,9 @@ public class LevelModel: NSObject {
                 for d in levelDataDict{
                     
                     let distance = Int(d.object(forKey: "Distance") as! String)
-                    let obstacleType = d.object(forKey: "Object") as! String
+                    let obstacleViewType = d.object(forKey: "Object") as! String
                     
-                    levelModel.data.append((distance: distance!, obstacleType: obstacleType))
+                    levelModel.data.append((distance: distance!, objectViewType: obstacleViewType))
                 }
                 
             } catch {

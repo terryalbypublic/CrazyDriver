@@ -31,13 +31,13 @@ public class GameMainView: UIView {
         super.draw(rect)
     }
     
-    public func updateView(carModel : CarModel, gameModel : GameModel, obstacles : [(model : ObstacleModel,view : UIImageView)]){
+    public func updateView(carModel : CarModel, gameModel : GameModel, objectViews : [(model : ObjectViewModel,view : UIImageView)]){
         
-        // update obstacle views
-        for (model,view) in obstacles where !model.destroyed{
+        // update objectView views
+        for (model,view) in objectViews where !model.destroyed{
             view.frame.origin.x = model.frame.origin.x
             view.frame.origin.y = model.frame.origin.y
-            removeObstacleIfNeeded(obstacle: (model,view))
+            removeObjectViewIfNeeded(objectView: (model,view))
         }
         
         // set position of the carview
@@ -68,16 +68,16 @@ public class GameMainView: UIView {
         carModel.frame = carImageView.frame    // get frame of the view into the model
     }
     
-    // MARK: Obstacles
+    // MARK: objectViews
     
-    public func addObstacleView(view : UIImageView){
+    public func addObjectView(view : UIImageView){
         self.addSubview(view)
     }
     
-    func removeObstacleIfNeeded(obstacle: (model: ObstacleModel, view: UIView)){
-        if(obstacle.model.frame.origin.y>500 || obstacle.model.collided){
-            obstacle.view.removeFromSuperview()
-            obstacle.model.destroyed = true
+    func removeObjectViewIfNeeded(objectView: (model: ObjectViewModel, view: UIView)){
+        if(objectView.model.frame.origin.y>500 || objectView.model.collided){
+            objectView.view.removeFromSuperview()
+            objectView.model.destroyed = true
         }
     }
     
@@ -139,15 +139,15 @@ public class GameMainView: UIView {
     
     // MARK: Accident or Collision
     
-    public func collisionWithObstacle(obstacle: (model : ObstacleModel,view : UIImageView)){
-        if(obstacle.model.obstacleType == .RedCar){
-            accidentAnimation(view: obstacle.view)
+    public func collisionWithObjectView(objectView: (model : ObjectViewModel,view : UIImageView)){
+        if(objectView.model.objectViewType == .RedCar){
+            accidentAnimation(view: objectView.view)
         }
-        else if(obstacle.model.obstacleType == .Ammunition){
-           takeAmmunitionAnimation(view: obstacle.view)
+        else if(objectView.model.objectViewType == .Ammunition){
+           takeAmmunitionAnimation(view: objectView.view)
         }
         
-        obstacle.model.collided = true
+        objectView.model.collided = true
     }
     
     public func accidentAnimation(view: UIView){
@@ -164,12 +164,12 @@ public class GameMainView: UIView {
     
     // MARK : End of game
     
-    public func endGame(obstacles : [(model : ObstacleModel,view : UIImageView)]){
+    public func endGame(objectViews : [(model : ObjectViewModel,view : UIImageView)]){
         // remove superviews
         explosionView?.removeFromSuperview()
         
-        for obstacle in obstacles{
-            obstacle.view.removeFromSuperview()
+        for objectView in objectViews{
+            objectView.view.removeFromSuperview()
         }
     }
 

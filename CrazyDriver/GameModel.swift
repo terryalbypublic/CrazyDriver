@@ -17,8 +17,8 @@ public class GameModel: NSObject {
     }
 
     public var carSpeed : Double = 5
-    public var maxCarSpeed : Double = 10
-    public var minCarSpeed : Double = 1
+    public var maxCarSpeed : Double = 15
+    public var minCarSpeed : Double = 2
     public var carAcceleration : Double = 0
     public var time : Timer?
     public var ellapsedSeconds = 0

@@ -8,41 +8,48 @@
 
 import UIKit
 
-public class ObstacleModel: BaseObjectModel {
+public class ObjectViewModel: BaseObjectModel {
     
-    public enum ObstacleType : Int{
+    public enum ObjectType : Int{
         case RedCar
         case Bomb
         case Ammunition
         case FinishLevel
+        case Shot
         case None
     }
     
     public var destroyed = false
     public var collided = false
-    public var obstacleType : ObstacleType = ObstacleType.None
+    public var objectViewType : ObjectType = ObjectType.None
     
-    public init(obstacleType : ObstacleType){
+    public init(objectViewType : ObjectType){
         super.init()
-        switch obstacleType {
+        switch objectViewType {
         case .RedCar:
             self.imageName = "ObstacleRedCar"
             self.frame.origin.x = 300   // todo
             self.frame.origin.y = -100  // todo
             self.speedPerTick = 1       // todo
-            self.obstacleType = .RedCar
+            self.objectViewType = .RedCar
         case .Ammunition:
             self.imageName = "Ammunition"
             self.frame.origin.x = 400   // todo
             self.frame.origin.y = -100  // todo
             self.speedPerTick = 0       // todo
-            self.obstacleType = .Ammunition
+            self.objectViewType = .Ammunition
+        case .Shot:
+            self.imageName = "Ammunition"
+            self.frame.origin.x = 400   // todo
+            self.frame.origin.y = 150  // todo
+            self.speedPerTick = 30       // todo
+            self.objectViewType = .Ammunition
         default:
             self.imageName = "ObstacleRedCar"
             self.frame.origin.x = 300   // todo
             self.frame.origin.y = -100  // todo
             self.speedPerTick = 4       // todo
-            self.obstacleType = .RedCar
+            self.objectViewType = .RedCar
         }
     }
 }

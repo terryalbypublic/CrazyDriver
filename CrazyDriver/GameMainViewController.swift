@@ -33,8 +33,8 @@ public class GameMainViewController: UIViewController {
     var streetViewArray = Array<UIImageView>()
     var gameMainView : GameMainView?
     
-    // obstacles
-    var obstacles : [(model: ObstacleModel, view: UIImageView)] = []
+    // objectviews
+    var objectViews : [(model: ObjectViewModel, view: UIImageView)] = []
     
     
     public override func viewDidLoad() {
@@ -82,15 +82,15 @@ public class GameMainViewController: UIViewController {
         
         cannonButton.isHidden = !self.gameModel.weaponsModel.hasWeapon
             
-        gameMainView?.updateView(carModel:carModel,gameModel:gameModel,obstacles:obstacles)
-       let collidedObstacle = Physics.isCarCollided(carFrame: carModel.frame, obstacles: obstacles)
-        if(collidedObstacle != nil && !(collidedObstacle?.model.collided)!){
-            self.gameMainView?.collisionWithObstacle(obstacle: collidedObstacle!)
+        gameMainView?.updateView(carModel:carModel,gameModel:gameModel,objectViews:objectViews)
+       let collidedObjectView = Physics.isCarCollided(carFrame: carModel.frame, objectViews: objectViews)
+        if(collidedObjectView != nil && !(collidedObjectView?.model.collided)!){
+            self.gameMainView?.collisionWithObjectView(objectView: collidedObjectView!)
             
-            if(collidedObstacle?.model.obstacleType == .RedCar){
+            if(collidedObjectView?.model.objectViewType == .RedCar){
                 self.gameModel.life = self.gameModel.life - 10  // todo value for live
             }
-            else if(collidedObstacle?.model.obstacleType == .Ammunition){
+            else if(collidedObjectView?.model.objectViewType == .Ammunition){
                 self.gameModel.weaponsModel.numberOfAmmunition += 1
             }
             
@@ -112,7 +112,7 @@ public class GameMainViewController: UIViewController {
         updateTimeLabel()
         
         
-        for (model,_) in obstacles{
+        for (model,_) in objectViews{
             model.frame.origin.y = CGFloat(gameModel.speedRelativeToStreet(objectSpeed: model.speedPerTick))+model.frame.origin.y
         }
     }
@@ -313,15 +313,15 @@ public class GameMainViewController: UIViewController {
         }
     }
     
-    // MARK - Obstacles
+    // MARK - objectViews
     
-    private func addObstacle(obstacle : ObstacleModel){
-        let imageView = UIImageView(image: UIImage(named: obstacle.imageName))
-        imageView.frame.origin.x = CGFloat(obstacle.frame.origin.x)
-        imageView.frame.origin.y = CGFloat(obstacle.frame.origin.y)
-        obstacle.frame = imageView.frame    // get image size
-        self.obstacles.append((model:obstacle, view: imageView))
-        gameMainView?.addObstacleView(view: imageView)
+    private func addObjectView(objectView : ObjectViewModel){
+        let imageView = UIImageView(image: UIImage(named: objectView.imageName))
+        imageView.frame.origin.x = CGFloat(objectView.frame.origin.x)
+        imageView.frame.origin.y = CGFloat(objectView.frame.origin.y)
+        objectView.frame = imageView.frame    // get image size
+        self.objectViews.append((model:objectView, view: imageView))
+        gameMainView?.addObjectView(view: imageView)
     }
     
     // MARK - Tick events
@@ -331,13 +331,13 @@ public class GameMainViewController: UIViewController {
         
         if(data[levelModel.nextEventId].distance <= distance){
             
-            if(data[levelModel.nextEventId].obstacleType == "RedCar"){
-                let obstacle = ObstacleModel(obstacleType: .RedCar)
-                self.addObstacle(obstacle: obstacle)
+            if(data[levelModel.nextEventId].objectViewType == "RedCar"){
+                let objectView = ObjectViewModel(objectViewType: .RedCar)
+                self.addObjectView(objectView: objectView)
             }
-            else if(data[levelModel.nextEventId].obstacleType == "Ammunition"){
-                let obstacle = ObstacleModel(obstacleType: .Ammunition)
-                self.addObstacle(obstacle: obstacle)
+            else if(data[levelModel.nextEventId].objectViewType == "Ammunition"){
+                let objectView = ObjectViewModel(objectViewType: .Ammunition)
+                self.addObjectView(objectView: objectView)
             }
             else{
                 endGameFinished()
@@ -366,15 +366,22 @@ public class GameMainViewController: UIViewController {
     
     func endGameNoMoreLife(){
         self.stopGame()
-        gameMainView?.endGame(obstacles: obstacles)
+        gameMainView?.endGame(objectViews: objectViews)
         gameModel.ticks = 0
         
-        presentAlert(title: "Game end", message: "You have no more life", defaultActionTitle: "Dismiss")
+        presentAlert(title: "End", message: "You have no more life, do you want to regame?", defaultActionTitle: nil, secondActionTitle: "Replay", secondActionHandler: { action in
+            self.startGame()
+            }, thirdActionTitle: "End game", thirdActionHandler: {action in
+                let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc: UIViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as UIViewController
+                self.present(vc, animated: true, completion: nil)
+                return
+        })
     }
     
     func endGameByUser(){
         self.stopGame()
-        gameMainView?.endGame(obstacles: obstacles)
+        gameMainView?.endGame(objectViews: objectViews)
         gameModel.ticks = 0
         
         presentAlert(title: "Game end", message: "You stopped the game", defaultActionTitle: "Dismiss")
@@ -382,7 +389,7 @@ public class GameMainViewController: UIViewController {
     
     func endGameFinished(){
         self.stopGame()
-        gameMainView?.endGame(obstacles: obstacles)
+        gameMainView?.endGame(objectViews: objectViews)
         gameModel.ticks = 0
         presentAlert(title: "End", message: "Do you want to regame?", defaultActionTitle: nil, secondActionTitle: "Replay", secondActionHandler: { action in
             self.startGame()
@@ -421,7 +428,12 @@ public class GameMainViewController: UIViewController {
     
     @IBAction func cannonButtonTapped(_ sender: AnyObject) {
         self.gameModel.weaponsModel.numberOfAmmunition -= 1
+        
+        let objectView = ObjectViewModel(objectViewType: .Shot)
+        addObjectView(objectView: objectView)
+        
     }
+    
     
     
 }
