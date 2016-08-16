@@ -365,7 +365,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
             endingLineNumber = "44"
-            landmarkName = "updateView(carModel:gameModel:obstacles:)"
+            landmarkName = "updateView(carModel:gameModel:objectViews:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -605,7 +605,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
             endingLineNumber = "79"
-            landmarkName = "removeObstacleIfNeeded(obstacle:)"
+            landmarkName = "removeObjectViewIfNeeded(objectView:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -653,7 +653,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
             endingLineNumber = "40"
-            landmarkName = "updateView(carModel:gameModel:obstacles:)"
+            landmarkName = "updateView(carModel:gameModel:objectViews:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -744,11 +744,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CrazyDriver/GameMainViewController.swift"
-            timestampString = "492639596.995058"
+            timestampString = "493071021.722551"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
             landmarkName = "pauseGame()"
             landmarkType = "7">
          </BreakpointContent>
@@ -776,11 +776,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CrazyDriver/GameMainViewController.swift"
-            timestampString = "492722216.988463"
+            timestampString = "493071021.722551"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "395"
-            endingLineNumber = "395"
+            startingLineNumber = "400"
+            endingLineNumber = "400"
             landmarkName = "endGameFinished()"
             landmarkType = "7">
          </BreakpointContent>

@@ -73,6 +73,8 @@ public class GameMainViewController: UIViewController {
     // update UI model before redraw
     func nextTick(){
         
+        NSLog(String(objectViews.count))
+        
         if(gameModel.life <= 0){
             endGameNoMoreLife()
         }
@@ -81,7 +83,10 @@ public class GameMainViewController: UIViewController {
         updateModel()
         
         cannonButton.isHidden = !self.gameModel.weaponsModel.hasWeapon
-            
+    
+        // clean objectViews array
+        cleanObjectViewsArray()
+        
         gameMainView?.updateView(carModel:carModel,gameModel:gameModel,objectViews:objectViews)
        let collidedObjectView = Physics.isCarCollided(carFrame: carModel.frame, objectViews: objectViews)
         if(collidedObjectView != nil && !(collidedObjectView?.model.collided)!){
@@ -129,7 +134,7 @@ public class GameMainViewController: UIViewController {
         
         // increment cardistance
         gameModel.carDistance = gameModel.carDistance + gameModel.carSpeed
-        NSLog(String(gameModel.carDistance))    // todo: remove
+        //NSLog(String(gameModel.carDistance))    // todo: remove
         self.updateCarSpeedLabel()
     }
     
@@ -432,6 +437,19 @@ public class GameMainViewController: UIViewController {
         let objectView = ObjectViewModel(objectViewType: .Shot)
         addObjectView(objectView: objectView)
         
+    }
+    
+    func cleanObjectViewsArray(){
+        
+        // new array
+        var objectViewsNew : [(model: ObjectViewModel, view: UIImageView)] = []
+        
+        // select objectViews that are not destroyed
+        for objectView in objectViews where !objectView.model.destroyed{
+            objectViewsNew.append(objectView)
+        }
+        // set the new array
+        objectViews = objectViewsNew
     }
     
     

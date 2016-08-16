@@ -75,7 +75,7 @@ public class GameMainView: UIView {
     }
     
     func removeObjectViewIfNeeded(objectView: (model: ObjectViewModel, view: UIView)){
-        if(objectView.model.frame.origin.y>500 || objectView.model.collided){
+        if(objectView.model.frame.origin.y>500 || objectView.model.frame.origin.y < (-200) || objectView.model.collided){
             objectView.view.removeFromSuperview()
             objectView.model.destroyed = true
         }
