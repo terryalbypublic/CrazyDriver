@@ -23,7 +23,7 @@ public class ObjectViewModel: BaseObjectModel {
     public var collided = false
     public var objectViewType : ObjectType = ObjectType.None
     
-    public init(objectViewType : ObjectType){
+    public init(objectViewType : ObjectType, originX : CGFloat = 0, originY : CGFloat = 0){
         super.init()
         switch objectViewType {
         case .RedCar:
@@ -40,8 +40,8 @@ public class ObjectViewModel: BaseObjectModel {
             self.objectViewType = .Ammunition
         case .Shot:
             self.imageName = "Ammunition"
-            self.frame.origin.x = 400   // todo
-            self.frame.origin.y = 150  // todo
+            self.frame.origin.x = originX+20  // todo get center of view
+            self.frame.origin.y = originY-50  // todo get center of view
             self.speedPerTick = 30       // todo
             self.objectViewType = .Ammunition
         default:

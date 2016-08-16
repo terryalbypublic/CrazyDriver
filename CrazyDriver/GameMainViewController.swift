@@ -434,7 +434,9 @@ public class GameMainViewController: UIViewController {
     @IBAction func cannonButtonTapped(_ sender: AnyObject) {
         self.gameModel.weaponsModel.numberOfAmmunition -= 1
         
-        let objectView = ObjectViewModel(objectViewType: .Shot)
+        
+        let objectView = ObjectViewModel(objectViewType: .Shot, originX: carModel.frame.origin.x, originY: carModel.frame.origin.y)
+        
         addObjectView(objectView: objectView)
         
     }
