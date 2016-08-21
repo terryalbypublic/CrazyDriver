@@ -52,6 +52,7 @@ public class GameMainView: UIView {
         if(self.explosionView != nil){
             if(explosionTicks > Constants.explosionDurationInTicks-1){
                 self.explosionView?.removeFromSuperview()
+                self.explosionView = nil
                 explosionTicks = 0
             }
             else{
@@ -150,12 +151,21 @@ public class GameMainView: UIView {
         objectView.model.collided = true
     }
     
+    // view hit by shot
+    public func hitObjectView(objectView: (model : ObjectViewModel,view : UIImageView)){
+        if(objectView.model.objectViewType == .RedCar){
+            accidentAnimation(view: objectView.view)
+        }
+        
+        objectView.model.collided = true
+    }
+    
     public func accidentAnimation(view: UIView){
         let explosion = UIImageView(image: UIImage(named: "Explosion"))
         explosion.frame.origin.x = view.frame.origin.x - ((CGFloat(Constants.explosionWidth) - view.frame.size.width) / 2)
         explosion.frame.origin.y = view.frame.origin.y - ((CGFloat(Constants.explosionHeight) - view.frame.size.height) / 2)
-        self.explosionView = explosion
         self.addSubview(explosion)
+        self.explosionView = explosion
     }
     
     public func takeAmmunitionAnimation(view : UIView){

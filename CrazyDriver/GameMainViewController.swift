@@ -87,20 +87,13 @@ public class GameMainViewController: UIViewController {
         // clean objectViews array
         cleanObjectViewsArray()
         
+        // update view
         gameMainView?.updateView(carModel:carModel,gameModel:gameModel,objectViews:objectViews)
-       let collidedObjectView = Physics.isCarCollided(carFrame: carModel.frame, objectViews: objectViews)
-        if(collidedObjectView != nil && !(collidedObjectView?.model.collided)!){
-            self.gameMainView?.collisionWithObjectView(objectView: collidedObjectView!)
-            
-            if(collidedObjectView?.model.objectViewType == .RedCar){
-                self.gameModel.life = self.gameModel.life - 10  // todo value for live
-            }
-            else if(collidedObjectView?.model.objectViewType == .Ammunition){
-                self.gameModel.weaponsModel.numberOfAmmunition += 1
-            }
-            
-            
-        }
+        
+        // what happen if there are some collisions?
+        handleCollisions()
+        
+        // redraw the view
         gameMainView?.setNeedsDisplay()
         
         self.gameModel.ticks += 1
@@ -452,6 +445,30 @@ public class GameMainViewController: UIViewController {
         }
         // set the new array
         objectViews = objectViewsNew
+    }
+    
+    func handleCollisions(){
+        let collidedObjectView = Physics.isCarCollided(carFrame: carModel.frame, objectViews: objectViews)
+        if(collidedObjectView != nil && !(collidedObjectView?.model.collided)!){
+            self.gameMainView?.collisionWithObjectView(objectView: collidedObjectView!)
+            
+            if(collidedObjectView?.model.objectViewType == .RedCar){
+                self.gameModel.life = self.gameModel.life - 10  // todo value for live
+            }
+            else if(collidedObjectView?.model.objectViewType == .Ammunition){
+                self.gameModel.weaponsModel.numberOfAmmunition += 1
+            }
+        }
+        
+        // get objectViews hit by some shots
+        let hitObjectViews = Physics.hitObjectViews(objectViews: objectViews)
+        if(hitObjectViews.count > 0){
+            
+            for hitObjectView in hitObjectViews{
+                self.gameMainView?.hitObjectView(objectView: hitObjectView)
+            }
+            
+        }
     }
     
     

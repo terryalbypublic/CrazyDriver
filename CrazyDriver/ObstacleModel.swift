@@ -43,7 +43,7 @@ public class ObjectViewModel: BaseObjectModel {
             self.frame.origin.x = originX+20  // todo get center of view
             self.frame.origin.y = originY-50  // todo get center of view
             self.speedPerTick = 30       // todo
-            self.objectViewType = .Ammunition
+            self.objectViewType = .Shot
         default:
             self.imageName = "ObstacleRedCar"
             self.frame.origin.x = 300   // todo
