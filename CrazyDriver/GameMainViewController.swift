@@ -218,7 +218,7 @@ public class GameMainViewController: UIViewController {
     // MARK: Textlabels
     
     public func updateCarSpeedLabel(){
-        self.speedLabel.text = String(round(self.gameModel.carSpeed*10))
+        self.speedLabel.text = String(Int(round(self.gameModel.carSpeed*10)))
     }
     
     public func updateButtonsText(){
