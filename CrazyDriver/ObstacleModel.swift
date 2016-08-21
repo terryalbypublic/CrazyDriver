@@ -28,14 +28,14 @@ public class ObjectViewModel: BaseObjectModel {
         switch objectViewType {
         case .RedCar:
             self.imageName = "ObstacleRedCar"
-            self.frame.origin.x = 300   // todo
-            self.frame.origin.y = -100  // todo
+            self.frame.origin.x = originX   // todo
+            self.frame.origin.y = originY  // todo
             self.speedPerTick = 1       // todo
             self.objectViewType = .RedCar
         case .Ammunition:
             self.imageName = "Ammunition"
-            self.frame.origin.x = 400   // todo
-            self.frame.origin.y = -100  // todo
+            self.frame.origin.x = originX   // todo
+            self.frame.origin.y = originY  // todo
             self.speedPerTick = 0       // todo
             self.objectViewType = .Ammunition
         case .Shot:

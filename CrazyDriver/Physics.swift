@@ -30,6 +30,7 @@ class Physics: NSObject {
         for objectView in objectViews where objectView.model.objectViewType != .Shot && !objectView.model.destroyed{
             for shotObjectView in objectViews where shotObjectView.model.objectViewType == .Shot{
                 if (shotObjectView.model.frame.intersects(objectView.model.frame)){
+                    shotObjectView.model.collided = true
                     hitObjectViews.append(objectView)
                 }
             }

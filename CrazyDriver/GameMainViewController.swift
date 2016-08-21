@@ -36,6 +36,9 @@ public class GameMainViewController: UIViewController {
     // objectviews
     var objectViews : [(model: ObjectViewModel, view: UIImageView)] = []
     
+    // size of the screen
+    let screenSize: CGRect = UIScreen.main().bounds
+    
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -330,11 +333,11 @@ public class GameMainViewController: UIViewController {
         if(data[levelModel.nextEventId].distance <= distance){
             
             if(data[levelModel.nextEventId].objectViewType == "RedCar"){
-                let objectView = ObjectViewModel(objectViewType: .RedCar)
+                let objectView = ObjectViewModel(objectViewType: .RedCar, originX: screenSize.size.width/2+CGFloat(data[levelModel.nextEventId].originX), originY: -100)
                 self.addObjectView(objectView: objectView)
             }
             else if(data[levelModel.nextEventId].objectViewType == "Ammunition"){
-                let objectView = ObjectViewModel(objectViewType: .Ammunition)
+                let objectView = ObjectViewModel(objectViewType: .Ammunition, originX: screenSize.size.width/2+CGFloat(data[levelModel.nextEventId].originX), originY: -100)
                 self.addObjectView(objectView: objectView)
             }
             else{
