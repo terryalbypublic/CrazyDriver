@@ -57,7 +57,7 @@ public class GameMainViewController: UIViewController {
         sensorModel.start()
         //carModel.positionY = 10
         carModel.frame.origin.x = CGFloat(self.view.bounds.size.width/2)
-        carModel.frame.origin.y = CGFloat(self.view.bounds.size.height-150)
+        carModel.frame.origin.y = CGFloat(self.view.bounds.size.height-70)
         let gameMainView = self.view as! GameMainView
         
         gameModel = GameModel()
@@ -431,7 +431,7 @@ public class GameMainViewController: UIViewController {
         self.gameModel.weaponsModel.numberOfAmmunition -= 1
         
         
-        let objectView = ObjectViewModel(objectViewType: .Shot, originX: carModel.frame.origin.x, originY: carModel.frame.origin.y)
+        let objectView = ObjectViewModel(objectViewType: .Shot, originX: (carModel.frame.origin.x+carModel.frame.size.width/2)-7, originY: carModel.frame.origin.y-carModel.frame.size.height+13)
         
         addObjectView(objectView: objectView)
         
