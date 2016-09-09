@@ -36,14 +36,7 @@ class MenuViewController: UIViewController {
         let image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         view.backgroundColor = UIColor(patternImage: image!)
-        
-//        let gradient: CAGradientLayer = CAGradientLayer()
-//        gradient.frame = view.bounds
-//        gradient.colors = [UIColor.gray().cgColor, UIColor.white().cgColor]
-//        view.layer.insertSublayer(gradient, at: 0)
-        //use startPoint and endPoint to change direction of gradient (http://stackoverflow.com/a/20387923/2057171)
-        
-        
+    
         
         // set UIButton config
         let color = UIColor.black()
