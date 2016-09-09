@@ -17,7 +17,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="GameMainView" customModule="CrazyDriver" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eL-cJ-Rsj">
@@ -129,48 +129,83 @@
             </objects>
             <point key="canvasLocation" x="117.25352112676056" y="121.875"/>
         </scene>
-        <!--View Controller-->
+        <!--Menu View Controller-->
         <scene sceneID="JDn-4n-qNp">
             <objects>
-                <viewController storyboardIdentifier="MenuViewController" id="f7k-LM-mGm" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuViewController" id="f7k-LM-mGm" customClass="MenuViewController" customModule="CrazyDriver" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kce-mb-QX3"/>
                         <viewControllerLayoutGuide type="bottom" id="Vq3-L8-x9a"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ydV-XC-nOp">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                    <view key="view" contentMode="scaleToFill" id="ydV-XC-nOp" customClass="Menu">
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gnp-Tj-PGI">
-                                <frame key="frameInset" minX="160" minY="142" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Start"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3UJ-Bz-69h">
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="QGs-f9-mLe"/>
+                                    <constraint firstAttribute="width" constant="100" id="z7f-kY-P4j"/>
+                                </constraints>
+                                <state key="normal" title="Settings">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMn-3F-OtU">
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="7sY-cJ-FuH"/>
+                                    <constraint firstAttribute="width" constant="100" id="FUd-Am-rDf"/>
+                                </constraints>
+                                <state key="normal" title="Help">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stO-Ki-hYi">
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="6dU-ab-skg"/>
+                                    <constraint firstAttribute="height" constant="35" id="yJ1-4x-ZU7"/>
+                                </constraints>
+                                <state key="normal" title="Results">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gnp-Tj-PGI">
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="gdG-Pl-8MJ"/>
+                                    <constraint firstAttribute="height" constant="35" id="lqi-bU-dnl"/>
+                                </constraints>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" id="gQJ-8Y-hHS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMn-3F-OtU">
-                                <frame key="frameInset" minX="160" minY="250" width="32" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Help"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3UJ-Bz-69h">
-                                <frame key="frameInset" minX="306" minY="250" width="42" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Blabla"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stO-Ki-hYi">
-                                <frame key="frameInset" minX="299" minY="142" width="51" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Results"/>
-                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="stO-Ki-hYi" firstAttribute="centerY" secondItem="ydV-XC-nOp" secondAttribute="centerY" constant="-64.5" id="3x7-l7-4nX"/>
+                            <constraint firstItem="Gnp-Tj-PGI" firstAttribute="centerX" secondItem="ydV-XC-nOp" secondAttribute="centerX" constant="-132" id="5CD-3z-pS9"/>
+                            <constraint firstItem="stO-Ki-hYi" firstAttribute="centerX" secondItem="ydV-XC-nOp" secondAttribute="centerX" constant="121" id="Dge-qJ-hPs"/>
+                            <constraint firstItem="HMn-3F-OtU" firstAttribute="centerY" secondItem="ydV-XC-nOp" secondAttribute="centerY" constant="59.5" id="MIi-8b-ig1"/>
+                            <constraint firstItem="Gnp-Tj-PGI" firstAttribute="centerY" secondItem="ydV-XC-nOp" secondAttribute="centerY" constant="-64.5" id="V8K-o5-J52"/>
+                            <constraint firstItem="3UJ-Bz-69h" firstAttribute="centerX" secondItem="ydV-XC-nOp" secondAttribute="centerX" constant="121" id="X2v-uN-tLK"/>
+                            <constraint firstItem="3UJ-Bz-69h" firstAttribute="centerY" secondItem="ydV-XC-nOp" secondAttribute="centerY" constant="59.5" id="jaG-3b-T2y"/>
+                            <constraint firstItem="HMn-3F-OtU" firstAttribute="centerX" secondItem="ydV-XC-nOp" secondAttribute="centerX" constant="-132" id="trx-Ro-XXu"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="helpButton" destination="HMn-3F-OtU" id="gyU-ls-VOD"/>
+                        <outlet property="resultsButton" destination="stO-Ki-hYi" id="DY5-Zs-0fY"/>
+                        <outlet property="settingsButton" destination="3UJ-Bz-69h" id="VYl-NC-vDe"/>
+                        <outlet property="startButton" destination="Gnp-Tj-PGI" id="fZE-g9-A7a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bNl-uH-cri" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="45" y="923"/>
+            <point key="canvasLocation" x="44.366197183098592" y="922.5"/>
         </scene>
     </scenes>
     <resources>
