@@ -21,9 +21,6 @@ class MenuViewController: UIViewController {
         
         buildUI()
         
-        
-        
-
         // Do any additional setup after loading the view.
     }
     
