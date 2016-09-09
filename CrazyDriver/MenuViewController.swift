@@ -31,27 +31,35 @@ class MenuViewController: UIViewController {
     func buildUI(){
         
         // set background
-        let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.frame = view.bounds
-        gradient.colors = [UIColor.gray().cgColor, UIColor.white().cgColor]
-        view.layer.insertSublayer(gradient, at: 0)
+        UIGraphicsBeginImageContext(self.view.frame.size);
+        UIImage(named: "Speed")?.draw(in: self.view.bounds)
+        let image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        view.backgroundColor = UIColor(patternImage: image!)
+        
+//        let gradient: CAGradientLayer = CAGradientLayer()
+//        gradient.frame = view.bounds
+//        gradient.colors = [UIColor.gray().cgColor, UIColor.white().cgColor]
+//        view.layer.insertSublayer(gradient, at: 0)
         //use startPoint and endPoint to change direction of gradient (http://stackoverflow.com/a/20387923/2057171)
         
         
+        
         // set UIButton config
-        configButton(button: startButton)
-        configButton(button: resultsButton)
-        configButton(button: helpButton)
-        configButton(button: settingsButton)
+        let color = UIColor.black()
+        configButton(button: startButton, color: color)
+        configButton(button: resultsButton,color: color)
+        configButton(button: helpButton,color: color)
+        configButton(button: settingsButton,color: color)
     }
     
     
-    func configButton(button : UIButton){
+    func configButton(button : UIButton, color : UIColor){
         // set UIButton config
-        button.backgroundColor = UIColor.blue()
+        button.backgroundColor = color
         button.layer.cornerRadius = 5
         button.layer.borderWidth = 0.5
-        button.layer.borderColor = UIColor.blue().cgColor
+        button.layer.borderColor = color.cgColor
         button.setTitleColor(UIColor.white(), for: UIControlState.application)
     }
     
