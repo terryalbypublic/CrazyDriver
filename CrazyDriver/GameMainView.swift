@@ -94,19 +94,19 @@ public class GameMainView: UIView {
         streetViewArray.append(streetView)
         
         streetView = makeStreetViewAtPosition(CGRect(x: Int(strOriginX), y: 0, width: Constants.streetWidth, height: Constants.streetHeight))
-        streetView.backgroundColor = UIColor.clear()
+        streetView.backgroundColor = UIColor.clear
         self.insertSubview(streetView, belowSubview: self.carImageView)
         streetViewArray.append(streetView)
         
         
         streetView = makeStreetViewAtPosition(CGRect(x: Int(strOriginX), y: Constants.streetHeight, width: Constants.streetWidth, height: Constants.streetHeight))
-        streetView.backgroundColor = UIColor.clear()
+        streetView.backgroundColor = UIColor.clear
         self.insertSubview(streetView, belowSubview: self.carImageView)
         streetViewArray.append(streetView)
         
         
         streetView = makeStreetViewAtPosition(CGRect(x: Int(strOriginX), y: Constants.streetHeight*2, width: Constants.streetWidth, height: Constants.streetHeight))
-        streetView.backgroundColor = UIColor.clear()
+        streetView.backgroundColor = UIColor.clear
         self.insertSubview(streetView, belowSubview: self.carImageView)
         streetViewArray.append(streetView)
     }

@@ -37,7 +37,7 @@ public class GameMainViewController: UIViewController {
     var objectViews : [(model: ObjectViewModel, view: UIImageView)] = []
     
     // size of the screen
-    let screenSize: CGRect = UIScreen.main().bounds
+    let screenSize: CGRect = UIScreen.main.bounds
     
     
     public override func viewDidLoad() {
@@ -68,7 +68,7 @@ public class GameMainViewController: UIViewController {
     // start animation clock
     func startAnimationClock(){
         self.animationClock = CADisplayLink(target: self, selector:#selector(nextTick))
-        self.animationClock.add(to: RunLoop.current(), forMode: RunLoopMode.defaultRunLoopMode.rawValue)
+        self.animationClock.add(to: RunLoop.current, forMode: RunLoopMode(rawValue: RunLoopMode.defaultRunLoopMode.rawValue))
         
         startTime()
     }
@@ -137,7 +137,7 @@ public class GameMainViewController: UIViewController {
     func updateCarPosition(_ howMuch: Double, left: Bool){
         // car moving to left
         if(left){
-            if(self.carModel.frame.origin.x+CGFloat(howMuch) > gameMainView?.streetOriginX()){
+            if(self.carModel.frame.origin.x+CGFloat(howMuch) > (gameMainView?.streetOriginX())!){
                 self.carModel.frame.origin.x += CGFloat(howMuch)
             }
             else{

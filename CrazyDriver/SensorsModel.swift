@@ -19,7 +19,7 @@ public class SensorsModel: NSObject {
     public func start(){
         
         self.motionManager.accelerometerUpdateInterval = TimeInterval(0.2)
-        let currentQueue = OperationQueue.current()
+        let currentQueue = OperationQueue.current
         
         self.motionManager.startAccelerometerUpdates(to: currentQueue!) { (accelerometerData, error) in
             self.currentRotationX = accelerometerData!.acceleration.x

@@ -36,7 +36,7 @@ class MenuViewController: UIViewController {
     
         
         // set UIButton config
-        let color = UIColor.black()
+        let color = UIColor.black
         configButton(button: startButton, color: color)
         configButton(button: resultsButton,color: color)
         configButton(button: helpButton,color: color)
@@ -50,7 +50,7 @@ class MenuViewController: UIViewController {
         button.layer.cornerRadius = 5
         button.layer.borderWidth = 0.5
         button.layer.borderColor = color.cgColor
-        button.setTitleColor(UIColor.white(), for: UIControlState.application)
+        button.setTitleColor(UIColor.white, for: UIControlState.application)
     }
     
 

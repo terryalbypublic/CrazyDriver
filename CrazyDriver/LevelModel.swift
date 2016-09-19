@@ -20,7 +20,7 @@ public class LevelModel: NSObject {
         
         var level : NSDictionary? = nil
         // read the level file
-        if let filepath = Bundle.main().pathForResource(fileName, ofType: "json") {
+        if let filepath = Bundle.main.path(forResource: fileName, ofType: "json") {
             do {
                 let contents = try NSString(contentsOfFile: filepath, usedEncoding: nil) as String
                 
