@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11129.15" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="f7k-LM-mGm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="f7k-LM-mGm">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -24,7 +24,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="z5h-Pc-uVi"/>
                                 </constraints>
-                                <state key="normal" title="B" image="BrakePedal"/>
+                                <state key="normal" image="BrakePedal" backgroundImage="BrakePedal"/>
                                 <connections>
                                     <action selector="brakeButtonTouchReleased:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5uH-My-6j0"/>
                                     <action selector="brakeButtonTouchedDown:" destination="BYZ-38-t0r" eventType="touchDown" id="foz-e6-8YO"/>
@@ -35,7 +35,7 @@
                                     <constraint firstAttribute="height" constant="60" id="B6G-CV-hxa"/>
                                     <constraint firstAttribute="width" constant="60" id="jWN-kD-1Zz"/>
                                 </constraints>
-                                <state key="normal" title="G" image="AcceleratorPedal"/>
+                                <state key="normal" image="AcceleratorPedal" backgroundImage="AcceleratorPedal"/>
                                 <connections>
                                     <action selector="accelerateButtonTouchReleased:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RYf-e1-nq7"/>
                                     <action selector="accelerateButtonTouchedDown:" destination="BYZ-38-t0r" eventType="touchDown" id="JMl-0G-5aV"/>
@@ -76,7 +76,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="VLT-Xb-yKX"/>
                                 </constraints>
-                                <state key="normal" title="Start" image="Pause"/>
+                                <state key="normal" image="Pause"/>
                                 <connections>
                                     <action selector="startPauseButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6vg-Ln-zqn"/>
                                 </connections>

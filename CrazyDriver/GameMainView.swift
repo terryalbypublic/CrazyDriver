@@ -14,6 +14,7 @@ public class GameMainView: UIView {
     // views
     var streetViewArray = Array<UIImageView>()
     var carImageView: UIImageView!
+    var backgroundView : UIView!
     var explosionView : UIImageView? = nil
     var explosionTicks = 0
     
@@ -23,12 +24,17 @@ public class GameMainView: UIView {
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.carImageView = UIImageView(image: UIImage(named: "Car"))
-        self.addSubview(carImageView)
+        setupView()
     }
     
     public override func draw(_ rect: CGRect) {
         super.draw(rect)
+    }
+    
+    private func setupView(){
+        self.backgroundColor = UIColor.init(red: 23, green: 84, blue: 22, alpha: 0.8)
+        self.carImageView = UIImageView(image: UIImage(named: "Car"))
+        self.addSubview(carImageView)
     }
     
     public func updateView(carModel : CarModel, gameModel : GameModel, objectViews : [(model : ObjectViewModel,view : UIImageView)]){
