@@ -2,8 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="f7k-LM-mGm">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,27 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eL-cJ-Rsj">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="z5h-Pc-uVi"/>
-                                </constraints>
-                                <state key="normal" image="BrakePedal" backgroundImage="BrakePedal"/>
-                                <connections>
-                                    <action selector="brakeButtonTouchReleased:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5uH-My-6j0"/>
-                                    <action selector="brakeButtonTouchedDown:" destination="BYZ-38-t0r" eventType="touchDown" id="foz-e6-8YO"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ecf-Ti-Kut">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="B6G-CV-hxa"/>
-                                    <constraint firstAttribute="width" constant="60" id="jWN-kD-1Zz"/>
-                                </constraints>
-                                <state key="normal" image="AcceleratorPedal" backgroundImage="AcceleratorPedal"/>
-                                <connections>
-                                    <action selector="accelerateButtonTouchReleased:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RYf-e1-nq7"/>
-                                    <action selector="accelerateButtonTouchedDown:" destination="BYZ-38-t0r" eventType="touchDown" id="JMl-0G-5aV"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJT-sT-7lb">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="SPT-9r-d31"/>
@@ -88,35 +65,50 @@
                                     <action selector="cannonButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E6U-cX-EU6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGH-cP-J1p">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="hlF-8I-7BA"/>
+                                </constraints>
+                                <state key="normal" image="AcceleratorPedal"/>
+                                <connections>
+                                    <action selector="accelerateButtonTouchReleased:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mh6-Pt-E0h"/>
+                                    <action selector="accelerateButtonTouchedDown:" destination="BYZ-38-t0r" eventType="touchDown" id="uON-Mg-MWW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JmR-59-lHf">
+                                <frame key="frameInset" minX="12" minY="66" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="BrakePedal"/>
+                                <connections>
+                                    <action selector="brakeButtonTouchReleased:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JzU-GE-O26"/>
+                                    <action selector="brakeButtonTouchedDown:" destination="BYZ-38-t0r" eventType="touchDown" id="4eS-gH-9zr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Ecf-Ti-Kut" firstAttribute="leading" secondItem="Xe4-Cw-JfY" secondAttribute="trailing" constant="-60" id="7cE-vy-qfV"/>
-                            <constraint firstItem="4eL-cJ-Rsj" firstAttribute="top" secondItem="ZFC-R0-YqJ" secondAttribute="bottom" constant="17" id="7vQ-1L-MZO"/>
                             <constraint firstItem="Rll-f4-BNG" firstAttribute="top" secondItem="e6a-vh-irQ" secondAttribute="bottom" constant="8" symbolic="YES" id="Dre-UK-sOk"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5bw-QC-KAi" secondAttribute="bottom" constant="10" id="ErF-UZ-wmm"/>
-                            <constraint firstItem="Ecf-Ti-Kut" firstAttribute="top" secondItem="4eL-cJ-Rsj" secondAttribute="top" id="FJ0-DE-d5U"/>
                             <constraint firstItem="ZFC-R0-YqJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="5" id="GQK-pU-KuM"/>
                             <constraint firstItem="jJT-sT-7lb" firstAttribute="baseline" secondItem="5bw-QC-KAi" secondAttribute="baseline" id="GVy-be-xd8"/>
                             <constraint firstAttribute="leadingMargin" secondItem="mUi-wL-lwA" secondAttribute="leading" constant="15" id="I9w-Xt-8GX"/>
-                            <constraint firstItem="Ecf-Ti-Kut" firstAttribute="firstBaseline" secondItem="4eL-cJ-Rsj" secondAttribute="baseline" id="MuH-HB-okl"/>
-                            <constraint firstItem="Ecf-Ti-Kut" firstAttribute="baseline" secondItem="4eL-cJ-Rsj" secondAttribute="firstBaseline" id="RhV-uC-zbw"/>
+                            <constraint firstItem="YGH-cP-J1p" firstAttribute="top" secondItem="Rll-f4-BNG" secondAttribute="bottom" constant="20" id="K70-JG-p2h"/>
+                            <constraint firstItem="Xe4-Cw-JfY" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="PsR-0E-uil"/>
                             <constraint firstItem="5bw-QC-KAi" firstAttribute="leading" secondItem="jJT-sT-7lb" secondAttribute="trailing" constant="8" id="Tbw-B1-zuj"/>
                             <constraint firstItem="Rll-f4-BNG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="45" id="Yfj-eO-N8F"/>
-                            <constraint firstItem="Ecf-Ti-Kut" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Zz9-uD-XAT"/>
-                            <constraint firstItem="4eL-cJ-Rsj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="aJO-aF-6eG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5bw-QC-KAi" secondAttribute="trailing" constant="-15" id="c94-OS-04A"/>
                             <constraint firstItem="Rll-f4-BNG" firstAttribute="centerX" secondItem="e6a-vh-irQ" secondAttribute="centerX" constant="-4.5" id="esb-OF-BLr"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mUi-wL-lwA" secondAttribute="bottom" constant="10" id="hGo-u8-dFF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Rll-f4-BNG" secondAttribute="trailing" constant="-15" id="hTg-ko-oIO"/>
                             <constraint firstItem="ZFC-R0-YqJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="n0c-f5-MbZ"/>
-                            <constraint firstItem="Ecf-Ti-Kut" firstAttribute="top" secondItem="Rll-f4-BNG" secondAttribute="bottom" constant="22" id="pBI-ht-rPl"/>
+                            <constraint firstItem="YGH-cP-J1p" firstAttribute="trailing" secondItem="e6a-vh-irQ" secondAttribute="trailing" id="p5G-G2-u7a"/>
+                            <constraint firstItem="Xe4-Cw-JfY" firstAttribute="top" secondItem="YGH-cP-J1p" secondAttribute="bottom" constant="8" symbolic="YES" id="r1V-LF-dwp"/>
                             <constraint firstItem="Xe4-Cw-JfY" firstAttribute="top" secondItem="Rll-f4-BNG" secondAttribute="bottom" constant="88" id="t2N-Iq-XYn"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="accelerateButton" destination="Ecf-Ti-Kut" id="2S1-k7-bpP"/>
-                        <outlet property="brakeButton" destination="4eL-cJ-Rsj" id="0UQ-vR-2Xd"/>
+                        <outlet property="accelerateButton" destination="YGH-cP-J1p" id="cJ6-TI-MXJ"/>
+                        <outlet property="brakeButton" destination="JmR-59-lHf" id="JeV-SZ-Kp7"/>
                         <outlet property="cannonButton" destination="Xe4-Cw-JfY" id="uIZ-gR-Uyz"/>
                         <outlet property="lifeBar" destination="Rll-f4-BNG" id="SQf-qN-y5J"/>
                         <outlet property="lifeLabel" destination="e6a-vh-irQ" id="mFj-Se-Fxc"/>
@@ -181,7 +173,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="gQJ-8Y-hHS"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="gQJ-8Y-hHS"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -256,6 +256,7 @@ public class GameMainViewController: UIViewController {
         self.gameModel.carAcceleration = howMuch
     }
     
+
     @IBAction func brakeButtonTouchedDown(_ sender: AnyObject) {
         if(self.isAccelerating()){
             self.carModel.accelerationStatus = .BrakingAndAccelering
