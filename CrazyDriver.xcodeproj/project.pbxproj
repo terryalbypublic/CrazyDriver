@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		651309FC1D4D73D200467DF0 /* level1.json in Resources */ = {isa = PBXBuildFile; fileRef = 651309FB1D4D73D200467DF0 /* level1.json */; };
 		651309FE1D4E4A2A00467DF0 /* LevelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651309FD1D4E4A2A00467DF0 /* LevelModel.swift */; };
+		651822351DC5F45E00FE3860 /* CrazyDriverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651822341DC5F45E00FE3860 /* CrazyDriverTests.swift */; };
+		6518223C1DC5F48700FE3860 /* ResultsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B991A61DC51E8D0085AC33 /* ResultsModel.swift */; };
 		6519E2A01D5D092D00C1560C /* WeaponsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6519E29F1D5D092D00C1560C /* WeaponsModel.swift */; };
 		652C84331D82ECFF0034F40E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652C84321D82ECFF0034F40E /* MenuViewController.swift */; };
 		6551A80E1CFCB2B7006227D5 /* SensorsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6551A80D1CFCB2B7006227D5 /* SensorsModel.swift */; };
@@ -23,13 +25,27 @@
 		65753DB51CF869DA00EA74B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65753DB31CF869D900EA74B8 /* LaunchScreen.storyboard */; };
 		65753DBD1CF86A4400EA74B8 /* GameMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65753DBC1CF86A4400EA74B8 /* GameMainView.swift */; };
 		65753DC41CFB9E0700EA74B8 /* CarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65753DC31CFB9E0700EA74B8 /* CarModel.swift */; };
+		65B991A71DC51E8D0085AC33 /* ResultsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B991A61DC51E8D0085AC33 /* ResultsModel.swift */; };
 		65C852B51D20138A0079CF3B /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C852B41D20138A0079CF3B /* GameModel.swift */; };
 		65E8A6691D00544C00EEC45F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E8A6681D00544B00EEC45F /* Constants.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		651822371DC5F45E00FE3860 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65753D9F1CF869D900EA74B8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65753DA61CF869D900EA74B8;
+			remoteInfo = CrazyDriver;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		651309FB1D4D73D200467DF0 /* level1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level1.json; sourceTree = "<group>"; };
 		651309FD1D4E4A2A00467DF0 /* LevelModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelModel.swift; sourceTree = "<group>"; };
+		651822321DC5F45E00FE3860 /* CrazyDriverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrazyDriverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		651822341DC5F45E00FE3860 /* CrazyDriverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrazyDriverTests.swift; sourceTree = "<group>"; };
+		651822361DC5F45E00FE3860 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6519E29F1D5D092D00C1560C /* WeaponsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeaponsModel.swift; sourceTree = "<group>"; };
 		652C84321D82ECFF0034F40E /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		6551A80D1CFCB2B7006227D5 /* SensorsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorsModel.swift; sourceTree = "<group>"; };
@@ -46,11 +62,19 @@
 		65753DB61CF869DA00EA74B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65753DBC1CF86A4400EA74B8 /* GameMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMainView.swift; sourceTree = "<group>"; };
 		65753DC31CFB9E0700EA74B8 /* CarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarModel.swift; sourceTree = "<group>"; };
+		65B991A61DC51E8D0085AC33 /* ResultsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsModel.swift; sourceTree = "<group>"; };
 		65C852B41D20138A0079CF3B /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		65E8A6681D00544B00EEC45F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6518222F1DC5F45E00FE3860 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		65753DA41CF869D900EA74B8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -68,6 +92,15 @@
 				651309FB1D4D73D200467DF0 /* level1.json */,
 			);
 			name = Level;
+			sourceTree = "<group>";
+		};
+		651822331DC5F45E00FE3860 /* CrazyDriverTests */ = {
+			isa = PBXGroup;
+			children = (
+				651822341DC5F45E00FE3860 /* CrazyDriverTests.swift */,
+				651822361DC5F45E00FE3860 /* Info.plist */,
+			);
+			path = CrazyDriverTests;
 			sourceTree = "<group>";
 		};
 		6551A8131CFDCD77006227D5 /* Utils */ = {
@@ -90,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				65753DA91CF869D900EA74B8 /* CrazyDriver */,
+				651822331DC5F45E00FE3860 /* CrazyDriverTests */,
 				65753DA81CF869D900EA74B8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				65753DA71CF869D900EA74B8 /* CrazyDriver.app */,
+				651822321DC5F45E00FE3860 /* CrazyDriverTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,6 +174,7 @@
 				65C852B41D20138A0079CF3B /* GameModel.swift */,
 				651309FD1D4E4A2A00467DF0 /* LevelModel.swift */,
 				6519E29F1D5D092D00C1560C /* WeaponsModel.swift */,
+				65B991A61DC51E8D0085AC33 /* ResultsModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -155,6 +191,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		651822311DC5F45E00FE3860 /* CrazyDriverTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6518223B1DC5F45E00FE3860 /* Build configuration list for PBXNativeTarget "CrazyDriverTests" */;
+			buildPhases = (
+				6518222E1DC5F45E00FE3860 /* Sources */,
+				6518222F1DC5F45E00FE3860 /* Frameworks */,
+				651822301DC5F45E00FE3860 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				651822381DC5F45E00FE3860 /* PBXTargetDependency */,
+			);
+			name = CrazyDriverTests;
+			productName = CrazyDriverTests;
+			productReference = 651822321DC5F45E00FE3860 /* CrazyDriverTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		65753DA61CF869D900EA74B8 /* CrazyDriver */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65753DB91CF869DA00EA74B8 /* Build configuration list for PBXNativeTarget "CrazyDriver" */;
@@ -178,10 +232,16 @@
 		65753D9F1CF869D900EA74B8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = TA;
 				TargetAttributes = {
+					651822311DC5F45E00FE3860 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 7L57S9CGB9;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 65753DA61CF869D900EA74B8;
+					};
 					65753DA61CF869D900EA74B8 = {
 						CreatedOnToolsVersion = 7.3.1;
 						LastSwiftMigration = 0800;
@@ -202,11 +262,19 @@
 			projectRoot = "";
 			targets = (
 				65753DA61CF869D900EA74B8 /* CrazyDriver */,
+				651822311DC5F45E00FE3860 /* CrazyDriverTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		651822301DC5F45E00FE3860 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		65753DA51CF869D900EA74B8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -221,6 +289,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6518222E1DC5F45E00FE3860 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6518223C1DC5F48700FE3860 /* ResultsModel.swift in Sources */,
+				651822351DC5F45E00FE3860 /* CrazyDriverTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		65753DA31CF869D900EA74B8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -237,11 +314,20 @@
 				656C77EA1D47C3F00044E30F /* Physics.swift in Sources */,
 				6551A80E1CFCB2B7006227D5 /* SensorsModel.swift in Sources */,
 				656281991D200F260090B02F /* BaseObjectModel.swift in Sources */,
+				65B991A71DC51E8D0085AC33 /* ResultsModel.swift in Sources */,
 				6519E2A01D5D092D00C1560C /* WeaponsModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		651822381DC5F45E00FE3860 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65753DA61CF869D900EA74B8 /* CrazyDriver */;
+			targetProxy = 651822371DC5F45E00FE3860 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		65753DAE1CF869D900EA74B8 /* Main.storyboard */ = {
@@ -263,6 +349,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		651822391DC5F45E00FE3860 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEVELOPMENT_TEAM = 7L57S9CGB9;
+				INFOPLIST_FILE = CrazyDriverTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Scout24.CrazyDriverTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrazyDriver.app/CrazyDriver";
+			};
+			name = Debug;
+		};
+		6518223A1DC5F45E00FE3860 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEVELOPMENT_TEAM = 7L57S9CGB9;
+				INFOPLIST_FILE = CrazyDriverTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Scout24.CrazyDriverTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrazyDriver.app/CrazyDriver";
+			};
+			name = Release;
+		};
 		65753DB71CF869DA00EA74B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -384,6 +508,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6518223B1DC5F45E00FE3860 /* Build configuration list for PBXNativeTarget "CrazyDriverTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				651822391DC5F45E00FE3860 /* Debug */,
+				6518223A1DC5F45E00FE3860 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		65753DA21CF869D900EA74B8 /* Build configuration list for PBXProject "CrazyDriver" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

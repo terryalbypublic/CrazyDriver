@@ -1099,5 +1099,337 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CrazyDriver/ResultsModel.swift"
+            timestampString = "499514780.119747"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "bestResultInSecondsForLevelId(levelId:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CrazyDriver.ResultsModel.bestResultInSecondsForLevelId (levelId : Swift.Int) -&gt; Swift.Int"
+                  moduleName = "CrazyDriver"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/teralb/Verticals/CrazyDriver/CrazyDriver/ResultsModel.swift"
+                  timestampString = "499513375.220613"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "29">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CrazyDriverTests.ResultsModel.bestResultInSecondsForLevelId (levelId : Swift.Int) -&gt; Swift.Int"
+                  moduleName = "CrazyDriverTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/teralb/Verticals/CrazyDriver/CrazyDriver/ResultsModel.swift"
+                  timestampString = "499513376.879487"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "29">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CrazyDriver/ResultsModel.swift"
+            timestampString = "499514901.466521"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "resultsInSecondsOrderedByCreationDateForLevel(levelId:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CrazyDriver.ResultsModel.resultsInSecondsOrderedByCreationDateForLevel (levelId : Swift.Int) -&gt; Swift.Array&lt;(Swift.Int, Foundation.Date)&gt;"
+                  moduleName = "CrazyDriver"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/teralb/Verticals/CrazyDriver/CrazyDriver/ResultsModel.swift"
+                  timestampString = "499513375.225962"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CrazyDriverTests.ResultsModel.resultsInSecondsOrderedByCreationDateForLevel (levelId : Swift.Int) -&gt; Swift.Array&lt;(Swift.Int, Foundation.Date)&gt;"
+                  moduleName = "CrazyDriverTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/teralb/Verticals/CrazyDriver/CrazyDriver/ResultsModel.swift"
+                  timestampString = "499513376.88533"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CrazyDriverTests/CrazyDriverTests.swift"
+            timestampString = "499513852.190826"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "testResultListOrder()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CrazyDriver/ResultsModel.swift"
+            timestampString = "499514376.93145"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "ResultsModel"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "globalinit_33_317E5ED6B6729D5F616AE36EBACF4CE5_func0"
+                  moduleName = "CrazyDriver"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/teralb/Verticals/CrazyDriver/CrazyDriver/ResultsModel.swift"
+                  timestampString = "499515086.994378"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CrazyDriver.ResultsModel.sharedReference.unsafeMutableAddressor : CrazyDriver.ResultsModel"
+                  moduleName = "CrazyDriver"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/teralb/Verticals/CrazyDriver/CrazyDriver/ResultsModel.swift"
+                  timestampString = "499515086.996778"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static CrazyDriver.ResultsModel.sharedReference.getter : CrazyDriver.ResultsModel"
+                  moduleName = "CrazyDriver"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/teralb/Verticals/CrazyDriver/CrazyDriver/ResultsModel.swift"
+                  timestampString = "499515086.99874"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "globalinit_33_1890F503DF312D94B4CC0D940878E4D5_func0"
+                  moduleName = "CrazyDriverTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/teralb/Verticals/CrazyDriver/CrazyDriver/ResultsModel.swift"
+                  timestampString = "499515089.831192"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CrazyDriverTests.ResultsModel.sharedReference.unsafeMutableAddressor : CrazyDriverTests.ResultsModel"
+                  moduleName = "CrazyDriverTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/teralb/Verticals/CrazyDriver/CrazyDriver/ResultsModel.swift"
+                  timestampString = "499515089.832996"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static CrazyDriverTests.ResultsModel.sharedReference.getter : CrazyDriverTests.ResultsModel"
+                  moduleName = "CrazyDriverTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/teralb/Verticals/CrazyDriver/CrazyDriver/ResultsModel.swift"
+                  timestampString = "499515089.83474"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CrazyDriver/ResultsModel.swift"
+            timestampString = "499514938.017983"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "saveResultsOnDisk()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CrazyDriver.ResultsModel.(saveResultsOnDisk in _317E5ED6B6729D5F616AE36EBACF4CE5) () -&gt; ()"
+                  moduleName = "CrazyDriver"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/teralb/Verticals/CrazyDriver/CrazyDriver/ResultsModel.swift"
+                  timestampString = "499515087.004616"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CrazyDriverTests.ResultsModel.(saveResultsOnDisk in _1890F503DF312D94B4CC0D940878E4D5) () -&gt; ()"
+                  moduleName = "CrazyDriverTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/teralb/Verticals/CrazyDriver/CrazyDriver/ResultsModel.swift"
+                  timestampString = "499515089.83881"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CrazyDriverTests/CrazyDriverTests.swift"
+            timestampString = "499514977.904123"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "testBestResult()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CrazyDriver/ResultsModel.swift"
+            timestampString = "499515022.261843"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "init()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CrazyDriver.ResultsModel.init () -&gt; CrazyDriver.ResultsModel"
+                  moduleName = "CrazyDriver"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/teralb/Verticals/CrazyDriver/CrazyDriver/ResultsModel.swift"
+                  timestampString = "499515087.009232"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "354">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CrazyDriverTests.ResultsModel.init () -&gt; CrazyDriverTests.ResultsModel"
+                  moduleName = "CrazyDriverTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/teralb/Verticals/CrazyDriver/CrazyDriver/ResultsModel.swift"
+                  timestampString = "499515089.845409"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "354">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
