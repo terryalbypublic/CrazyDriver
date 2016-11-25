@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 public class ResultsModel: NSObject {
     
     public static let sharedReference = ResultsModel()
@@ -34,7 +35,9 @@ public class ResultsModel: NSObject {
     public func addResultForLevelId(levelId : Int, seconds : Int) -> Void{
         lockQueue.sync() {
             results.append((levelId, seconds, Date()))
-            saveResultsOnDisk()
+            DispatchQueue.global(qos: .background).async {
+                self.saveResultsOnDisk()
+            }
         }
     }
     
@@ -52,18 +55,51 @@ public class ResultsModel: NSObject {
     }
     
     private func saveResultsOnDisk(){
-        userDefault.set(results, forKey: "results")
+        userDefault.set(ResultsModel.resultsToData(results: results), forKey: "results")
         userDefault.synchronize()
     }
     
+    private static func resultsToData(results : [(levelId : Int,seconds : Int,dateTime : Date)]) -> Data{
+        
+        // array of dictionary
+        var array = [Dictionary<String,Any>]()
+        
+        for result in results{
+            var dict = Dictionary<String,Any>()
+            dict.updateValue(result.levelId, forKey: "LevelId")
+            dict.updateValue(result.seconds, forKey: "Seconds")
+            dict.updateValue(result.dateTime, forKey: "DateTime")
+            array.append(dict)
+        }
+        
+        return NSKeyedArchiver.archivedData(withRootObject: array)
+    }
+    
+    private static func resultsFromData(data : Data) -> [(levelId : Int,seconds : Int,dateTime : Date)]{
+        
+        var results : [(levelId : Int,seconds : Int,dateTime : Date)] = []
+        
+        let array = NSKeyedUnarchiver.unarchiveObject(with: data) as! [Dictionary<String,Any>]
+        
+        for dict in array{
+            let result : (levelId : Int,seconds : Int,dateTime : Date)
+            result.seconds = dict["Seconds"] as! Int
+            result.levelId = dict["LevelId"] as! Int
+            result.dateTime = dict["DateTime"] as! Date
+            
+            results.append(result)
+        }
+        
+        return results
+    }
+    
     private func loadResultsFromDisk(){
-        let res = userDefault.object(forKey: "results")
-        if(res != nil){
-            self.results = res as! [(Int,Int,Date)]
+        let data = userDefault.object(forKey: "results")
+        if(data != nil){
+            self.results = ResultsModel.resultsFromData(data: data as! Data)
         }
         else{
             self.results = []
         }
     }
-
 }

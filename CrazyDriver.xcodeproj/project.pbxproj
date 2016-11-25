@@ -25,6 +25,10 @@
 		65753DB51CF869DA00EA74B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65753DB31CF869D900EA74B8 /* LaunchScreen.storyboard */; };
 		65753DBD1CF86A4400EA74B8 /* GameMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65753DBC1CF86A4400EA74B8 /* GameMainView.swift */; };
 		65753DC41CFB9E0700EA74B8 /* CarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65753DC31CFB9E0700EA74B8 /* CarModel.swift */; };
+		657FCE951DE894BE005D7E2E /* ResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657FCE941DE894BE005D7E2E /* ResultsTableViewController.swift */; };
+		657FCE961DE894BE005D7E2E /* ResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657FCE941DE894BE005D7E2E /* ResultsTableViewController.swift */; };
+		657FCE991DE895E0005D7E2E /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657FCE981DE895E0005D7E2E /* ResultsTableViewCell.swift */; };
+		657FCE9A1DE895E0005D7E2E /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657FCE981DE895E0005D7E2E /* ResultsTableViewCell.swift */; };
 		65B991A71DC51E8D0085AC33 /* ResultsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B991A61DC51E8D0085AC33 /* ResultsModel.swift */; };
 		65C852B51D20138A0079CF3B /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C852B41D20138A0079CF3B /* GameModel.swift */; };
 		65E8A6691D00544C00EEC45F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E8A6681D00544B00EEC45F /* Constants.swift */; };
@@ -62,6 +66,8 @@
 		65753DB61CF869DA00EA74B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65753DBC1CF86A4400EA74B8 /* GameMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMainView.swift; sourceTree = "<group>"; };
 		65753DC31CFB9E0700EA74B8 /* CarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarModel.swift; sourceTree = "<group>"; };
+		657FCE941DE894BE005D7E2E /* ResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableViewController.swift; sourceTree = "<group>"; };
+		657FCE981DE895E0005D7E2E /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
 		65B991A61DC51E8D0085AC33 /* ResultsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsModel.swift; sourceTree = "<group>"; };
 		65C852B41D20138A0079CF3B /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		65E8A6681D00544B00EEC45F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -140,6 +146,7 @@
 		65753DA91CF869D900EA74B8 /* CrazyDriver */ = {
 			isa = PBXGroup;
 			children = (
+				657FCE971DE895C3005D7E2E /* Cells */,
 				651309FA1D4D73AC00467DF0 /* Level */,
 				65DEC1DC1D2F07EF0033D0AB /* Controller */,
 				6551A8161CFDD094006227D5 /* Frameworks */,
@@ -179,11 +186,20 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		657FCE971DE895C3005D7E2E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				657FCE981DE895E0005D7E2E /* ResultsTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		65DEC1DC1D2F07EF0033D0AB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				65753DAC1CF869D900EA74B8 /* GameMainViewController.swift */,
 				652C84321D82ECFF0034F40E /* MenuViewController.swift */,
+				657FCE941DE894BE005D7E2E /* ResultsTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -238,13 +254,15 @@
 				TargetAttributes = {
 					651822311DC5F45E00FE3860 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 7L57S9CGB9;
+						DevelopmentTeam = W4LB2R7L9L;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 65753DA61CF869D900EA74B8;
 					};
 					65753DA61CF869D900EA74B8 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = W4LB2R7L9L;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -293,7 +311,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				657FCE961DE894BE005D7E2E /* ResultsTableViewController.swift in Sources */,
 				6518223C1DC5F48700FE3860 /* ResultsModel.swift in Sources */,
+				657FCE9A1DE895E0005D7E2E /* ResultsTableViewCell.swift in Sources */,
 				651822351DC5F45E00FE3860 /* CrazyDriverTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,6 +331,8 @@
 				65C852B51D20138A0079CF3B /* GameModel.swift in Sources */,
 				652C84331D82ECFF0034F40E /* MenuViewController.swift in Sources */,
 				65E8A6691D00544C00EEC45F /* Constants.swift in Sources */,
+				657FCE951DE894BE005D7E2E /* ResultsTableViewController.swift in Sources */,
+				657FCE991DE895E0005D7E2E /* ResultsTableViewCell.swift in Sources */,
 				656C77EA1D47C3F00044E30F /* Physics.swift in Sources */,
 				6551A80E1CFCB2B7006227D5 /* SensorsModel.swift in Sources */,
 				656281991D200F260090B02F /* BaseObjectModel.swift in Sources */,
@@ -356,7 +378,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				DEVELOPMENT_TEAM = 7L57S9CGB9;
+				DEVELOPMENT_TEAM = W4LB2R7L9L;
 				INFOPLIST_FILE = CrazyDriverTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -375,7 +397,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				DEVELOPMENT_TEAM = 7L57S9CGB9;
+				DEVELOPMENT_TEAM = W4LB2R7L9L;
 				INFOPLIST_FILE = CrazyDriverTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -477,12 +499,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Terence Alberti (B6WVC99DUW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = W4LB2R7L9L;
 				INFOPLIST_FILE = CrazyDriver/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.CrazyDriver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9403f6be-ff18-4495-b97e-3b2a9510dfd7";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -493,12 +518,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Terence Alberti (B6WVC99DUW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = W4LB2R7L9L;
 				INFOPLIST_FILE = CrazyDriver/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.CrazyDriver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9403f6be-ff18-4495-b97e-3b2a9510dfd7";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -515,6 +543,7 @@
 				6518223A1DC5F45E00FE3860 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65753DA21CF869D900EA74B8 /* Build configuration list for PBXProject "CrazyDriver" */ = {
 			isa = XCConfigurationList;

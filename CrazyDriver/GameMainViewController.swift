@@ -195,6 +195,8 @@ public class GameMainViewController: UIViewController {
             }, thirdActionTitle: "End game", thirdActionHandler: {action in
                 let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc: UIViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as UIViewController
+                vc.modalTransitionStyle = .crossDissolve
+                vc.modalPresentationStyle = .custom
                 self.present(vc, animated: true, completion: nil)
                 return
         })
@@ -375,6 +377,8 @@ public class GameMainViewController: UIViewController {
             }, thirdActionTitle: "End game", thirdActionHandler: {action in
                 let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc: UIViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as UIViewController
+                vc.modalTransitionStyle = .crossDissolve
+                vc.modalPresentationStyle = .custom
                 self.present(vc, animated: true, completion: nil)
                 return
         })
@@ -392,15 +396,21 @@ public class GameMainViewController: UIViewController {
         self.stopGame()
         gameMainView?.endGame(objectViews: objectViews)
         gameModel.ticks = 0
-        presentAlert(title: "End", message: "Do you want to regame?", defaultActionTitle: nil, secondActionTitle: "Replay", secondActionHandler: { action in
+        presentAlert(title: "End", message: "You finished the level in "+String(gameModel.ellapsedSeconds)+" seconds, do you want to regame?", defaultActionTitle: nil, secondActionTitle: "Replay", secondActionHandler: { action in
             self.startGame()
             }, thirdActionTitle: "End game", thirdActionHandler: {action in
                 let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc: UIViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as UIViewController
+                vc.modalTransitionStyle = .crossDissolve
+                vc.modalPresentationStyle = .custom
                 self.present(vc, animated: true, completion: nil)
                 return
         })
-        
+        saveLevelResult()
+    }
+    
+    private func saveLevelResult(){
+        ResultsModel.sharedReference.addResultForLevelId(levelId: 1, seconds: gameModel.ellapsedSeconds)
     }
     
     // MARK - Alert
