@@ -239,8 +239,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Seconds:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLf-Is-nZg">
-                                            <frame key="frameInset" minX="268" minY="15" width="165" height="37"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLf-Is-nZg">
+                                            <frame key="frameInset" minX="268" minY="15" width="165" height="42"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                             <nil key="textColor"/>
@@ -264,7 +264,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="levelLabel" destination="Zwy-2L-tcr" id="a21-jF-o4a"/>
-                                    <outlet property="secondsLabel" destination="2S3-W2-J78" id="Ebz-Kk-xg4"/>
+                                    <outlet property="timeLabel" destination="2S3-W2-J78" id="SVX-bB-YsV"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

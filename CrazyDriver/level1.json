@@ -1,5 +1,6 @@
 {
     "LevelName": "Level one",
+    "LevelId" : "1",
     "Data": [
              {"Distance" : "500", "Object" : "RedCar", "OriginX":"-100" },
              {"Distance" : "1600", "Object" : "RedCar", "OriginX":"0"},

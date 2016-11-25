@@ -10,7 +10,7 @@ import UIKit
 
 class ResultsTableViewController: UITableViewController {
     
-    let results = ResultsModel.sharedReference.resultsInSecondsOrderedByCreationDateForLevel(levelId: 1)
+    let results = ResultsModel.sharedReference.resultsInSecondsOrderedByCreationDate()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +43,8 @@ class ResultsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : ResultsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ResultsTableViewCell", for: indexPath) as! ResultsTableViewCell
         
-        cell.levelLabel.text = String(1)
-        cell.secondsLabel.text = String(results[indexPath.row].seconds)
+        cell.levelLabel.text = String(results[indexPath.row].levelId)
+        cell.timeLabel.text = Utility.timeFormatted(totalMilliseconds: results[indexPath.row].milliseconds)
         
         return cell
     }

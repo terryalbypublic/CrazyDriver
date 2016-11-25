@@ -26,23 +26,67 @@ class CrazyDriverTests: XCTestCase {
         
         let results = ResultsModel.sharedReference
         
-        results.addResultForLevelId(levelId: 1, seconds: 25)
-        results.addResultForLevelId(levelId: 2, seconds: 26)
-        results.addResultForLevelId(levelId: 3, seconds: 27)
+        results.addResultForLevelId(levelId: 1, milliseconds: 25)
+        sleep(1)
+        results.addResultForLevelId(levelId: 2, milliseconds: 26)
+        sleep(1)
+        results.addResultForLevelId(levelId: 3, milliseconds: 27)
+        sleep(1)
+        results.addResultForLevelId(levelId: 1, milliseconds: 30)
+        sleep(1)
+        results.addResultForLevelId(levelId: 2, milliseconds: 31)
+        sleep(1)
+        results.addResultForLevelId(levelId: 3, milliseconds: 32)
+        sleep(1)
+        results.addResultForLevelId(levelId: 1, milliseconds: 29)
+        sleep(1)
+        results.addResultForLevelId(levelId: 2, milliseconds: 28)
+        sleep(1)
+        results.addResultForLevelId(levelId: 3, milliseconds: 28)
+        
+        let one = results.resultsInSecondsOrderedByCreationDate()
+        
+        XCTAssert(one[0].milliseconds == 28)
+        
+        XCTAssert(one[1].milliseconds == 28)
+        
+        XCTAssert(one[2].milliseconds == 29)
+        
+        XCTAssert(one[3].milliseconds == 32)
+        
+        XCTAssert(one[4].milliseconds == 31)
+        
+        XCTAssert(one[5].milliseconds == 30)
+        
+        XCTAssert(one[6].milliseconds == 27)
+        
+        XCTAssert(one[7].milliseconds == 26)
+        
+        XCTAssert(one[8].milliseconds == 25)
+        
+    }
+    
+    func testBestResultForLevelId() {
+        
+        let results = ResultsModel.sharedReference
+        
+        results.addResultForLevelId(levelId: 1, milliseconds: 25)
+        results.addResultForLevelId(levelId: 2, milliseconds: 26)
+        results.addResultForLevelId(levelId: 3, milliseconds: 27)
         
         
-        results.addResultForLevelId(levelId: 1, seconds: 30)
-        results.addResultForLevelId(levelId: 2, seconds: 31)
-        results.addResultForLevelId(levelId: 3, seconds: 32)
+        results.addResultForLevelId(levelId: 1, milliseconds: 30)
+        results.addResultForLevelId(levelId: 2, milliseconds: 31)
+        results.addResultForLevelId(levelId: 3, milliseconds: 32)
         
         
-        results.addResultForLevelId(levelId: 1, seconds: 29)
-        results.addResultForLevelId(levelId: 2, seconds: 28)
-        results.addResultForLevelId(levelId: 3, seconds: 28)
+        results.addResultForLevelId(levelId: 1, milliseconds: 29)
+        results.addResultForLevelId(levelId: 2, milliseconds: 28)
+        results.addResultForLevelId(levelId: 3, milliseconds: 28)
         
-        let one = results.bestResultInSecondsForLevelId(levelId: 1)
-        let two = results.bestResultInSecondsForLevelId(levelId: 2)
-        let three = results.bestResultInSecondsForLevelId(levelId: 3)
+        let one = results.bestResultInMillisecondsForLevelId(levelId: 1)
+        let two = results.bestResultInMillisecondsForLevelId(levelId: 2)
+        let three = results.bestResultInMillisecondsForLevelId(levelId: 3)
         
         
         XCTAssert(one == 25)
@@ -51,27 +95,27 @@ class CrazyDriverTests: XCTestCase {
         
     }
     
-    func testResultListOrder(){
+    func testResultListOrderForLevelId(){
         
         let results = ResultsModel.sharedReference
         
-        results.addResultForLevelId(levelId: 1, seconds: 25)
+        results.addResultForLevelId(levelId: 1, milliseconds: 25)
         sleep(1)
-        results.addResultForLevelId(levelId: 2, seconds: 26)
+        results.addResultForLevelId(levelId: 2, milliseconds: 26)
         sleep(1)
-        results.addResultForLevelId(levelId: 3, seconds: 27)
+        results.addResultForLevelId(levelId: 3, milliseconds: 27)
         sleep(1)
-        results.addResultForLevelId(levelId: 1, seconds: 30)
+        results.addResultForLevelId(levelId: 1, milliseconds: 30)
         sleep(1)
-        results.addResultForLevelId(levelId: 2, seconds: 31)
+        results.addResultForLevelId(levelId: 2, milliseconds: 31)
         sleep(1)
-        results.addResultForLevelId(levelId: 3, seconds: 32)
+        results.addResultForLevelId(levelId: 3, milliseconds: 32)
         sleep(1)
-        results.addResultForLevelId(levelId: 1, seconds: 29)
+        results.addResultForLevelId(levelId: 1, milliseconds: 29)
         sleep(1)
-        results.addResultForLevelId(levelId: 2, seconds: 28)
+        results.addResultForLevelId(levelId: 2, milliseconds: 28)
         sleep(1)
-        results.addResultForLevelId(levelId: 3, seconds: 28)
+        results.addResultForLevelId(levelId: 3, milliseconds: 28)
         
         
         let one = results.resultsInSecondsOrderedByCreationDateForLevel(levelId: 1)

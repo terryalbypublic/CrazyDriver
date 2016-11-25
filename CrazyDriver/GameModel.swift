@@ -21,7 +21,7 @@ public class GameModel: NSObject {
     public var minCarSpeed : Double = 4
     public var carAcceleration : Double = 0
     public var time : Timer?
-    public var ellapsedSeconds = 0
+    public var ellapsedMilliseconds = 0
     public var life : Int = 100
     public var gameStatus : GameStatus = GameStatus.Stopped
     public var ticks = 0

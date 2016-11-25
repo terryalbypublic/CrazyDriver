@@ -11,7 +11,7 @@ import UIKit
 class ResultsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var levelLabel: UILabel!
-    @IBOutlet weak var secondsLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -13,7 +13,7 @@ public class ResultsModel: NSObject {
     
     public static let sharedReference = ResultsModel()
     private let userDefault = UserDefaults.standard
-    private var results : [(levelId : Int,seconds : Int,dateTime : Date)] = []     // tuple: (levelId,seconds,datetime)
+    private var results : [(levelId : Int,milliseconds : Int,dateTime : Date)] = []     // tuple: (levelId,seconds,datetime)
     private let lockQueue = DispatchQueue(label: "com.crazydriver.LockQueue")
     
     
@@ -22,19 +22,19 @@ public class ResultsModel: NSObject {
         loadResultsFromDisk()
     }
     
-    public func bestResultInSecondsForLevelId(levelId : Int) -> Int{
+    public func bestResultInMillisecondsForLevelId(levelId : Int) -> Int{
         var best = Int.max
         for result in results{
-            if(result.levelId == levelId && result.seconds < best){
-                best = result.seconds
+            if(result.levelId == levelId && result.milliseconds < best){
+                best = result.milliseconds
             }
         }
         return best
     }
     
-    public func addResultForLevelId(levelId : Int, seconds : Int) -> Void{
+    public func addResultForLevelId(levelId : Int, milliseconds : Int) -> Void{
         lockQueue.sync() {
-            results.append((levelId, seconds, Date()))
+            results.append((levelId, milliseconds, Date()))
             DispatchQueue.global(qos: .background).async {
                 self.saveResultsOnDisk()
             }
@@ -45,7 +45,7 @@ public class ResultsModel: NSObject {
         var resultsOfLevel : [(seconds : Int,dateTime : Date)] = [];
         for result in results{
             if(result.levelId == levelId){
-                resultsOfLevel.append((result.seconds,result.dateTime))
+                resultsOfLevel.append((result.milliseconds,result.dateTime))
             }
         }
         
@@ -54,12 +54,17 @@ public class ResultsModel: NSObject {
         return resultsOfLevel
     }
     
+    public func resultsInSecondsOrderedByCreationDate() -> Array<(levelId : Int, milliseconds : Int , dateTime : Date)>{
+        
+        return results.sorted(by: { $0.dateTime.compare($1.dateTime) == ComparisonResult.orderedDescending })
+    }
+    
     private func saveResultsOnDisk(){
         userDefault.set(ResultsModel.resultsToData(results: results), forKey: "results")
         userDefault.synchronize()
     }
     
-    private static func resultsToData(results : [(levelId : Int,seconds : Int,dateTime : Date)]) -> Data{
+    private static func resultsToData(results : [(levelId : Int,milliseconds : Int,dateTime : Date)]) -> Data{
         
         // array of dictionary
         var array = [Dictionary<String,Any>]()
@@ -67,7 +72,7 @@ public class ResultsModel: NSObject {
         for result in results{
             var dict = Dictionary<String,Any>()
             dict.updateValue(result.levelId, forKey: "LevelId")
-            dict.updateValue(result.seconds, forKey: "Seconds")
+            dict.updateValue(result.milliseconds, forKey: "Milliseconds")
             dict.updateValue(result.dateTime, forKey: "DateTime")
             array.append(dict)
         }
@@ -75,15 +80,15 @@ public class ResultsModel: NSObject {
         return NSKeyedArchiver.archivedData(withRootObject: array)
     }
     
-    private static func resultsFromData(data : Data) -> [(levelId : Int,seconds : Int,dateTime : Date)]{
+    private static func resultsFromData(data : Data) -> [(levelId : Int,milliseconds : Int,dateTime : Date)]{
         
-        var results : [(levelId : Int,seconds : Int,dateTime : Date)] = []
+        var results : [(levelId : Int,milliseconds : Int,dateTime : Date)] = []
         
         let array = NSKeyedUnarchiver.unarchiveObject(with: data) as! [Dictionary<String,Any>]
         
         for dict in array{
-            let result : (levelId : Int,seconds : Int,dateTime : Date)
-            result.seconds = dict["Seconds"] as! Int
+            let result : (levelId : Int,milliseconds : Int,dateTime : Date)
+            result.milliseconds = dict["Milliseconds"] as! Int
             result.levelId = dict["LevelId"] as! Int
             result.dateTime = dict["DateTime"] as! Date
             

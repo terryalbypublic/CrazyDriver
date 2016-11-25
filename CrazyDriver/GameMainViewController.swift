@@ -240,7 +240,7 @@ public class GameMainViewController: UIViewController {
     }
     
     public func updateTimeLabel(){
-        self.timeLabel.text = timeFormatted(totalSeconds: gameModel.ellapsedSeconds)
+        self.timeLabel.text = Utility.timeFormatted(totalMilliseconds: gameModel.ellapsedMilliseconds)
     }
     
     // MARK: Acceleration
@@ -352,18 +352,13 @@ public class GameMainViewController: UIViewController {
     // MARK - Time game
     
     private func startTime(){
-        gameModel.time = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateEllapsedSeconds), userInfo: nil, repeats: true)
+        gameModel.time = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateEllapsedMilliseconds), userInfo: nil, repeats: true)
     }
     
-    public func updateEllapsedSeconds(){
-        self.gameModel.ellapsedSeconds += 1
+    public func updateEllapsedMilliseconds(){
+        self.gameModel.ellapsedMilliseconds += 100
     }
     
-    func timeFormatted(totalSeconds: Int) -> String {
-        let seconds: Int = totalSeconds % 60
-        let minutes: Int = (totalSeconds / 60) % 60
-        return String(format: "%02d:%02d", minutes, seconds)
-    }
     
     // MARK - Ending of game
     
@@ -396,7 +391,7 @@ public class GameMainViewController: UIViewController {
         self.stopGame()
         gameMainView?.endGame(objectViews: objectViews)
         gameModel.ticks = 0
-        presentAlert(title: "End", message: "You finished the level in "+String(gameModel.ellapsedSeconds)+" seconds, do you want to regame?", defaultActionTitle: nil, secondActionTitle: "Replay", secondActionHandler: { action in
+        presentAlert(title: "End", message: "You finished the level in "+String(gameModel.ellapsedMilliseconds)+" seconds, do you want to regame?", defaultActionTitle: nil, secondActionTitle: "Replay", secondActionHandler: { action in
             self.startGame()
             }, thirdActionTitle: "End game", thirdActionHandler: {action in
                 let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -410,7 +405,7 @@ public class GameMainViewController: UIViewController {
     }
     
     private func saveLevelResult(){
-        ResultsModel.sharedReference.addResultForLevelId(levelId: 1, seconds: gameModel.ellapsedSeconds)
+        ResultsModel.sharedReference.addResultForLevelId(levelId: levelModel.levelId, milliseconds: gameModel.ellapsedMilliseconds)
     }
     
     // MARK - Alert
