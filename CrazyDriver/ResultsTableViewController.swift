@@ -43,8 +43,18 @@ class ResultsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : ResultsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ResultsTableViewCell", for: indexPath) as! ResultsTableViewCell
         
+        cell.isUserInteractionEnabled = false   // cell not touchable
         cell.levelLabel.text = String(results[indexPath.row].levelId)
         cell.timeLabel.text = Utility.timeFormatted(totalMilliseconds: results[indexPath.row].milliseconds)
+        cell.dateLabel.text = Utility.timeAgoSince(results[indexPath.row].dateTime)
+        
+        // gray cell every two
+        if(indexPath.row % 2 == 0){
+            cell.backgroundColor = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1)
+        }
+        else{
+            cell.backgroundColor = UIColor.white
+        }
         
         return cell
     }
@@ -99,5 +109,6 @@ class ResultsTableViewController: UITableViewController {
             
         }
     }
+    
 
 }

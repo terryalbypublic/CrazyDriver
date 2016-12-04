@@ -10,6 +10,7 @@ import UIKit
 
 class ResultsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
