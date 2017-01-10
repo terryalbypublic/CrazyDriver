@@ -26,6 +26,7 @@ public class HelpViewController: UIViewController {
     @IBOutlet weak var cannonArrow: UIImageView!
     @IBOutlet weak var timeArrow: UIImageView!
     @IBOutlet weak var lifeArrow: UIImageView!
+    @IBOutlet weak var iphoneArrow: UIImageView!
     
     // arrows Labels
     @IBOutlet weak var cannonArrowLabel: UILabel!
@@ -33,6 +34,13 @@ public class HelpViewController: UIViewController {
     @IBOutlet weak var brakeArrowLabel: UILabel!
     @IBOutlet weak var timeArrowLabel: UILabel!
     @IBOutlet weak var lifeArrowLabel: UILabel!
+    @IBOutlet weak var iphoneArrowLabel: UILabel!
+    
+    
+    // iphone
+    @IBOutlet weak var iphoneImage: UIImageView!
+    
+    var iPhoneImageIsRotating : Bool = false
     
     
     // clock
@@ -89,18 +97,21 @@ public class HelpViewController: UIViewController {
         timeArrow.isHidden = true
         lifeArrow.isHidden = true
         cannonArrow.isHidden = true
+        iphoneArrow.isHidden = true
         
         brakeArrowLabel.isHidden = true
         accelerateArrowLabel.isHidden = true
         timeArrowLabel.isHidden = true
         lifeArrowLabel.isHidden = true
         cannonArrowLabel.isHidden = true
+        iphoneArrowLabel.isHidden = true
         
         timeLabel.isHidden = true
         lifeBar.isHidden = true
         lifeLabel.isHidden = true
         accelerateButton.isHidden = true
         brakeButton.isHidden = true
+        iphoneImage.isHidden = true
     }
     
     // start animation clock
@@ -365,7 +376,7 @@ public class HelpViewController: UIViewController {
     
     private func handleEvent(distance : Int){
         
-        if(distance > 1000 && distance < 2000){
+        if(gameModel.ellapsedMilliseconds > 3000 && gameModel.ellapsedMilliseconds < 7000){
             // show helps for accelarate, and brake
             accelerateButton.isHidden = false
             brakeButton.isHidden = false
@@ -377,7 +388,7 @@ public class HelpViewController: UIViewController {
             brakeArrowLabel.isHidden = false
         }
         
-        else if(distance > 2000 && distance < 3000){
+        else if(gameModel.ellapsedMilliseconds > 7000 && gameModel.ellapsedMilliseconds < 16000){
             // show how to go left and right
             
             accelerateArrow.isHidden = true
@@ -385,9 +396,27 @@ public class HelpViewController: UIViewController {
             
             accelerateArrowLabel.isHidden = true
             brakeArrowLabel.isHidden = true
+            
+            
+            // animate iphone
+            iphoneImage.isHidden = false
+            iphoneArrowLabel.isHidden = false
+            iphoneArrow.isHidden = false
+            
+            if(!iPhoneImageIsRotating){
+                iPhoneImageIsRotating = true
+                rotateIphoneClockwise(clockwise: true)
+            }
+            
         }
         
-        else if(distance > 3000 && distance < 4000){
+        else if(gameModel.ellapsedMilliseconds > 16000 && gameModel.ellapsedMilliseconds < 23000){
+            
+            iphoneImage.isHidden = true
+            iphoneArrowLabel.isHidden = true
+            iphoneArrow.isHidden = true
+            iPhoneImageIsRotating = false
+            
             // show how to fire
             
             if(cannonButton.isHidden && (distance/100) % 4 == 0 && !weaponsAlreadyAppeared){
@@ -411,7 +440,7 @@ public class HelpViewController: UIViewController {
         }
         
         
-        else if(distance > 4500 && distance < 6500){
+        else if(gameModel.ellapsedMilliseconds > 23000 && gameModel.ellapsedMilliseconds < 27000){
             // show the time
             
             cannonArrow.isHidden = true
@@ -422,7 +451,7 @@ public class HelpViewController: UIViewController {
             timeArrowLabel.isHidden = false
         }
         
-        else if(distance > 6500 && distance < 8500){
+        else if(gameModel.ellapsedMilliseconds > 27000 && gameModel.ellapsedMilliseconds < 33000){
             // show the life
             timeArrow.isHidden = true
             timeArrowLabel.isHidden = true
@@ -433,13 +462,13 @@ public class HelpViewController: UIViewController {
             lifeArrowLabel.isHidden = false
         }
         
-        else if(distance > 8500){
+        else if(gameModel.ellapsedMilliseconds > 33000){
             self.stopGame()
             gameMainView?.endGame(objectViews: objectViews)
             gameModel.ticks = 0
-            presentAlert(title: "End", message: "You finished the tutorial, do you want to redo the tutorial, or go back to the menu?", defaultActionTitle: nil, secondActionTitle: "Replay", secondActionHandler: { action in
+            presentAlert(title: "That's all", message: "Congratulations, now you can drive! The tutorial is finished, do you want to play, or repeat the tutorial?", defaultActionTitle: nil, secondActionTitle: "Repeat", secondActionHandler: { action in
                 self.startGame()
-            }, thirdActionTitle: "Menu", thirdActionHandler: {action in
+            }, thirdActionTitle: "Play", thirdActionHandler: {action in
                 let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc: UIViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as UIViewController
                 vc.modalTransitionStyle = .crossDissolve
@@ -448,6 +477,26 @@ public class HelpViewController: UIViewController {
                 return
             })
         }
+    }
+    
+    // MARK - Animate iPhone
+    private func animateIphone(){
+        rotateIphoneClockwise(clockwise: true)
+    }
+    
+    private func rotateIphoneClockwise(clockwise : Bool, howManyTimes : Int = 5){
+        UIView.animate(withDuration: 2.0, animations: {
+            if(clockwise){
+                self.iphoneImage.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4)
+            }
+            else{
+                self.iphoneImage.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 4)
+            }
+        }, completion: {(Bool) in
+            if(howManyTimes>0){
+                self.rotateIphoneClockwise(clockwise: !clockwise, howManyTimes: howManyTimes-1)
+            }
+        })
     }
     
     private func addWeaponOnStreet(positionX : Int, originY : Int = -100){
