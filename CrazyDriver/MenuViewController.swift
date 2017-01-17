@@ -8,12 +8,14 @@
 
 import UIKit
 
-class MenuViewController: UIViewController {
+class MenuViewController: UIViewController, UIPopoverPresentationControllerDelegate, AboutViewControllerDelegate {
 
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var resultsButton: UIButton!
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
+    
+    private var aboutViewController : AboutViewController? = nil
     
     
     override func viewDidLoad() {
@@ -57,6 +59,41 @@ class MenuViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "settingsPopoverSegue" {
+            aboutViewController = segue.destination as? AboutViewController
+            
+            aboutViewController?.popoverPresentationController?.sourceView = view;
+            aboutViewController?.popoverPresentationController?.sourceRect = CGRect(x: view.frame.width/2-125, y: view.frame.height/2-75, width: 250, height: 150)
+
+            aboutViewController?.modalPresentationStyle = UIModalPresentationStyle.popover
+            aboutViewController?.popoverPresentationController!.delegate = self
+            aboutViewController?.delegate = self
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.alpha = 0.5
+            })
+        }
+    }
+    
+    // MARK: - UIPopoverPresentationControllerDelegate
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.alpha = 1
+        })
+    }
+    
+    // MARK: - AboutViewControllerDelegate
+    func dismissPopover(){
+        aboutViewController?.dismiss(animated: true, completion: {})
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.alpha = 1
+        })
     }
     
 
