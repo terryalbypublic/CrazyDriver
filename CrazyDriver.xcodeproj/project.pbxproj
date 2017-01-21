@@ -271,7 +271,7 @@
 					};
 					65753DA61CF869D900EA74B8 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = RHN4Z84SXA;
+						DevelopmentTeam = W4LB2R7L9L;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
@@ -516,7 +516,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = RHN4Z84SXA;
+				DEVELOPMENT_TEAM = W4LB2R7L9L;
 				INFOPLIST_FILE = CrazyDriver/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -535,7 +535,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = RHN4Z84SXA;
+				DEVELOPMENT_TEAM = W4LB2R7L9L;
 				INFOPLIST_FILE = CrazyDriver/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

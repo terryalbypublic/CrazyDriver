@@ -373,11 +373,7 @@ public class GameMainViewController: UIViewController {
         presentAlert(title: "End", message: "You have no more life, do you want to regame?", defaultActionTitle: nil, secondActionTitle: "Replay", secondActionHandler: { action in
             self.startGame()
             }, thirdActionTitle: "End game", thirdActionHandler: {action in
-                let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc: UIViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as UIViewController
-                vc.modalTransitionStyle = .crossDissolve
-                vc.modalPresentationStyle = .custom
-                self.present(vc, animated: true, completion: nil)
+                self.navigationController?.popViewController(animated: true)
                 return
         })
     }
@@ -397,11 +393,7 @@ public class GameMainViewController: UIViewController {
         presentAlert(title: "End", message: "You finished the level in "+String(gameModel.ellapsedMilliseconds)+" seconds, do you want to regame?", defaultActionTitle: nil, secondActionTitle: "Replay", secondActionHandler: { action in
             self.startGame()
             }, thirdActionTitle: "End game", thirdActionHandler: {action in
-                let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc: UIViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as UIViewController
-                vc.modalTransitionStyle = .crossDissolve
-                vc.modalPresentationStyle = .custom
-                self.present(vc, animated: true, completion: nil)
+                self.navigationController?.popViewController(animated: true)
                 return
         })
         saveLevelResult()
