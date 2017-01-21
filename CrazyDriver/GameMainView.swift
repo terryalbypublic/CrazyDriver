@@ -188,5 +188,4 @@ public class GameMainView: UIView {
             objectView.view.removeFromSuperview()
         }
     }
-
 }

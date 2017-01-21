@@ -44,12 +44,17 @@ public class GameMainViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.startGame()
+        self.buildUI()
         
     }
 
     public override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func buildUI(){
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     func initializeGame(){
@@ -193,11 +198,9 @@ public class GameMainViewController: UIViewController {
         presentAlert(title: "Pause", message: "Do you want to continue?", defaultActionTitle: nil, secondActionTitle: "Resume", secondActionHandler: { action in
             self.resumeGame()
             }, thirdActionTitle: "End game", thirdActionHandler: {action in
-                let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc: UIViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as UIViewController
-                vc.modalTransitionStyle = .crossDissolve
-                vc.modalPresentationStyle = .custom
-                self.present(vc, animated: true, completion: nil)
+                
+                self.navigationController?.popViewController(animated: true)
+                
                 return
         })
     }
@@ -479,7 +482,13 @@ public class GameMainViewController: UIViewController {
         }
     }
     
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
     
+    public override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
     
 }
 

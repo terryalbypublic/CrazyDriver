@@ -29,6 +29,9 @@ class MenuViewController: UIViewController, UIPopoverPresentationControllerDeleg
     
     func buildUI(){
         
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
         // set background
         UIGraphicsBeginImageContext(self.view.frame.size);
         UIImage(named: "Speed")?.draw(in: self.view.bounds)

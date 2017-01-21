@@ -271,7 +271,7 @@
 					};
 					65753DA61CF869D900EA74B8 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = W4LB2R7L9L;
+						DevelopmentTeam = RHN4Z84SXA;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
@@ -514,11 +514,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Terence Alberti (B6WVC99DUW)";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = W4LB2R7L9L;
+				DEVELOPMENT_TEAM = RHN4Z84SXA;
 				INFOPLIST_FILE = CrazyDriver/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.CrazyDriver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -533,11 +533,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Terence Alberti (B6WVC99DUW)";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = W4LB2R7L9L;
+				DEVELOPMENT_TEAM = RHN4Z84SXA;
 				INFOPLIST_FILE = CrazyDriver/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.CrazyDriver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
