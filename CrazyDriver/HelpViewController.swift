@@ -472,11 +472,7 @@ public class HelpViewController: UIViewController {
             presentAlert(title: "That's all", message: "Congratulations, now you can drive! The tutorial is finished, do you want to play, or repeat the tutorial?", defaultActionTitle: nil, secondActionTitle: "Repeat", secondActionHandler: { action in
                 self.startGame()
             }, thirdActionTitle: "Play", thirdActionHandler: {action in
-                let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc: UIViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as UIViewController
-                vc.modalTransitionStyle = .crossDissolve
-                vc.modalPresentationStyle = .custom
-                self.present(vc, animated: true, completion: nil)
+                self.navigationController?.popViewController(animated: true)
                 return
             })
         }
