@@ -245,11 +245,7 @@ public class HelpViewController: UIViewController {
         presentAlert(title: "Pause", message: "Do you want to continue?", defaultActionTitle: nil, secondActionTitle: "Resume", secondActionHandler: { action in
             self.resumeGame()
         }, thirdActionTitle: "End tutorial", thirdActionHandler: {action in
-            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc: UIViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as UIViewController
-            vc.modalTransitionStyle = .crossDissolve
-            vc.modalPresentationStyle = .custom
-            self.present(vc, animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
             return
         })
     }
