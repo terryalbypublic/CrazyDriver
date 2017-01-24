@@ -269,7 +269,7 @@
                                 <rect key="frame" x="0.0" y="72" width="568" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RgT-vQ-11x" id="OKZ-1a-fN7">
-                                    <rect key="frame" x="0.0" y="0.0" width="568" height="109"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="568" height="110"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Level:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uuz-yr-bfF">
@@ -489,8 +489,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Arrow_270" translatesAutoresizingMaskIntoConstraints="NO" id="6Wi-bA-9J9">
                                 <rect key="frame" x="460" y="185" width="56" height="79"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="This is to accelerate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBY-lY-ESD">
-                                <rect key="frame" x="433" y="197" width="135" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is to accelerate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBY-lY-ESD">
+                                <rect key="frame" x="430" y="197" width="130" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -535,7 +535,7 @@
                                 </variation>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Iphone" translatesAutoresizingMaskIntoConstraints="NO" id="Clc-W9-Flo">
-                                <rect key="frame" x="440" y="200" width="85" height="45"/>
+                                <rect key="frame" x="440" y="220" width="85" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="85" id="bSH-3V-zUV"/>
                                     <constraint firstAttribute="height" constant="45" id="gOY-Qe-Ug6"/>
@@ -561,7 +561,7 @@
                             <constraint firstItem="JzD-qW-Fhp" firstAttribute="leading" secondItem="udb-Hv-zlv" secondAttribute="leadingMargin" constant="-4" id="1At-tz-ESg"/>
                             <constraint firstItem="3Hv-8O-PEc" firstAttribute="trailing" secondItem="udb-Hv-zlv" secondAttribute="trailingMargin" id="3bw-Rr-6xz"/>
                             <constraint firstItem="vBY-lY-ESD" firstAttribute="trailing" secondItem="Xwa-zz-JWD" secondAttribute="trailing" constant="28" id="6ZQ-ol-zX7">
-                                <variation key="heightClass=compact-widthClass=compact" constant="76"/>
+                                <variation key="heightClass=compact-widthClass=compact" constant="68"/>
                             </constraint>
                             <constraint firstItem="gPu-4I-nSJ" firstAttribute="top" secondItem="udb-Hv-zlv" secondAttribute="top" constant="7" id="8yQ-Hg-DW2"/>
                             <constraint firstItem="ABk-P8-ZgJ" firstAttribute="leading" secondItem="JzD-qW-Fhp" secondAttribute="trailing" constant="-34" id="BLe-Sh-4PC">
@@ -636,7 +636,7 @@
                                 <variation key="heightClass=compact-widthClass=compact" constant="-14"/>
                             </constraint>
                             <constraint firstItem="Clc-W9-Flo" firstAttribute="top" secondItem="MqE-s3-imf" secondAttribute="bottom" constant="15" id="yMo-yY-5AH">
-                                <variation key="heightClass=compact-widthClass=compact" constant="-77"/>
+                                <variation key="heightClass=compact-widthClass=compact" constant="-57"/>
                             </constraint>
                             <constraint firstItem="YwA-p9-ho1" firstAttribute="top" secondItem="YKk-xq-HjR" secondAttribute="bottom" constant="3" id="zH7-Bu-jjg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4cS-8p-hKj" secondAttribute="trailing" constant="-15" id="zUb-bL-kxg"/>

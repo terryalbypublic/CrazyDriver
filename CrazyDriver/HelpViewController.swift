@@ -420,13 +420,17 @@ public class HelpViewController: UIViewController {
             
             if(cannonButton.isHidden && (distance/100) % 4 == 0 && !weaponsAlreadyAppeared){
                 // set some weapons on the road
-                addWeaponOnStreet(positionX: -150)
-                addWeaponOnStreet(positionX: -100, originY: -120)
-                addWeaponOnStreet(positionX: -50, originY: -140)
-                addWeaponOnStreet(positionX: 0, originY: -160)
-                addWeaponOnStreet(positionX: 50, originY: -180)
-                addWeaponOnStreet(positionX: 100, originY: -200)
-                addWeaponOnStreet(positionX: 140, originY: -220)
+                addWeaponOnStreet(positionX: -100, originY: -100)
+                addWeaponOnStreet(positionX: -75, originY: -110)
+                addWeaponOnStreet(positionX: -50, originY: -120)
+                addWeaponOnStreet(positionX: -25, originY: -130)
+                addWeaponOnStreet(positionX: 0, originY: -140)
+                addWeaponOnStreet(positionX: 25, originY: -150)
+                addWeaponOnStreet(positionX: 50, originY: -160)
+                addWeaponOnStreet(positionX: 75, originY: -170)
+                addWeaponOnStreet(positionX: 100, originY: -180)
+                addWeaponOnStreet(positionX: 125, originY: -190)
+                addWeaponOnStreet(positionX: 150, originY: -200)
                 
                 weaponsAlreadyAppeared = true
             }
