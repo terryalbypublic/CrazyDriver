@@ -26,7 +26,6 @@ public class HelpViewController: UIViewController {
     @IBOutlet weak var cannonArrow: UIImageView!
     @IBOutlet weak var timeArrow: UIImageView!
     @IBOutlet weak var lifeArrow: UIImageView!
-    @IBOutlet weak var iphoneArrow: UIImageView!
     
     // arrows Labels
     @IBOutlet weak var cannonArrowLabel: UILabel!
@@ -104,7 +103,6 @@ public class HelpViewController: UIViewController {
         timeArrow.isHidden = true
         lifeArrow.isHidden = true
         cannonArrow.isHidden = true
-        iphoneArrow.isHidden = true
         
         brakeArrowLabel.isHidden = true
         accelerateArrowLabel.isHidden = true
@@ -404,7 +402,6 @@ public class HelpViewController: UIViewController {
             // animate iphone
             iphoneImage.isHidden = false
             iphoneArrowLabel.isHidden = false
-            iphoneArrow.isHidden = false
             
             if(!iPhoneImageIsRotating){
                 iPhoneImageIsRotating = true
@@ -417,7 +414,6 @@ public class HelpViewController: UIViewController {
             
             iphoneImage.isHidden = true
             iphoneArrowLabel.isHidden = true
-            iphoneArrow.isHidden = true
             iPhoneImageIsRotating = false
             
             // show how to fire
