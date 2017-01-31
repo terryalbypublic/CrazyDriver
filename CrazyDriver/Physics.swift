@@ -9,7 +9,7 @@
 import UIKit
 
 class Physics: NSObject {
-
+    
     // collision, return the ObjectView that has collided with the car, todo: what if the car collided with two views at the same time?
     static func isCarCollided(carFrame : CGRect, objectViews : [(model : ObjectViewModel,view : UIImageView)]) -> (model : ObjectViewModel,view : UIImageView)?{
         for objectView in objectViews where !objectView.model.destroyed{

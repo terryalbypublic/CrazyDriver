@@ -2,7 +2,7 @@
     "LevelName": "Level one",
     "LevelId" : "1",
     "Data": [
-             {"Distance" : "500", "Object" : "RedCar", "OriginX":"-100" },
+             {"Distance" : "500", "Object" : "RedCar", "OriginX":"0" },
              {"Distance" : "1600", "Object" : "RedCar", "OriginX":"120"},
              {"Distance" : "1600", "Object" : "Ammunition", "OriginX":"0"},
              {"Distance" : "2700", "Object" : "RedCar", "OriginX":"120"},
@@ -12,11 +12,11 @@
              {"Distance" : "6000", "Object" : "RedCar", "OriginX":"120"},
              {"Distance" : "7100", "Object" : "RedCar", "OriginX":"0"},
              {"Distance" : "8200", "Object" : "RedCar", "OriginX":"0"},
-             {"Distance" : "8300", "Object" : "Ammunition", "OriginX":"-100"},
+             {"Distance" : "8300", "Object" : "Ammunition", "OriginX":"100"},
              {"Distance" : "9300", "Object" : "RedCar", "OriginX":"0"},
              {"Distance" : "11000", "Object" : "RedCar", "OriginX":"0"},
              {"Distance" : "12500", "Object" : "RedCar", "OriginX":"0"},
-             {"Distance" : "12600", "Object" : "Ammunition", "OriginX":"-150"},
+             {"Distance" : "12600", "Object" : "Ammunition", "OriginX":"150"},
              {"Distance" : "13500", "Object" : "RedCar", "OriginX":"0"},
              {"Distance" : "15000", "Object" : "End", "OriginX":"0"},
              ]

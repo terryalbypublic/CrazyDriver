@@ -13,6 +13,8 @@ public class GameMainView: UIView {
     
     // views
     var streetViewArray = Array<UIImageView>()
+    private var _streetCenterX : CGFloat = 0
+    private var _streetOriginX : CGFloat = 0
     var carImageView: UIImageView!
     var backgroundView : UIView!
     var explosionView : UIImageView? = nil
@@ -140,8 +142,19 @@ public class GameMainView: UIView {
         streetView.frame.origin.y = CGFloat(newYPosition)
     }
     
+    // calculate once the streetCenter and streetOrigin X
+    private func streetCenterX() -> CGFloat{
+        if(_streetCenterX == 0){
+            _streetCenterX = self.frame.size.width / CGFloat(2)
+        }
+        return _streetCenterX
+    }
+    
     public func streetOriginX() -> CGFloat{
-        return self.frame.size.width / CGFloat(2) - CGFloat(Constants.streetHeight)/2
+        if(_streetOriginX == 0){
+            _streetOriginX = self.frame.size.width / CGFloat(2) - CGFloat(Constants.streetWidth)/2;
+        }
+        return _streetOriginX
     }
     
     // MARK: Accident or Collision

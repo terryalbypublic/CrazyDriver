@@ -320,10 +320,19 @@ public class GameMainViewController: UIViewController {
     }
     
     // MARK - objectViews
-    
     private func addObjectView(objectView : ObjectViewModel){
         let imageView = UIImageView(image: UIImage(named: objectView.imageName))
-        imageView.frame.origin.x = CGFloat(objectView.frame.origin.x)
+        imageView.frame.origin.x = (gameMainView?.streetOriginX())! + CGFloat(objectView.frame.origin.x)
+        imageView.frame.origin.y = CGFloat(objectView.frame.origin.y)
+        objectView.frame = imageView.frame    // get image size
+        self.objectViews.append((model:objectView, view: imageView))
+        gameMainView?.addObjectView(view: imageView)
+    }
+
+    // MARK - objectViews
+    private func addObjectViewRelativeToStreet(objectView : ObjectViewModel){
+        let imageView = UIImageView(image: UIImage(named: objectView.imageName))
+        imageView.frame.origin.x = (gameMainView?.streetOriginX())! + CGFloat(objectView.frame.origin.x)
         imageView.frame.origin.y = CGFloat(objectView.frame.origin.y)
         objectView.frame = imageView.frame    // get image size
         self.objectViews.append((model:objectView, view: imageView))
@@ -338,12 +347,12 @@ public class GameMainViewController: UIViewController {
         if(data[levelModel.nextEventId].distance <= distance){
             
             if(data[levelModel.nextEventId].objectViewType == "RedCar"){
-                let objectView = ObjectViewModel(objectViewType: .RedCar, originX: screenSize.size.width/2+CGFloat(data[levelModel.nextEventId].originX), originY: -100)
-                self.addObjectView(objectView: objectView)
+                let objectView = ObjectViewModel(objectViewType: .RedCar, originX: CGFloat(data[levelModel.nextEventId].originX), originY: -100)
+                self.addObjectViewRelativeToStreet(objectView: objectView)
             }
             else if(data[levelModel.nextEventId].objectViewType == "Ammunition"){
-                let objectView = ObjectViewModel(objectViewType: .Ammunition, originX: screenSize.size.width/2+CGFloat(data[levelModel.nextEventId].originX), originY: -100)
-                self.addObjectView(objectView: objectView)
+                let objectView = ObjectViewModel(objectViewType: .Ammunition, originX: CGFloat(data[levelModel.nextEventId].originX), originY: -100)
+                self.addObjectViewRelativeToStreet(objectView: objectView)
             }
             else{
                 endGameFinished()

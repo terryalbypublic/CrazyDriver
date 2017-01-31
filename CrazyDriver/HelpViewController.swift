@@ -117,6 +117,8 @@ public class HelpViewController: UIViewController {
         accelerateButton.isHidden = true
         brakeButton.isHidden = true
         iphoneImage.isHidden = true
+        
+        weaponsAlreadyAppeared = false
     }
     
     // start animation clock
@@ -363,10 +365,19 @@ public class HelpViewController: UIViewController {
     }
     
     // MARK - objectViews
-    
     private func addObjectView(objectView : ObjectViewModel){
         let imageView = UIImageView(image: UIImage(named: objectView.imageName))
         imageView.frame.origin.x = CGFloat(objectView.frame.origin.x)
+        imageView.frame.origin.y = CGFloat(objectView.frame.origin.y)
+        objectView.frame = imageView.frame    // get image size
+        self.objectViews.append((model:objectView, view: imageView))
+        gameMainView?.addObjectView(view: imageView)
+    }
+    
+    
+    private func addObjectViewRelativeToStreet(objectView : ObjectViewModel){
+        let imageView = UIImageView(image: UIImage(named: objectView.imageName))
+        imageView.frame.origin.x = (gameMainView?.streetOriginX())! + CGFloat(objectView.frame.origin.x)
         imageView.frame.origin.y = CGFloat(objectView.frame.origin.y)
         objectView.frame = imageView.frame    // get image size
         self.objectViews.append((model:objectView, view: imageView))
@@ -420,17 +431,18 @@ public class HelpViewController: UIViewController {
             
             if(cannonButton.isHidden && (distance/100) % 4 == 0 && !weaponsAlreadyAppeared){
                 // set some weapons on the road
-                addWeaponOnStreet(positionX: -100, originY: -100)
-                addWeaponOnStreet(positionX: -75, originY: -110)
-                addWeaponOnStreet(positionX: -50, originY: -120)
-                addWeaponOnStreet(positionX: -25, originY: -130)
-                addWeaponOnStreet(positionX: 0, originY: -140)
+                addWeaponOnStreet(positionX: 0, originY: -145)
                 addWeaponOnStreet(positionX: 25, originY: -150)
-                addWeaponOnStreet(positionX: 50, originY: -160)
-                addWeaponOnStreet(positionX: 75, originY: -170)
-                addWeaponOnStreet(positionX: 100, originY: -180)
-                addWeaponOnStreet(positionX: 125, originY: -190)
-                addWeaponOnStreet(positionX: 150, originY: -200)
+                addWeaponOnStreet(positionX: 50, originY: -155)
+                addWeaponOnStreet(positionX: 75, originY: -160)
+                addWeaponOnStreet(positionX: 100, originY: -165)
+                addWeaponOnStreet(positionX: 125, originY: -170)
+                addWeaponOnStreet(positionX: 150, originY: -175)
+                addWeaponOnStreet(positionX: 175, originY: -180)
+                addWeaponOnStreet(positionX: 200, originY: -185)
+                addWeaponOnStreet(positionX: 225, originY: -190)
+                addWeaponOnStreet(positionX: 250, originY: -195)
+                addWeaponOnStreet(positionX: 275, originY: -200)
                 
                 weaponsAlreadyAppeared = true
             }
@@ -499,8 +511,8 @@ public class HelpViewController: UIViewController {
     }
     
     private func addWeaponOnStreet(positionX : Int, originY : Int = -100){
-        let objectView = ObjectViewModel(objectViewType: .Ammunition, originX: screenSize.size.width/2+CGFloat(positionX), originY: CGFloat(originY))
-        self.addObjectView(objectView: objectView)
+        let objectView = ObjectViewModel(objectViewType: .Ammunition, originX: CGFloat(positionX), originY: CGFloat(originY))
+        self.addObjectViewRelativeToStreet(objectView: objectView)
     }
     
     // MARK - Time game
