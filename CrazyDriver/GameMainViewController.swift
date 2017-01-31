@@ -23,11 +23,14 @@ public class GameMainViewController: UIViewController {
     // clock
     var animationClock : CADisplayLink = CADisplayLink()
     
+    // level file
+    var levelFileName = ""
+    
     // models
     var carModel = CarModel()
     var sensorModel = SensorsModel()
     var gameModel = GameModel()
-    var levelModel = LevelModel.levelModelFromFileName(fileName: "level1")
+    var levelModel : LevelModel? = nil
     
     // views
     var streetViewArray = Array<UIImageView>()
@@ -43,6 +46,7 @@ public class GameMainViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.loadLevel()
         self.startGame()
         self.buildUI()
         
@@ -342,22 +346,22 @@ public class GameMainViewController: UIViewController {
     // MARK - Tick events
     
     private func handleEvent(distance : Int){
-        let data = self.levelModel.data
+        let data = self.levelModel?.data
         
-        if(data[levelModel.nextEventId].distance <= distance){
+        if((data?[(levelModel?.nextEventId)!].distance)! <= distance){
             
-            if(data[levelModel.nextEventId].objectViewType == "RedCar"){
-                let objectView = ObjectViewModel(objectViewType: .RedCar, originX: CGFloat(data[levelModel.nextEventId].originX), originY: -100)
+            if(data?[(levelModel?.nextEventId)!].objectViewType == "RedCar"){
+                let objectView = ObjectViewModel(objectViewType: .RedCar, originX: CGFloat((data?[(levelModel?.nextEventId)!].originX)!), originY: -100)
                 self.addObjectViewRelativeToStreet(objectView: objectView)
             }
-            else if(data[levelModel.nextEventId].objectViewType == "Ammunition"){
-                let objectView = ObjectViewModel(objectViewType: .Ammunition, originX: CGFloat(data[levelModel.nextEventId].originX), originY: -100)
+            else if(data?[(levelModel?.nextEventId)!].objectViewType == "Ammunition"){
+                let objectView = ObjectViewModel(objectViewType: .Ammunition, originX: CGFloat((data?[(levelModel?.nextEventId)!].originX)!), originY: -100)
                 self.addObjectViewRelativeToStreet(objectView: objectView)
             }
             else{
                 endGameFinished()
             }
-            levelModel.nextEventId += 1
+            levelModel?.nextEventId += 1
         }
     }
     
@@ -409,7 +413,7 @@ public class GameMainViewController: UIViewController {
     }
     
     private func saveLevelResult(){
-        ResultsModel.sharedReference.addResultForLevelId(levelId: levelModel.levelId, milliseconds: gameModel.ellapsedMilliseconds)
+        ResultsModel.sharedReference.addResultForLevelId(levelId: (levelModel?.levelId)!, milliseconds: gameModel.ellapsedMilliseconds)
     }
     
     // MARK - Alert
@@ -481,6 +485,11 @@ public class GameMainViewController: UIViewController {
             }
             
         }
+    }
+    
+    // MARK - Load level
+    private func loadLevel(){
+        levelModel = LevelModel.levelModelFromFileName(fileName: levelFileName)
     }
     
     public override func viewWillDisappear(_ animated: Bool) {

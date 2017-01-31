@@ -17,6 +17,9 @@
 		652C84331D82ECFF0034F40E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652C84321D82ECFF0034F40E /* MenuViewController.swift */; };
 		6551A80E1CFCB2B7006227D5 /* SensorsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6551A80D1CFCB2B7006227D5 /* SensorsModel.swift */; };
 		6551A8101CFCB2F0006227D5 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6551A80F1CFCB2F0006227D5 /* CoreMotion.framework */; };
+		6554B4641E4116A3000AD4A1 /* level2.json in Resources */ = {isa = PBXBuildFile; fileRef = 6554B4631E4116A3000AD4A1 /* level2.json */; };
+		6554B4661E4145AF000AD4A1 /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6554B4651E4145AF000AD4A1 /* LevelViewController.swift */; };
+		6554B4671E4145AF000AD4A1 /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6554B4651E4145AF000AD4A1 /* LevelViewController.swift */; };
 		656281991D200F260090B02F /* BaseObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656281981D200F260090B02F /* BaseObjectModel.swift */; };
 		656BC6C21E2EBBC30077752F /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BC6C11E2EBBC30077752F /* AboutViewController.swift */; };
 		656C77EA1D47C3F00044E30F /* Physics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656C77E91D47C3F00044E30F /* Physics.swift */; };
@@ -60,6 +63,8 @@
 		652C84321D82ECFF0034F40E /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		6551A80D1CFCB2B7006227D5 /* SensorsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorsModel.swift; sourceTree = "<group>"; };
 		6551A80F1CFCB2F0006227D5 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		6554B4631E4116A3000AD4A1 /* level2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level2.json; sourceTree = "<group>"; };
+		6554B4651E4145AF000AD4A1 /* LevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
 		656281981D200F260090B02F /* BaseObjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseObjectModel.swift; sourceTree = "<group>"; };
 		656BC6C11E2EBBC30077752F /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		656C77E91D47C3F00044E30F /* Physics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Physics.swift; sourceTree = "<group>"; };
@@ -104,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				651309FB1D4D73D200467DF0 /* level1.json */,
+				6554B4631E4116A3000AD4A1 /* level2.json */,
 			);
 			name = Level;
 			sourceTree = "<group>";
@@ -211,6 +217,7 @@
 				657FCE941DE894BE005D7E2E /* ResultsTableViewController.swift */,
 				6514F5401E11D8F000C9452C /* HelpViewController.swift */,
 				656BC6C11E2EBBC30077752F /* AboutViewController.swift */,
+				6554B4651E4145AF000AD4A1 /* LevelViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -309,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				651309FC1D4D73D200467DF0 /* level1.json in Resources */,
+				6554B4641E4116A3000AD4A1 /* level2.json in Resources */,
 				65753DB51CF869DA00EA74B8 /* LaunchScreen.storyboard in Resources */,
 				65753DB21CF869D900EA74B8 /* Assets.xcassets in Resources */,
 				65753DB01CF869D900EA74B8 /* Main.storyboard in Resources */,
@@ -325,6 +333,7 @@
 				657FCE9D1DE8B24B005D7E2E /* Utility.swift in Sources */,
 				6514F5421E11D8F000C9452C /* HelpViewController.swift in Sources */,
 				657FCE961DE894BE005D7E2E /* ResultsTableViewController.swift in Sources */,
+				6554B4671E4145AF000AD4A1 /* LevelViewController.swift in Sources */,
 				6518223C1DC5F48700FE3860 /* ResultsModel.swift in Sources */,
 				657FCE9A1DE895E0005D7E2E /* ResultsTableViewCell.swift in Sources */,
 				651822351DC5F45E00FE3860 /* CrazyDriverTests.swift in Sources */,
@@ -346,6 +355,7 @@
 				65E8A6691D00544C00EEC45F /* Constants.swift in Sources */,
 				656BC6C21E2EBBC30077752F /* AboutViewController.swift in Sources */,
 				657FCE951DE894BE005D7E2E /* ResultsTableViewController.swift in Sources */,
+				6554B4661E4145AF000AD4A1 /* LevelViewController.swift in Sources */,
 				657FCE991DE895E0005D7E2E /* ResultsTableViewCell.swift in Sources */,
 				656C77EA1D47C3F00044E30F /* Physics.swift in Sources */,
 				6551A80E1CFCB2B7006227D5 /* SensorsModel.swift in Sources */,

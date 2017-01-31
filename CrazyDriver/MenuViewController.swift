@@ -26,11 +26,12 @@ class MenuViewController: UIViewController, UIPopoverPresentationControllerDeleg
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
     
     func buildUI(){
-        
-        
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
         
         // set background
         UIGraphicsBeginImageContext(self.view.frame.size);
