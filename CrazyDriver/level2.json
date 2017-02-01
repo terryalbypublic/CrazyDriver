@@ -2,7 +2,7 @@
     "LevelName": "Level two",
     "LevelId" : "2",
     "Data": [
-             {"Distance" : "500", "Object" : "RedCar", "OriginX":"0" },
+             {"Distance" : "500", "Object" : "RedCar", "OriginX":"120" },
              {"Distance" : "1600", "Object" : "RedCar", "OriginX":"120"},
              {"Distance" : "1600", "Object" : "Ammunition", "OriginX":"0"},
              {"Distance" : "2700", "Object" : "RedCar", "OriginX":"120"},

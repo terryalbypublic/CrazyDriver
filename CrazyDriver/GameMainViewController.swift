@@ -46,7 +46,6 @@ public class GameMainViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.loadLevel()
         self.startGame()
         self.buildUI()
         
@@ -69,7 +68,7 @@ public class GameMainViewController: UIViewController {
         let gameMainView = self.view as! GameMainView
         
         gameModel = GameModel()
-        levelModel = LevelModel.levelModelFromFileName(fileName: "level1")
+        levelModel = LevelModel.levelModelFromFileName(fileName: levelFileName)
         gameMainView.initializeStreetViews()
     }
     

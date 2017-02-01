@@ -9,7 +9,9 @@
 import UIKit
 
 class LevelViewController: UITableViewController {
-
+    
+    let levelsList = LevelsList()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,16 +42,28 @@ class LevelViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return levelsList.nrOfLevels
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LevelTableViewCell", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LevelTableViewCell", for: indexPath) as! LevelTableViewCell
+            
+        cell.levelFilename = levelsList.levelsFilenames[indexPath.row]
+        cell.levelNameLabel.text = levelsList.levelsNames[indexPath.row]
+        
+        if(levelsList.unlockedLevels[indexPath.row]){
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
+        }
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if(!levelsList.unlockedLevels[indexPath.row]){
+            return nil
+        }
+        return indexPath
     }
     
 
@@ -87,16 +101,16 @@ class LevelViewController: UITableViewController {
         return true
     }
     */
-
+    
     
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let gameViewController = segue.destination as! GameMainViewController
-        gameViewController.levelFileName = "level1"
-        
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if(segue.identifier == "StartGame"){
+            let gameViewController = segue.destination as! GameMainViewController
+            gameViewController.levelFileName = (sender as! LevelTableViewCell).levelFilename
+            
+        }
     }
  
 
