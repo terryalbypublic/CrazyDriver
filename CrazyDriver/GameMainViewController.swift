@@ -413,7 +413,10 @@ public class GameMainViewController: UIViewController {
     
     private func saveLevelResult(){
         ResultsModel.sharedReference.addResultForLevelId(levelId: (levelModel?.levelId)!, milliseconds: gameModel.ellapsedMilliseconds)
+        
+        LevelsListModel.sharedReference.saveUnlockedLevel(id: (levelModel?.nextLevelId)!)
     }
+    
     
     // MARK - Alert
     

@@ -10,11 +10,11 @@ import UIKit
 
 class LevelViewController: UITableViewController {
     
-    let levelsList = LevelsList()
+    let levelsList = LevelsListModel.sharedReference
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -26,6 +26,8 @@ class LevelViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        levelsList.loadUnlockedLevels()
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,12 +49,20 @@ class LevelViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LevelTableViewCell", for: indexPath) as! LevelTableViewCell
-            
+        
+        let cell : LevelTableViewCell
+        
+        if(levelsList.unlockedLevels[indexPath.row]){
+            cell = tableView.dequeueReusableCell(withIdentifier: "LevelTableViewCellUnlocked", for: indexPath) as! LevelTableViewCell
+        }
+        else{
+            cell = tableView.dequeueReusableCell(withIdentifier: "LevelTableViewCellLocked", for: indexPath) as! LevelTableViewCell
+        }
+        
         cell.levelFilename = levelsList.levelsFilenames[indexPath.row]
         cell.levelNameLabel.text = levelsList.levelsNames[indexPath.row]
         
-        if(levelsList.unlockedLevels[indexPath.row]){
+        if(!levelsList.unlockedLevels[indexPath.row]){
             cell.selectionStyle = UITableViewCellSelectionStyle.none
         }
 

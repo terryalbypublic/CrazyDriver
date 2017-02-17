@@ -12,6 +12,7 @@ import UIKit
 public class LevelModel: NSObject {
     public var levelName = ""
     public var levelId = 0
+    public var nextLevelId = 1
     public var data : [(distance: Int, objectViewType: String, originX : Int)] = []
     public var nextEventId = 0
     
