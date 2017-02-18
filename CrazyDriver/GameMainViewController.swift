@@ -325,7 +325,12 @@ public class GameMainViewController: UIViewController {
     // MARK - objectViews
     private func addObjectView(objectView : ObjectViewModel){
         let imageView = UIImageView(image: UIImage(named: objectView.imageName))
-        imageView.frame.origin.x = (gameMainView?.streetOriginX())! + CGFloat(objectView.frame.origin.x)
+        if(objectView.objectViewType == .Shot){
+            imageView.frame.origin.x = (CGFloat(objectView.frame.origin.x))
+        }
+        else{
+            imageView.frame.origin.x = (gameMainView?.streetOriginX())! + CGFloat(objectView.frame.origin.x)
+        }
         imageView.frame.origin.y = CGFloat(objectView.frame.origin.y)
         objectView.frame = imageView.frame    // get image size
         self.objectViews.append((model:objectView, view: imageView))
@@ -444,7 +449,6 @@ public class GameMainViewController: UIViewController {
     
     @IBAction func cannonButtonTapped(_ sender: AnyObject) {
         self.gameModel.weaponsModel.numberOfAmmunition -= 1
-        
         
         let objectView = ObjectViewModel(objectViewType: .Shot, originX: (carModel.frame.origin.x+carModel.frame.size.width/2)-7, originY: carModel.frame.origin.y-carModel.frame.size.height+13)
         
