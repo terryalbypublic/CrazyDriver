@@ -7,15 +7,14 @@
 //
 
 import UIKit
+import StoreKit
 
-class MenuViewController: UIViewController, UIPopoverPresentationControllerDelegate, AboutViewControllerDelegate {
+class MenuViewController: UIViewController, SKStoreProductViewControllerDelegate {
 
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var resultsButton: UIButton!
     @IBOutlet weak var helpButton: UIButton!
-    @IBOutlet weak var settingsButton: UIButton!
-    
-    private var aboutViewController : AboutViewController? = nil
+    @IBOutlet weak var rateButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -46,7 +45,7 @@ class MenuViewController: UIViewController, UIPopoverPresentationControllerDeleg
         configButton(button: startButton, color: color)
         configButton(button: resultsButton,color: color)
         configButton(button: helpButton,color: color)
-        configButton(button: settingsButton,color: color)
+        configButton(button: rateButton,color: color)
     }
     
     
@@ -65,41 +64,29 @@ class MenuViewController: UIViewController, UIPopoverPresentationControllerDeleg
         // Dispose of any resources that can be recreated.
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "settingsPopoverSegue" {
-            aboutViewController = segue.destination as? AboutViewController
-            
-            aboutViewController?.popoverPresentationController?.sourceView = view;
-            aboutViewController?.popoverPresentationController?.sourceRect = CGRect(x: view.frame.width/2-125, y: view.frame.height/2-75, width: 250, height: 150)
-
-            aboutViewController?.modalPresentationStyle = UIModalPresentationStyle.popover
-            aboutViewController?.popoverPresentationController!.delegate = self
-            aboutViewController?.delegate = self
-            UIView.animate(withDuration: 0.3, animations: {
-                self.view.alpha = 0.5
-            })
+    // MARK: - App Store rating
+    
+    @IBAction func rateButtonTapped(_ sender: Any) {
+        openStoreProductWithiTunesItemIdentifier(identifier: "1067468441")
+    }
+    
+    func openStoreProductWithiTunesItemIdentifier(identifier: String) {
+        let storeViewController = SKStoreProductViewController()
+        storeViewController.delegate = self
+        
+        let parameters = [ SKStoreProductParameterITunesItemIdentifier : identifier]
+        storeViewController.loadProduct(withParameters: parameters) { [weak self] (loaded, error) -> Void in
+            if loaded {
+                // Parent class of self is UIViewContorller
+                self?.present(storeViewController, animated: true, completion: nil)
+            }
         }
     }
     
-    // MARK: - UIPopoverPresentationControllerDelegate
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
+    func productViewControllerDidFinish(_ viewController: SKStoreProductViewController) {
+        viewController.dismiss(animated: true, completion: nil)
     }
-    
-    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.view.alpha = 1
-        })
-    }
-    
-    // MARK: - AboutViewControllerDelegate
-    func dismissPopover(){
-        aboutViewController?.dismiss(animated: true, completion: {})
-        UIView.animate(withDuration: 0.3, animations: {
-            self.view.alpha = 1
-        })
-    }
-    
+
 
     /*
     // MARK: - Navigation

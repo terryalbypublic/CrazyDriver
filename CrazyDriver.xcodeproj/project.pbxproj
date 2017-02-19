@@ -25,7 +25,6 @@
 		6564594D1E427E56009C5626 /* LevelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6564594B1E427E56009C5626 /* LevelTableViewCell.swift */; };
 		6564594F1E42816A009C5626 /* LevelsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6564594E1E42816A009C5626 /* LevelsListModel.swift */; };
 		656459501E42816A009C5626 /* LevelsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6564594E1E42816A009C5626 /* LevelsListModel.swift */; };
-		656BC6C21E2EBBC30077752F /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BC6C11E2EBBC30077752F /* AboutViewController.swift */; };
 		656C77EA1D47C3F00044E30F /* Physics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656C77E91D47C3F00044E30F /* Physics.swift */; };
 		657358D71D1AE8480054A25C /* ObjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657358D61D1AE8470054A25C /* ObjectViewModel.swift */; };
 		65753DAB1CF869D900EA74B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65753DAA1CF869D900EA74B8 /* AppDelegate.swift */; };
@@ -72,7 +71,6 @@
 		656281981D200F260090B02F /* BaseObjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseObjectModel.swift; sourceTree = "<group>"; };
 		6564594B1E427E56009C5626 /* LevelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTableViewCell.swift; sourceTree = "<group>"; };
 		6564594E1E42816A009C5626 /* LevelsListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelsListModel.swift; sourceTree = "<group>"; };
-		656BC6C11E2EBBC30077752F /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		656C77E91D47C3F00044E30F /* Physics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Physics.swift; sourceTree = "<group>"; };
 		657358D61D1AE8470054A25C /* ObjectViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectViewModel.swift; sourceTree = "<group>"; };
 		65753DA71CF869D900EA74B8 /* CrazyDriver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrazyDriver.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,7 +222,6 @@
 				652C84321D82ECFF0034F40E /* MenuViewController.swift */,
 				657FCE941DE894BE005D7E2E /* ResultsTableViewController.swift */,
 				6514F5401E11D8F000C9452C /* HelpViewController.swift */,
-				656BC6C11E2EBBC30077752F /* AboutViewController.swift */,
 				6554B4651E4145AF000AD4A1 /* LevelViewController.swift */,
 			);
 			name = Controller;
@@ -363,7 +360,6 @@
 				65C852B51D20138A0079CF3B /* GameModel.swift in Sources */,
 				652C84331D82ECFF0034F40E /* MenuViewController.swift in Sources */,
 				65E8A6691D00544C00EEC45F /* Constants.swift in Sources */,
-				656BC6C21E2EBBC30077752F /* AboutViewController.swift in Sources */,
 				657FCE951DE894BE005D7E2E /* ResultsTableViewController.swift in Sources */,
 				6554B4661E4145AF000AD4A1 /* LevelViewController.swift in Sources */,
 				6564594F1E42816A009C5626 /* LevelsListModel.swift in Sources */,
