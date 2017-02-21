@@ -67,25 +67,14 @@ class MenuViewController: UIViewController, SKStoreProductViewControllerDelegate
     // MARK: - App Store rating
     
     @IBAction func rateButtonTapped(_ sender: Any) {
-        openStoreProductWithiTunesItemIdentifier(identifier: "1067468441")
+        openStoreProductWithiTunesItemIdentifier(identifier: "1207546303")
     }
     
     func openStoreProductWithiTunesItemIdentifier(identifier: String) {
-        let storeViewController = SKStoreProductViewController()
-        storeViewController.delegate = self
-        
-        let parameters = [ SKStoreProductParameterITunesItemIdentifier : identifier]
-        storeViewController.loadProduct(withParameters: parameters) { [weak self] (loaded, error) -> Void in
-            if loaded {
-                // Parent class of self is UIViewContorller
-                self?.present(storeViewController, animated: true, completion: nil)
-            }
-        }
+        let iTunesLink = "itms://itunes.apple.com/us/app/apple-store/id"+identifier+"?mt=8";
+        UIApplication.shared.open(URL(string: iTunesLink)!)
     }
     
-    func productViewControllerDidFinish(_ viewController: SKStoreProductViewController) {
-        viewController.dismiss(animated: true, completion: nil)
-    }
 
 
     /*
