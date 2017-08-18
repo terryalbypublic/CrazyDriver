@@ -32,14 +32,6 @@ class MenuViewController: UIViewController, SKStoreProductViewControllerDelegate
     
     func buildUI(){
         
-        // set background
-        UIGraphicsBeginImageContext(self.view.frame.size);
-        UIImage(named: "Speed")?.draw(in: self.view.bounds)
-        let image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        view.backgroundColor = UIColor(patternImage: image!)
-    
-        
         // set UIButton config
         let color = UIColor.black
         configButton(button: startButton, color: color)
