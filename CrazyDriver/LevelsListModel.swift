@@ -13,10 +13,10 @@ public class LevelsListModel: NSObject {
     
     public static let sharedReference = LevelsListModel()
     private let userDefault = UserDefaults.standard
-    public let levelsFilenames = ["level1","level2"]
-    public let levelsNames = ["Level 1","Level 2"]
-    public let nrOfLevels = 2
-    public var unlockedLevels : [Bool] = [true,false]
+    public let levelsFilenames = ["level1","level2","level3","level4","level5"]
+    public let levelsNames = ["Level 1","Level 2","Level 3","Level 4","Level 5"]
+    public let nrOfLevels = 5
+    public var unlockedLevels : [Bool] = [true,false,false,false,false]
     
     
     override init(){

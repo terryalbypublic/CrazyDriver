@@ -43,6 +43,9 @@
 		65B991A71DC51E8D0085AC33 /* ResultsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B991A61DC51E8D0085AC33 /* ResultsModel.swift */; };
 		65C852B51D20138A0079CF3B /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C852B41D20138A0079CF3B /* GameModel.swift */; };
 		65E8A6691D00544C00EEC45F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E8A6681D00544B00EEC45F /* Constants.swift */; };
+		92A098C91F478BEA0035D147 /* level3.json in Resources */ = {isa = PBXBuildFile; fileRef = 92A098C81F478BEA0035D147 /* level3.json */; };
+		92A098CB1F478BFE0035D147 /* level4.json in Resources */ = {isa = PBXBuildFile; fileRef = 92A098CA1F478BFE0035D147 /* level4.json */; };
+		92A098CD1F478C110035D147 /* level5.json in Resources */ = {isa = PBXBuildFile; fileRef = 92A098CC1F478C110035D147 /* level5.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +91,9 @@
 		65B991A61DC51E8D0085AC33 /* ResultsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsModel.swift; sourceTree = "<group>"; };
 		65C852B41D20138A0079CF3B /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		65E8A6681D00544B00EEC45F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		92A098C81F478BEA0035D147 /* level3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = level3.json; sourceTree = "<group>"; };
+		92A098CA1F478BFE0035D147 /* level4.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = level4.json; sourceTree = "<group>"; };
+		92A098CC1F478C110035D147 /* level5.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = level5.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +120,9 @@
 			children = (
 				651309FB1D4D73D200467DF0 /* level1.json */,
 				6554B4631E4116A3000AD4A1 /* level2.json */,
+				92A098C81F478BEA0035D147 /* level3.json */,
+				92A098CA1F478BFE0035D147 /* level4.json */,
+				92A098CC1F478C110035D147 /* level5.json */,
 			);
 			name = Level;
 			sourceTree = "<group>";
@@ -320,11 +329,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92A098CD1F478C110035D147 /* level5.json in Resources */,
 				651309FC1D4D73D200467DF0 /* level1.json in Resources */,
 				6554B4641E4116A3000AD4A1 /* level2.json in Resources */,
 				65753DB51CF869DA00EA74B8 /* LaunchScreen.storyboard in Resources */,
 				65753DB21CF869D900EA74B8 /* Assets.xcassets in Resources */,
+				92A098C91F478BEA0035D147 /* level3.json in Resources */,
 				65753DB01CF869D900EA74B8 /* Main.storyboard in Resources */,
+				92A098CB1F478BFE0035D147 /* level4.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
