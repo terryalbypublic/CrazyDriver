@@ -12,7 +12,7 @@ import UIKit
 public class LevelModel: NSObject {
     public var levelName = ""
     public var levelId = 0
-    public var nextLevelId = 1
+    public var nextLevelId = 0
     public var data : [(distance: Int, objectViewType: String, originX : Int)] = []
     public var nextEventId = 0
     
@@ -35,6 +35,7 @@ public class LevelModel: NSObject {
                 // parse and fill the entity
                 levelModel.levelName = level?.object(forKey: "LevelName") as! String
                 levelModel.levelId = Int(level?.object(forKey: "LevelId") as! String)!
+                levelModel.nextLevelId = levelModel.levelId + 1
                 let levelDataDict = level?.object(forKey: "Data") as! Array<NSDictionary>
                 
                 for d in levelDataDict{

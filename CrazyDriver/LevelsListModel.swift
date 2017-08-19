@@ -25,7 +25,7 @@ public class LevelsListModel: NSObject {
     }
     
     public func saveUnlockedLevel(id:Int){
-        unlockedLevels[id] = true   // save value in memory
+        unlockedLevels[id-1] = true   // save value in memory
         userDefault.set(unlockedLevels, forKey: "unlockedLevels")
         userDefault.synchronize()   // save value on disk
     }

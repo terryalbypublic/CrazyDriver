@@ -407,18 +407,28 @@ public class GameMainViewController: UIViewController {
         self.stopGame()
         gameMainView?.endGame(objectViews: objectViews)
         gameModel.ticks = 0
-        presentAlert(title: "End", message: "You finished the level in "+String(gameModel.ellapsedMilliseconds)+" seconds, do you want to regame?", defaultActionTitle: nil, secondActionTitle: "Replay", secondActionHandler: { action in
-            self.startGame()
-            }, thirdActionTitle: "End game", thirdActionHandler: {action in
+        
+        if levelModel?.levelId == Constants.nbOfLevels {
+                presentAlert(title: "WOOOOW :-)", message: "Wow dude, you are a CRAZY DRIVER ;-), you could finish the game! I received a notification of your cool result. I will add some new levels in one week, let's check for updates in your AppStore", defaultActionTitle: nil, secondActionTitle: "Replay", secondActionHandler: { action in
+                self.startGame()
+                }, thirdActionTitle: "Go back", thirdActionHandler: {action in
                 self.navigationController?.popViewController(animated: true)
                 return
-        })
-        saveLevelResult()
+                })
+        }
+        else {
+            presentAlert(title: "End", message: "You finished the level in "+Utility.timeFormatted(totalMilliseconds: gameModel.ellapsedMilliseconds)+" minutes, do you want to regame or play the next level?", defaultActionTitle: nil, secondActionTitle: "Replay", secondActionHandler: { action in
+                self.startGame()
+            }, thirdActionTitle: "Next level", thirdActionHandler: {action in
+                self.navigationController?.popViewController(animated: true)
+                return
+            })
+            saveLevelResult()
+        }
     }
     
     private func saveLevelResult(){
         ResultsModel.sharedReference.addResultForLevelId(levelId: (levelModel?.levelId)!, milliseconds: gameModel.ellapsedMilliseconds)
-        
         LevelsListModel.sharedReference.saveUnlockedLevel(id: (levelModel?.nextLevelId)!)
     }
     

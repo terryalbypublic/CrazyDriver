@@ -14,6 +14,7 @@ struct Constants {
     static var explosionHeight = 172
     static var explosionWidth = 172
     
+    static var nbOfLevels = 5
     
 
 }

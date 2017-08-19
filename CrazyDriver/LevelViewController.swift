@@ -116,10 +116,8 @@ class LevelViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "StartGame"){
-            let gameViewController = segue.destination as! GameMainViewController
+        if let gameViewController = segue.destination as? GameMainViewController {
             gameViewController.levelFileName = (sender as! LevelTableViewCell).levelFilename
-            
         }
     }
  
