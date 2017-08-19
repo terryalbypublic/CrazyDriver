@@ -161,8 +161,8 @@ public class HelpViewController: UIViewController {
     func updateModel(){
         // update the car position (maintain the car inside the street)
         
-        let updateCarLeft = self.sensorModel.currentRotationY > 0 ? true :false
-        let howMuch = updateCarLeft ? self.sensorModel.currentRotationY*(-1) : self.sensorModel.currentRotationY
+        let updateCarLeft = self.sensorModel.currentRotationY < 0 ? true :false
+        let howMuch = updateCarLeft ? self.sensorModel.currentRotationY : self.sensorModel.currentRotationY*(-1)
         updateCarPosition(howMuch*25,left: updateCarLeft)
         updateCarSpeed()
         updateLife()
