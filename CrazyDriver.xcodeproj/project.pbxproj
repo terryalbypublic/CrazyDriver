@@ -43,6 +43,8 @@
 		65B991A71DC51E8D0085AC33 /* ResultsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B991A61DC51E8D0085AC33 /* ResultsModel.swift */; };
 		65C852B51D20138A0079CF3B /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C852B41D20138A0079CF3B /* GameModel.swift */; };
 		65E8A6691D00544C00EEC45F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E8A6681D00544B00EEC45F /* Constants.swift */; };
+		929C78361F48C96200F1A682 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929C78341F48C96200F1A682 /* Fabric.framework */; };
+		929C78371F48C96200F1A682 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929C78351F48C96200F1A682 /* Crashlytics.framework */; };
 		92A098C91F478BEA0035D147 /* level3.json in Resources */ = {isa = PBXBuildFile; fileRef = 92A098C81F478BEA0035D147 /* level3.json */; };
 		92A098CB1F478BFE0035D147 /* level4.json in Resources */ = {isa = PBXBuildFile; fileRef = 92A098CA1F478BFE0035D147 /* level4.json */; };
 		92A098CD1F478C110035D147 /* level5.json in Resources */ = {isa = PBXBuildFile; fileRef = 92A098CC1F478C110035D147 /* level5.json */; };
@@ -91,6 +93,8 @@
 		65B991A61DC51E8D0085AC33 /* ResultsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsModel.swift; sourceTree = "<group>"; };
 		65C852B41D20138A0079CF3B /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		65E8A6681D00544B00EEC45F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		929C78341F48C96200F1A682 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		929C78351F48C96200F1A682 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		92A098C81F478BEA0035D147 /* level3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = level3.json; sourceTree = "<group>"; };
 		92A098CA1F478BFE0035D147 /* level4.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = level4.json; sourceTree = "<group>"; };
 		92A098CC1F478C110035D147 /* level5.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = level5.json; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6551A8101CFCB2F0006227D5 /* CoreMotion.framework in Frameworks */,
+				929C78371F48C96200F1A682 /* Crashlytics.framework in Frameworks */,
+				929C78361F48C96200F1A682 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +154,8 @@
 		6551A8161CFDD094006227D5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				929C78341F48C96200F1A682 /* Fabric.framework */,
+				929C78351F48C96200F1A682 /* Crashlytics.framework */,
 				6551A80F1CFCB2F0006227D5 /* CoreMotion.framework */,
 			);
 			name = Frameworks;
@@ -264,6 +272,7 @@
 				65753DA31CF869D900EA74B8 /* Sources */,
 				65753DA41CF869D900EA74B8 /* Frameworks */,
 				65753DA51CF869D900EA74B8 /* Resources */,
+				929C78331F48C94300F1A682 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -341,6 +350,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		929C78331F48C94300F1A682 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 8bd1ca06f2b0a4ac703f624160a3cb4450dc162a 59b1daa33a279c5418ca605d7e9bed4adc17e773a50a21a29b61653370fcfe17";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6518222E1DC5F45E00FE3860 /* Sources */ = {
@@ -551,6 +576,10 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = W4LB2R7L9L;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CrazyDriver",
+				);
 				INFOPLIST_FILE = CrazyDriver/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -570,6 +599,10 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = W4LB2R7L9L;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CrazyDriver",
+				);
 				INFOPLIST_FILE = CrazyDriver/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

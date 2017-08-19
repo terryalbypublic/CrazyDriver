@@ -8,6 +8,7 @@
 
 import UIKit
 import StoreKit
+import Crashlytics
 
 class MenuViewController: UIViewController, SKStoreProductViewControllerDelegate {
 
@@ -56,11 +57,27 @@ class MenuViewController: UIViewController, SKStoreProductViewControllerDelegate
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func startButtonTapped(_ sender: Any) {
+        Answers.logCustomEvent(withName: "StartButtonTapped", customAttributes: nil)
+    }
+    
+    @IBAction func resultButtonTapped(_ sender: Any) {
+        Answers.logCustomEvent(withName: "ResultsButtonTapped", customAttributes: nil)
+    }
+    
+    @IBAction func tutorialButtonTapped(_ sender: Any) {
+        Answers.logCustomEvent(withName: "TutorialButtonTapped", customAttributes: nil)
+    }
+    
+    
     // MARK: - App Store rating
     
     @IBAction func rateButtonTapped(_ sender: Any) {
+        Answers.logCustomEvent(withName: "RateButtonTapped", customAttributes: nil)
         openStoreProductWithiTunesItemIdentifier(identifier: "1207546303")
     }
+    
+    
     
     func openStoreProductWithiTunesItemIdentifier(identifier: String) {
         let iTunesLink = "itms://itunes.apple.com/us/app/apple-store/id"+identifier+"?mt=8";

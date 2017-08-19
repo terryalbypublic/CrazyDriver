@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreMotion
+import Crashlytics
+
 
 public class GameMainViewController: UIViewController {
     
@@ -183,6 +185,9 @@ public class GameMainViewController: UIViewController {
     }
     
     public func startGame(){
+        // tracking
+        Answers.logLevelStart(levelFileName, customAttributes: nil)
+        
         gameMainView = self.view as? GameMainView
         
         initializeGame()
@@ -407,6 +412,10 @@ public class GameMainViewController: UIViewController {
         self.stopGame()
         gameMainView?.endGame(objectViews: objectViews)
         gameModel.ticks = 0
+        
+        // tracking
+        Answers.logLevelEnd(levelFileName, score: 0, success: true, customAttributes: ["Time":Utility.timeFormatted(totalMilliseconds: gameModel.ellapsedMilliseconds)])
+        
         
         if levelModel?.levelId == Constants.nbOfLevels {
                 presentAlert(title: "WOOOOW :-)", message: "Wow dude, you are a CRAZY DRIVER ;-), you could finish the game! I received a notification of your cool result. I will add some new levels in one week, let's check for updates in your AppStore", defaultActionTitle: nil, secondActionTitle: "Replay", secondActionHandler: { action in
