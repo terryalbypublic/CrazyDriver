@@ -166,10 +166,6 @@ public class GameMainViewController: UIViewController {
     
     // MARK: Game flow
     
-    @IBAction func stopButtonTapped(_ sender: AnyObject) {
-        stopGame()
-        endGameByUser()
-    }
 
     @IBAction func startPauseButtonTapped(_ sender: AnyObject) {
         if(gameModel.gameStatus == .Stopped){
@@ -207,6 +203,7 @@ public class GameMainViewController: UIViewController {
             self.resumeGame()
             }, thirdActionTitle: "End game", thirdActionHandler: {action in
                 
+                Answers.logLevelEnd(self.levelFileName, score: nil, success: false, customAttributes: ["Type":"EndByUser"])
                 self.navigationController?.popViewController(animated: true)
                 
                 return
@@ -388,6 +385,7 @@ public class GameMainViewController: UIViewController {
     // MARK - Ending of game
     
     func endGameNoMoreLife(){
+        Answers.logLevelEnd(levelFileName, score: nil, success: false, customAttributes: ["Type":"NoMoreLife"])
         self.stopGame()
         gameMainView?.endGame(objectViews: objectViews)
         gameModel.ticks = 0
@@ -398,14 +396,6 @@ public class GameMainViewController: UIViewController {
                 self.navigationController?.popViewController(animated: true)
                 return
         })
-    }
-    
-    func endGameByUser(){
-        self.stopGame()
-        gameMainView?.endGame(objectViews: objectViews)
-        gameModel.ticks = 0
-        
-        presentAlert(title: "Game end", message: "You stopped the game", defaultActionTitle: "Dismiss")
     }
     
     func endGameFinished(){
