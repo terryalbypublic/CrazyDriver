@@ -408,6 +408,7 @@ public class GameMainViewController: UIViewController {
         
         
         if levelModel?.levelId == Constants.nbOfLevels {
+                Answers.logCustomEvent(withName: "FinishedLevel5WithSuccess", customAttributes: nil)
                 presentAlert(title: "WOOOOW :-)", message: "Wow dude, you are a CRAZY DRIVER ;-), you could finish the game! I received a notification of your cool result. I will add some new levels in one week, let's check for updates in your AppStore", defaultActionTitle: nil, secondActionTitle: "Replay", secondActionHandler: { action in
                 self.startGame()
                 }, thirdActionTitle: "Go back", thirdActionHandler: {action in

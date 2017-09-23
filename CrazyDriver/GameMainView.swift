@@ -34,7 +34,7 @@ public class GameMainView: UIView {
     }
     
     private func setupView(){
-        self.backgroundColor = UIColor.init(red: 23, green: 84, blue: 22, alpha: 0.8)
+        //self.backgroundColor = UIColor.init(red: 23, green: 84, blue: 22, alpha: 0.8)
         self.carImageView = UIImageView(image: UIImage(named: "Car"))
         self.addSubview(carImageView)
     }
@@ -180,6 +180,11 @@ public class GameMainView: UIView {
     }
     
     public func accidentAnimation(view: UIView){
+        if explosionView != nil {
+            explosionView?.removeFromSuperview()
+            explosionView = nil
+        }
+        
         let explosion = UIImageView(image: UIImage(named: "Explosion"))
         explosion.frame.origin.x = view.frame.origin.x - ((CGFloat(Constants.explosionWidth) - view.frame.size.width) / 2)
         explosion.frame.origin.y = view.frame.origin.y - ((CGFloat(Constants.explosionHeight) - view.frame.size.height) / 2)
